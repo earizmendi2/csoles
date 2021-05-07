@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+         <record id="product_template_form_view_inherit_is_check_onhand_qty" model="ir.ui.view">
+            <field name="name">product.template.form.inherit.custom_check_onhand_qty</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']//div[last()]" position="after">
+                    <div>
+                        <field name="custom_check_onhand_qty"/>
+                        <label for="custom_check_onhand_qty" string="Sales Order Alert"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
