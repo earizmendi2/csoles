@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+         <record id="view_order_form_inherit_is_check_onhand_qty" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.custom_check_onhand_qty</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet//notebook//page[@name='other_information']//field[@name='client_order_ref']" position="after">
+                    <field name="custom_check_onhand_qty"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
