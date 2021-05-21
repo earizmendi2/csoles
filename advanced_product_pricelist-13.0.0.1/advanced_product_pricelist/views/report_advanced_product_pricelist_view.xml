@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Roberto Barreiro <roberto@disgal.es>
+     Copyright 2017 Carlos Dauden <carlos.dauden@tecnativa.com>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).  -->
+
+<odoo>
+<template id="pdf_report_advanced_product_pricelist">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <t t-set="pricelist" t-value="o.get_pricelist_to_print()" />
+            <div class="page">
+                <h2>Price List</h2>
+                <div class="row mt32 mb32">
+                    <div class="col-7">
+                        <strong>Price List Name</strong>:<br/>
+                        <span t-field="pricelist.name"/>
+                    </div>
+                    <div class="col-2">
+                        <strong>Currency</strong>:<br/>
+                        <span t-field="pricelist.currency_id"/>
+                    </div>
+                    <div class="col-3">
+                        <strong>Print date</strong>:<br/>
+                        <t t-esc="time.strftime('%Y-%m-%d')"/>
+                    </div>
+                </div>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr t-if="o.partner_id">
+                            <th colspan="100" class="text-center">
+                                <span t-field="o.partner_id.name"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <strong>Description</strong>
+			    </th>
+			    <th t-if="o.show_image"/>
+                            <th t-if="o.show_standard_price" class="text-right">
+                                <strong>Cost Price</strong>
+                            </th>
+                            <th t-if="o.show_sale_price" class="text-right">
+                                <strong>Sale Price</strong>
+                            </th>
+                            <th t-if="pricelist.id and o.show_sale_price" class="text-right">
+                                <strong>Price</strong>
+                            </th>
+			    <th t-if="pricelist.id and not o.show_sale_price" class="text-right">
+                                <strong>List Price</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-if="not o.show_variants">
+                            <t t-set="products" t-value="o.product_tmpl_ids"/>
+                        </t>
+                        <t t-if="o.show_variants">
+                            <t t-set="products"
+                               t-value="o.product_ids or o.product_tmpl_ids.mapped('product_variant_ids')"/>
+                        </t>
+                        <t t-foreach="(o.categ_ids or products.mapped('categ_id') or o.categ_ids.search([])).sorted(key=lambda x:x.name)"
+                           t-as="category">
+                            <t t-set="category_products"
+                               t-value="products and products.with_context(categ_id=category.id).filtered(lambda x: x.categ_id.id == x.env.context['categ_id']) or
+                                        products.search([('sale_ok','=',True), ('categ_id','=',category.id)])"/>
+                            <t t-if="o.order_field == 'name'">
+                                <t t-set="category_products"
+                                   t-value="category_products.sorted(lambda x: x.name)"/>
+                            </t>
+			    <t t-if="o.order_field == 'default_code'">
+                                <t t-set="category_products"
+                                   t-value="category_products.sorted(lambda x: x.default_code)"/>
+                            </t>
+                            <tr t-if="category_products">
+                                <td colspan="100">
+                                    <strong t-field="category.name"/>
+                                </td>
+                            </tr>
+                            <tr t-foreach="category_products" t-as="product">
+ 			        <t t-if="product.product_print_pricelist">
+                      	            <td t-if="o.show_image">
+				        <t t-if="o.image_size == 'small' and product.image_128">
+				            <img t-att-src="'data:image/png;base64,%s' % to_text(product.image_128)" style="max-height: 48px;"/>
+	             		        </t>
+                                        <t t-if="o.image_size == 'medium' and product.image_128">
+                                            <img t-att-src="'data:image/png;base64,%s' % to_text(product.image_128)" style="max-height: 128px;"/>
+                                        </t>
+                                        <t t-if="o.image_size == 'big' and product.image_256">
+                                            <img t-att-src="'data:image/png;base64,%s' % to_text(product.image_256)" style="min-height: 256px;"/>
+                                        </t>
+                                    </td>
+
+				    <td>
+					<t t-if="not o.show_variants">
+    				            <t t-if="product.default_code">
+					        [<span t-field="product.default_code"/>]
+					    </t>
+					</t>
+					<span t-field="product.display_name"/>
+                                        <t t-if="o.show_description">
+						<div><span t-field="product.description_sale"/></div>
+					</t>
+                                    </td>
+                                    <td t-if="o.show_standard_price" class="text-right">
+				        <span t-field="product.standard_price"/>
+                                    </td>
+                                    <td t-if="o.show_sale_price" class="text-right">
+				        <span t-field="product.lst_price"/>
+                                    </td>
+                                    <td t-if="pricelist.id" class="text-right">
+					<strong t-field="product.with_context(pricelist=pricelist.id).price"/>
+				    </td>
+			        </t>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </t>
+</template>
+
+<template id="report_advanced_product_pricelist">
+    <t t-foreach="docs" t-as="o">
+        <t t-call="advanced_product_pricelist.pdf_report_advanced_product_pricelist"
+           t-lang="o.env.user.lang"/>
+    </t>
+</template>
+<record id="product_print_on_pricelist" model="ir.ui.view">
+	<field name="name">product.print.on.pricelist.form</field>
+	<field name="model">product.product</field>
+	<field name="type">form</field>
+	<field name="inherit_id" ref="product.product_normal_form_view"/>
+	<field name="arch" type="xml">
+		<field name="active" position="after">
+			<field name="product_print_pricelist"/>
+		</field>
+	</field>
+</record>
+
+<report
+    id="action_advanced_product_pricelist"
+    model="advanced.product.pricelist"
+    string="Product Price List"
+    report_type="qweb-pdf"
+    name="advanced_product_pricelist.report_advanced_product_pricelist"
+    file="advanced_product_pricelist.report_advanced_product_pricelist"
+/>
+</odoo>
