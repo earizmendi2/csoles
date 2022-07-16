@@ -7,7 +7,7 @@
     'currency': 'EUR',
     'price': 19.0,
     'images': ['static/description/img.jpg'],
-    'live_test_url': 'https://youtu.be/nEA-ljLCQ6c',
+    'live_test_url': 'https://probuseappdemo.com/probuse_apps/product_sale_stock_warning/925',#'https://youtu.be/nEA-ljLCQ6c',
     'license': 'Other proprietary',
     'summary': """Restrict sales users to confirm sales order for product out of stock.""",
     'description': """
@@ -22,12 +22,13 @@ product out of stock
     'author': "Probuse Consulting Service Pvt. Ltd.",
     'website': "http://www.probuse.com",
     'support': 'contact@probuse.com',
-    'version': '1.1.2',
+    'version': '2.1.4',
     'category' : 'Sales/Sales',
     'depends': [
         'sale_stock'
     ],
     'data':[
+        'security/ir.model.access.csv',
         'views/product_template_view.xml',
         'views/sale_order_view.xml',
         'wizard/saleorder_product_onhand_qty_view.xml'
