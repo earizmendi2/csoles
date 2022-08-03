@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.module.category" id="incidence_user_category">
+            <field name="name">Incidence</field>
+            <field name="sequence">20</field>
+            <field name="description">User access level for Payment Orders module</field>
+       </record>
+        <!-- Grupo de usuarios para crear incidencias -->
+        <record id="group_incidence_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="hr_employee_energon.incidence_user_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        
+    
+
+  
+
+
+    </data>
+</odoo>

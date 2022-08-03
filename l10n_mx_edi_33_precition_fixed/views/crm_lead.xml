@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="mcf_sivi_inherit_crm_lead" model="ir.ui.view">
+        <field name="name">crm.lead.view.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="generate_quotation" type="object" string="Nueva cotizacion" class="oe_highlight" attrs="{'invisible': [('type', '!=', 'opportunity')]}" />
+            </xpath>
+            <!-- INERTAMOS CAMPO DEAL -->
+            <!-- <xpath expr="//group[@name='date_deadline']/field[@name='priority']" position="before"></xpath> -->
+            <field name="date_deadline" position="after">
+                <field name="deal_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

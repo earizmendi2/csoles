@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+acc_product_template_mcf,acc_product_template_mcf_name,stock.model_product_template,base.group_user,1,1,1,1
+acc_account_move_mcf,acc_account_move_mcf_name,account.model_account_move,base.group_user,1,1,1,1
+acc_purchase_order_mcf,acc_purchase_order_mcf_name,purchase.model_purchase_order,base.group_user,1,1,1,1

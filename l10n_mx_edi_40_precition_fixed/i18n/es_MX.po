@@ -1,0 +1,815 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_energon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-03 18:30+0000\n"
+"PO-Revision-Date: 2021-12-03 12:33-0600\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__document_count
+msgid "# Documents"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__resource_tic_ids
+msgid "#TIC"
+msgstr ""
+
+#. module: hr_employee_energon
+#: code:addons/hr_employee_energon/models/employee_documents.py:0
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                           Click to Create for New Documents\n"
+"                        </p>"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.adjust_employee_form_view
+msgid ""
+"<span modifiers=\"{}\">\n"
+"                            días\n"
+"                        </span>"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.adjust_employee_form_view
+msgid ""
+"<span>\n"
+"\t\t\t\t\t\t\t\tdías\n"
+"\t\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_resources_tic__phone_operator__at&t
+msgid "AT&T"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_ir_attachment
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__incidence_attachment
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__doc_attachment_id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_ir_attachment__doc_attach_rel
+msgid "Attachment"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__boot_size
+msgid "Boot size"
+msgstr "Tamaño de botitas"
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.report_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_hr_employee__holidays_total
+msgid "Cantidad de días de vacaciones que se se renovará al empleado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_hr_employee__holidays
+msgid "Cantidada de días restantes del empleado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_check_list_form_view
+msgid "Checklist"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__document_type
+msgid "Checklist Type"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__classification
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__resource_classification
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__classification
+msgid "Clasificación"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__clothes
+msgid "Clothes"
+msgstr "Ropa"
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__clothes_size
+msgid "Clothes size"
+msgstr "Tamaño de ropa"
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__create_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__create_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__csv
+msgid "Csv"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_incidences__incidence_type_select__deduccion
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__hr_employee_incidences_name__incidence_type__deduccion
+msgid "Deducción"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.report_wizard_view_form
+msgid "Descargar reporte"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__description
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_document_form_view
+msgid "Description"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__display_name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__document_name
+msgid "Document"
+msgstr ""
+
+#. module: hr_employee_energon
+#: code:addons/hr_employee_energon/models/employee_documents.py:0
+#, python-format
+msgid "Document Expired."
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__name
+msgid "Document Name"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.document_type_action
+msgid "Document Type"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.ui.menu,name:hr_employee_energon.menu_document_type_tree
+#: model:ir.ui.menu,name:hr_employee_energon.menu_item_document_type_configuration_employee
+msgid "Document type"
+msgstr ""
+
+#. module: hr_employee_energon
+#: code:addons/hr_employee_energon/models/employee_documents.py:0
+#, python-format
+msgid "Document-%s Expired On %s"
+msgstr ""
+
+#. module: hr_employee_energon
+#: code:addons/hr_employee_energon/models/employee_documents.py:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.hr_employee_document_inherit_form_view
+#, python-format
+msgid "Documents"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__employee_id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.adjust_employee_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_template
+msgid "Empleado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__employee_ids
+msgid "Empleados"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_employee_checklist
+msgid "Employee Documents"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__employee_ref
+msgid "Employee Ref"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.employee_resource_action
+msgid "Employee Resource"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.employee_incidence_action
+#: model:ir.model,name:hr_employee_energon.model_employee_incidences
+msgid "Employee incidences"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_employee_resources_tic
+msgid "Employee resources TIC"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__resource_employee_ids
+msgid "Employee resources rel"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_checklist__document_type__entry
+msgid "Entry Process"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__resource_state_assigned
+msgid "Estado del recurso asignado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__resource_state_returned
+msgid "Estado del recurso de vuelta"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_checklist__document_type__exit
+msgid "Exit Process"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__expiry_date
+msgid "Expiry Date"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__manufacturer
+msgid "Fabricante"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__anniversary_date
+msgid "Fecha de aniversario "
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__assigned_date
+msgid "Fecha de asignación"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__incidence_date
+msgid "Fecha de incidencia"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__start_date
+msgid "Fecha de inicio"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__return_date
+msgid "Fecha de regreso"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__end_date
+msgid "Fecha de terminación"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_energon_resource_employee_rel__return_date
+msgid "Fecha en el que el empleado regresó el recurso"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__end_date
+msgid "Fecha final"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__start_date
+msgid "Fecha inicio"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.server,name:hr_employee_energon.employee_data_reminder_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_energon.employee_data_reminder
+#: model:ir.cron,name:hr_employee_energon.employee_data_reminder
+msgid "HR Employee Data Expiration"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_hr_employee_document
+msgid "HR Employee Documents"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_ir_attachment__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_needaction
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.incidence_report_open_wizard
+msgid "Incidence Report"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:res.groups,name:hr_employee_energon.group_incidence_user
+msgid "Incidence User"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_template
+msgid "Incidence name"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_template
+msgid "Incidence type"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.ui.menu,name:hr_employee_energon.menu_item_employee_incidence_configuration_employee
+#: model:ir.ui.menu,name:hr_employee_energon.menu_sub_employee_incidence
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.incidence_employee_form_view
+msgid "Incidencias"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__incidence_employee_ids
+msgid "Incidencias "
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_resources_tic_view_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.energon_resource_employee_rel_view_form
+msgid "Internal notes"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__is_employee_view
+msgid "Is Employee View"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__issue_date
+msgid "Issue Date"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__laptop
+msgid "Laptop"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_ir_attachment____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv____last_update
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__write_uid
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_document__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__write_date
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__model
+msgid "Modelo"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__monitor
+msgid "Monitor"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_csv__name_file
+msgid "Name File"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__name
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__incidence_name
+msgid "Nombre de incidencia"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__name
+msgid "Nombre del recurso"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.adjust_employee_form_view
+msgid "Nomina"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__notes
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.hr_employee_incidences_view_form
+msgid "Notas"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.hr_employee_incidences_view_form
+msgid "Notas internas"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__notes
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__notes
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.employee_resources_tic_view_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.energon_resource_employee_rel_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_employee_checklist__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_checklist__document_type__other
+msgid "Other"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_incidences__incidence_type_select__persepcion
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__hr_employee_incidences_name__incidence_type__persepcion
+msgid "Persepción"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__epp
+msgid "Personal Protection Equipment"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__phone
+msgid "Phone"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__phone_number
+msgid "Phone number"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__phone_operator
+msgid "Phone operator"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__is_intership
+msgid "Practicante"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resources__price
+msgid "Precio"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__printer
+msgid "Printer"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__hr_employee__payroll_type__quincenal
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__wizard_incidence_report__payroll_type__quincenal
+msgid "Quincenal"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__resource_id
+#: model:ir.model.fields,field_description:hr_employee_energon.field_energon_resource_employee_rel__resource_id
+msgid "Recurso"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.resources_type_action
+msgid "Recurso/ empleado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.resources_tic_action
+#: model:ir.ui.menu,name:hr_employee_energon.menu_tic_tree
+msgid "Recurso/TIC"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.ui.menu,name:hr_employee_energon.menu_resource_type_tree
+msgid "Recurso/empleado"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.inventory_employee_form_view
+msgid "Recursos"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.report_wizard_view_form
+msgid "Reporte de incidencias"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.ui.menu,name:hr_employee_energon.employee_incidence_action_menu
+msgid "Reportes"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.ui.menu,name:hr_employee_energon.menu_item_employee_resource_configuration_employee
+msgid "Resources"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__sim
+msgid "SIM"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.report_wizard_view_form
+msgid "Selecciona el rango de fechas de incidencias"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__hr_employee__payroll_type__semanal
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__wizard_incidence_report__payroll_type__semanal
+msgid "Semanal"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__serial_number
+msgid "Serial number"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__service_tag
+msgid "Service tag"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_resources_tic__tic
+msgid "TIC number"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__energon_resources__classification__tablet
+msgid "Tablet"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields.selection,name:hr_employee_energon.selection__employee_resources_tic__phone_operator__telcel
+msgid "Telcel"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.act_window,name:hr_employee_energon.incidence_type_action
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__incidence_type_select
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee_incidences_name__incidence_type
+#: model:ir.ui.menu,name:hr_employee_energon.menu_incidence_type_tree
+msgid "Tipo de incidencia"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__payroll_type
+#: model:ir.model.fields,field_description:hr_employee_energon.field_wizard_incidence_report__payroll_type
+msgid "Tipo de nomina"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_checklist__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.actions.server,name:hr_employee_energon.update_holidays_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_energon.update_holidays
+#: model:ir.cron,name:hr_employee_energon.update_holidays
+msgid "Update holidays"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model_terms:ir.ui.view,arch_db:hr_employee_energon.adjust_employee_form_view
+msgid "Vacaciones"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__holidays_total
+msgid "Vacaciones a renovar "
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_hr_employee__holidays
+msgid "Vacaciones restantes"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,field_description:hr_employee_energon.field_employee_incidences__value
+msgid "Valor"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model.fields,help:hr_employee_energon.field_hr_employee_document__doc_attachment_id
+msgid "You can attach the copy of your document"
+msgstr ""
+
+#. module: hr_employee_energon
+#: code:addons/hr_employee_energon/models/employee_documents.py:0
+#, python-format
+msgid "Your Document Is Already Expired."
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_energon_resource_employee_rel
+msgid "energon.resource.employee.rel"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_energon_resources
+msgid "energon.resources"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_hr_employee_incidences_name
+msgid "hr.employee.incidences.name"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_wizard_incidence_csv
+msgid "wizard.incidence.csv"
+msgstr ""
+
+#. module: hr_employee_energon
+#: model:ir.model,name:hr_employee_energon.model_wizard_incidence_report
+msgid "wizard.incidence.report"
+msgstr ""

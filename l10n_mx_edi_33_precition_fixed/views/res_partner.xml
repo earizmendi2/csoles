@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="mcf_sivi_res_partner_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='vat']" position="after">
+                <field name="contact_id" />
+                
+            </xpath>
+        </field>
+    </record>
+</odoo>

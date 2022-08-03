@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Rules -->
+    <data>
+        <record model="ir.rule" id="record_incidence_rule">
+            <field name="name">Employee incidences: multi-company</field>
+            <field name="model_id" ref="model_employee_incidences" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+        <!-- Test -->
+        <record model="ir.rule" id="record_energon_resources_rule">
+            <field name="name">Employee resource: multi-company</field>
+            <field name="model_id" ref="model_energon_resources" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="record_energon_resources_tic_rule">
+            <field name="name">Employee resource tic: multi-company</field>
+            <field name="model_id" ref="model_employee_resources_tic" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="record_energon_resources_employee_rel_rule">
+            <field name="name">Employee resource employee rel: multi-company</field>
+            <field name="model_id" ref="model_energon_resource_employee_rel" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>           
+    
+    </data>
+    
+    
+
+
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="_cfdiv40_extended" inherit_id="l10n_mx_edi_40.cfdiv40">
+            <!-- SE SUMA EL SUBTOTAL MAS LOS IMPUESTOS MENOS EL DESCUENTO PARA CALCULAR EL TOTAL -->
+            <xpath expr="//*[name()='cfdi:Comprobante']" position="attributes">
+                <attribute name="t-att-Total" >float(format_float(total_price_subtotal_before_discount if tax_objected == '02' else record.amount_total + total_price_discount, currency_precision)) + float(format_float(balance_multiplicator * tax_details_transferred['tax_amount_currency'], currency_precision) if tax_details_transferred['tax_details'] else 0) - float(format_float(total_price_discount, currency_precision) if not record.currency_id.is_zero(total_price_discount) else 0)</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>
