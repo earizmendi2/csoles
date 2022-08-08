@@ -16,7 +16,7 @@ class AccountEdiFormat(models.Model):
             total_tax_details_transferred += cfdi_values['balance_multiplicator'] * \
                 tax_detail_vals['tax_amount_currency']
             
-        print ("TotalTax----------+", round(total_tax_details_transferred, cfdi_values['currency_precision']))
+        print("TotalTax----------+", round(total_tax_details_transferred, cfdi_values['currency_precision']))
         
         cfdi_values.update({
             'total_tax_details_transferred': round(total_tax_details_transferred, cfdi_values['currency_precision'])
