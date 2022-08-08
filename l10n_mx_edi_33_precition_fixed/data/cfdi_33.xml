@@ -5,9 +5,14 @@
             <!-- SE SUMA EL SUBTOTAL MAS LOS IMPUESTOS MENOS EL DESCUENTO PARA CALCULAR EL TOTAL -->
             <xpath expr="//*[name()='cfdi:Comprobante']" position="attributes">
                 <attribute name="t-att-Total">
-                    format_float(float(format_float(total_price_subtotal_before_discount, currency_precision)) 
-                    + float(format_float(balance_multiplicator * tax_details_transferred['tax_amount_currency'], currency_precision) if tax_details_transferred['tax_details'] else 0) 
-                    - float(format_float(total_price_discount, currency_precision) if not record.currency_id.is_zero(total_price_discount) else 0), currency_precision)</attribute>
+                    format_float(cfdi_total,currency_precision)
+                </attribute>
+            </xpath>
+            <!-- SE REALIZA UNA SUMA TAL CUAL DEL NODO <cfdi:Traslados> EN EL XML PARA CALCULAR EL TOTAL -->            
+            <xpath expr="//*[@t-att-TotalImpuestosTrasladados]" position="attributes">
+                <attribute name="t-att-TotalImpuestosTrasladados">
+                    total_tax_details_transferred if tax_details_transferred['tax_details'] else None
+                </attribute>
             </xpath>
         </template>
     </data>

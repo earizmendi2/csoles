@@ -8,9 +8,9 @@
     'category': 'Generic Modules',
     'author': 'McLennan Foster',
     'depends': [
-                'base',
-                'account',
-                'l10n_mx_edi'
+                'base',                
+                'account_edi',
+                'l10n_mx',                
     ],
     'data': [
         'data/cfdi_33.xml',
