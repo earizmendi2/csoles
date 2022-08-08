@@ -18,7 +18,7 @@ class AccountEdiFormat(models.Model):
                 tax_detail_vals['tax_amount_currency']
 
         cfdi_values.update({
-            'total_tax_details_transferred': total_tax_details_transferred
+            'total_tax_details_transferred': round(total_tax_details_transferred, cfdi_values['currency_precision'])
         })
 
         subtotal = round(
