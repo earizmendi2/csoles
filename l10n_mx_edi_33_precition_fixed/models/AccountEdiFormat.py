@@ -1,6 +1,7 @@
+import logging
 from odoo import _, api, fields, models
 
-
+_logger = logging.getLogger(__name__)
 class AccountEdiFormat(models.Model):
     _inherit = 'account.edi.format'
 
@@ -16,7 +17,9 @@ class AccountEdiFormat(models.Model):
                 x['tax_amount_currency'], cfdi_values['currency_precision']) for x in details)
             total_tax_details_transferred += cfdi_values['balance_multiplicator'] * \
                 tax_detail_vals['tax_amount_currency']
-
+            
+        _logger.log(round(total_tax_details_transferred, cfdi_values['currency_precision']))
+        
         cfdi_values.update({
             'total_tax_details_transferred': round(total_tax_details_transferred, cfdi_values['currency_precision'])
         })
