@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="_cfdiv33_extended" inherit_id="l10n_mx_edi.cfdiv33">
+            <!-- SE SUMA EL SUBTOTAL MAS LOS IMPUESTOS MENOS EL DESCUENTO PARA CALCULAR EL TOTAL -->
+            <xpath expr="//*[name()='cfdi:Comprobante']" position="attributes">
+                <attribute name="t-att-Total">
+                    format_float(cfdi_total,currency_precision)
+                </attribute>
+            </xpath>
+            <!-- SE REALIZA UNA SUMA TAL CUAL DEL NODO <cfdi:Traslados> EN EL XML PARA CALCULAR EL TOTAL -->            
+            <xpath expr="//*[@t-att-TotalImpuestosTrasladados]" position="attributes">
+                <attribute name="t-att-TotalImpuestosTrasladados">
+                    total_tax_details_transferred if tax_details_transferred['tax_details'] else None
+                </attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>
