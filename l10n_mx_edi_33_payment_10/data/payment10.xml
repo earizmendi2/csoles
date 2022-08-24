@@ -5,25 +5,25 @@
             <!--MONTO CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
             <xpath expr="//*[name()='pago10:Pago']" position="attributes">
                 <attribute name="t-att-Monto">                    
-                    trunc_monto
+                    format_float(trunc_monto,2)
                 </attribute>
             </xpath>            
             <!--ImpSaldoAnt CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
             <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
                 <attribute name="t-att-ImpSaldoAnt">                    
-                    invoice_vals['trunc_saldo_ant']
+                    format_float(invoice_vals['trunc_saldo_ant'],2)
                 </attribute>
             </xpath>
             <!--ImpPagado CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
             <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
                 <attribute name="t-att-ImpPagado">                    
-                    invoice_vals['trunc_pagado']
+                    format_float(invoice_vals['trunc_pagado'],2)
                 </attribute>
             </xpath>
             <!--ImpSaldoInsoluto CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
             <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
                 <attribute name="t-att-ImpSaldoInsoluto">                    
-                    invoice_vals['trunc_insoluto']
+                    format_float(invoice_vals['trunc_insoluto'],2)
                 </attribute>
             </xpath>                                                                            
         </template>
