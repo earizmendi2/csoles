@@ -7,7 +7,7 @@ class AccountEdiFormat(models.Model):
     _inherit = 'account.edi.format'
 
     def _l10n_mx_edi_get_invoice_cfdi_values(self, invoice):
-        # OVERRIDE
+        # OVERRIDE values
         cfdi_values = super()._l10n_mx_edi_get_invoice_cfdi_values(invoice)
         total_tax_details_transferred = 0
         for tax_detail_vals in cfdi_values['tax_details_transferred']['tax_details'].values():
