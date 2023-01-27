@@ -14,7 +14,7 @@ class AccountEdiFormat(models.Model):
             return float(repr(n)[:dp+d+1])                  
             
         
-        # OVERRIDE
+        # OVERRIDE THIS FUNCTION
         vals = super()._l10n_mx_edi_get_payment_cfdi_values(invoice)               
         vals['trunc_monto'] = trunc_n(vals.get('amount',0),2)
         for invoice_val in vals['invoice_vals_list']:            

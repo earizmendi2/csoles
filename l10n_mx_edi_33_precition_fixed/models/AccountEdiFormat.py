@@ -7,7 +7,7 @@ class AccountEdiFormat(models.Model):
     _inherit = 'account.edi.format'
 
     def _l10n_mx_edi_get_invoice_cfdi_values(self, invoice):
-        # OVERRIDE
+        # OVERRIDE FUNCTION
         cfdi_values = super()._l10n_mx_edi_get_invoice_cfdi_values(invoice)
         total_tax_details_transferred = 0
         for tax_detail_vals in cfdi_values['tax_details_transferred']['tax_details'].values():
@@ -19,7 +19,7 @@ class AccountEdiFormat(models.Model):
             total_tax_details_transferred += cfdi_values['balance_multiplicator'] * \
                 tax_detail_vals['tax_amount_currency']
             
-        _logger.info("TotalTax----------+", round(total_tax_details_transferred, cfdi_values['currency_precision']))
+        _logger.info("TotalTax--------+", round(total_tax_details_transferred, cfdi_values['currency_precision']))
         
         cfdi_values.update({
             'total_tax_details_transferred': round(total_tax_details_transferred, cfdi_values['currency_precision'])
