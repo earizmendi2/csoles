@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <template id="_payment10_extended" inherit_id="l10n_mx_edi.payment10">
+            <!--MONTO CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
+            <xpath expr="//*[name()='pago10:Pago']" position="attributes">
+                <attribute name="t-att-Monto">                    
+                    format_float(trunc_monto,2)
+                </attribute>
+            </xpath>            
+            <!--ImpSaldoAnt CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
+            <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
+                <attribute name="t-att-ImpSaldoAnt">                    
+                    format_float(invoice_vals['trunc_saldo_ant'],2)
+                </attribute>
+            </xpath>
+            <!--ImpPagado CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
+            <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
+                <attribute name="t-att-ImpPagado">                    
+                    format_float(invoice_vals['trunc_pagado'],2)
+                </attribute>
+            </xpath>
+            <!--ImpSaldoInsoluto CUSTOM FUNCTION FOR TRUNCATE TO 2 DECIMALS -->
+            <xpath expr="//*[name()='pago10:DoctoRelacionado']" position="attributes">
+                <attribute name="t-att-ImpSaldoInsoluto">                    
+                    format_float(invoice_vals['trunc_insoluto'],2)
+                </attribute>
+            </xpath>                                                                            
+        </template>
+    </data>
+</odoo>
