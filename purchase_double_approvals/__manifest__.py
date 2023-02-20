@@ -11,10 +11,11 @@
     """,
 
    'author': "10 Orbits",
+   'license': "AGPL-3",
     'website': "https://www.10orbits.com",
     
     'category': 'Purchase',
-    'version': '15.0.1.0.0',
+    'version': '15.0.1.0.1',
 
     'depends': ['purchase'],
     
