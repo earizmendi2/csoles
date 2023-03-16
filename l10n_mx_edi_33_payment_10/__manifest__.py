@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'EDI Payment truncated 2 digits',
+    'name': 'EDI Payment truncated 2 digits in fold',
     'version': '1.0',
     'images':['static/description/icon.png'],
     'summary': 'REP TRUNCADO A 2 DIGITOS',
