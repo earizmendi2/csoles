@@ -9,7 +9,7 @@
     'author': 'McLennan Foster',
     'depends': [
                 'base',
-                'sale',                
+                'account',                
     ],
     'data': [
         '',
