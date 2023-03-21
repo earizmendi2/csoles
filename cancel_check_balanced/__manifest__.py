@@ -8,7 +8,8 @@
     'category': 'Generic Modules',
     'author': 'McLennan Foster',
     'depends': [
-                'account_move',                
+                'base',
+                'sale',                
     ],
     'data': [
         '',
