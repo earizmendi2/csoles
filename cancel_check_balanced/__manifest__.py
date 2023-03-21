@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Cancel account move check balanced',
-    'version': '1.0',
+    'version': '1.1',
     'images':['static/description/icon.png'],
     'summary': 'Cancela la revision de balance en los documentos debito credito al crear un doc relacionado',
     'description': "",
