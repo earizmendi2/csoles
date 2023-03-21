@@ -35,7 +35,7 @@ PAYMENT_STATE_SELECTION = [
         ('partial', 'Partially Paid'),
         ('reversed', 'Reversed'),
         ('invoicing_legacy', 'Invoicing App Legacy'),
-
+]
 
 class AccountMove(models.Model):
     _inherit = "account.move"
