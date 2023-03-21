@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
+from odoo import api, fields, models
 
-from odoo import api, fields, models, Command, _
 
 class AccountMove(models.Model):
-    _inherit = "account.move"          
+    _inherit = "account.move"
 
     def _check_balanced(self):
         #OVERRIDE FUNCTION
