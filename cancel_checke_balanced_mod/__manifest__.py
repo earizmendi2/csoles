@@ -4,7 +4,7 @@
 
 {
     "name": "Cancel Balance Check Validation",
-    "version": "15.0.1.0.3",
+    "version": "15.0.1.0.4",
     "category": "Invoices & Payments",
     "license": "AGPL-3",
     "summary": "Cancela la validación cuando se presenta una diferencia por cambio de decimales",
