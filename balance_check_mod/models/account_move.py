@@ -5,6 +5,3 @@ class AccountMove(models.Model):
     
     def _check_balanced(self):
         return True
-    
-
-            
