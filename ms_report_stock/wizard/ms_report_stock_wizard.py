@@ -52,14 +52,14 @@ class MsReportStock(models.TransientModel):
         
         columns = [
             ('No', 5, 'no', 'no'),
-            ('Product', 30, 'char', 'char'),
-            ('Product Category', 20, 'char', 'char'),
-            ('Location', 30, 'char', 'char'),
-            ('Incoming Date', 20, 'datetime', 'char'),
-            ('Stock Age', 20, 'number', 'char'),
-            ('Total Stock', 20, 'float', 'float'),
-            ('Available', 20, 'float', 'float'),
-            ('Reserved', 20, 'float', 'float'),
+            ('Producto', 30, 'char', 'char'),
+            ('Categoria de Producto', 25, 'char', 'char'),
+            ('Ubicacion', 30, 'char', 'char'),
+            ('Fecha de Ingreso', 20, 'datetime', 'char'),
+            ('Edad del inventario', 20, 'number', 'char'),
+            ('Stock Total', 20, 'float', 'float'),
+            ('Disponible', 20, 'float', 'float'),
+            ('Reservado', 20, 'float', 'float'),
         ]
 
         datetime_format = '%Y-%m-%d %H:%M:%S'
