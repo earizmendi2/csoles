@@ -1,6 +1,6 @@
 {
         'name': 'PostgreSQL Query Deluxe',
-        'description': 'Execute postgreSQL query into Odoo interface',
+        'description': 'Execute postgreSQL query into Odoo interface, para hacer querys en las tablas',
         'author': 'Yvan Dotet',
         'depends': ['base', 'mail'],
         'application': True,
