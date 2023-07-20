@@ -1,0 +1,18 @@
+<odoo>
+    <record model="ir.module.category" id="security_custom_dashboard">
+        <field name="name">Custom Dashboard</field>
+        <field name="description">User access level for Custom Dashboard</field>
+        <field name="sequence">20</field>
+    </record>
+
+
+    <record model="res.groups" id="custom_dashboard_manager">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="eg_ai_smart_dashboard_lite.security_custom_dashboard"/>
+    </record>
+
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('eg_ai_smart_dashboard_lite.custom_dashboard_manager'))]"/>
+    </record>
+</odoo>

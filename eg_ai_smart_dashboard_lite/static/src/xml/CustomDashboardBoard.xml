@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template xml:space="preserve">
+    <t t-name="CustomDashboardBoard">
+        <div class="main-div">
+            <div class="navbar navbar-expand-md navbar-light bg-light mb-4 border-bottom" role="navigation">
+                <span class="navbar-brand" id="dashboard_template_name">
+                    <t t-esc="widget.dashboard_data.name"/>
+                </span>
+                <input class="form-control mr-sm-2" type="text" id="dashboard_template_name_input"
+                       t-att-value="widget.dashboard_data.name"/>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"/>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+                    <form class="form-inline mt-2 mt-md-0">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="addChartMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Add Chart
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="addChartMenuButton" id="chart-type-selection">
+                                <span class="dropdown-item" data-chart-type="bar">Bar</span>
+                                <span class="dropdown-item" data-chart-type="pie">Pie</span>
+                                <span class="dropdown-item" data-chart-type="column">Column</span>
+                                <span class="dropdown-item" data-chart-type="donut">Donut</span>
+                                <span class="dropdown-item" data-chart-type="line">Line</span>
+                                <span class="dropdown-item" data-chart-type="area">Area</span>
+                                <span class="dropdown-item" data-chart-type="treemap">Treemap</span>
+                                <span class="dropdown-item" data-chart-type="radar">Radar</span>
+                                <span class="dropdown-item" data-chart-type="polarArea">Polar Area</span>
+                                <span class="dropdown-item" data-chart-type="tiles">Tile</span>
+                                <span class="dropdown-item" data-chart-type="kpi">KPI</span>
+                                <span class="dropdown-item" data-chart-type="list">List</span>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search-input-chart"
+                                   aria-label="Search"/>
+                            <span id="searchclear">
+                                <i class='fa fa-times'/>
+                            </span>
+                        </div>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="search-button">Search</button>
+                        <t t-if="widget.dashboard_data.group_custom_dashboard_manager">
+                            <button class="btn btn-outline-primary my-2 mx-2 my-sm-0" type="button" id="edit_dashboard">Edit
+                                Dashboard
+                            </button>
+                            <button class="btn btn-outline-primary my-2 mx-2 my-sm-0" type="button" id="save_dashboard">Save
+                                Dashboard
+                            </button>
+                        </t>
+                    </form>
+                </div>
+            </div>
+            <div class="container-fluid-dashboard m-2">
+                <div class="grid-stack" id="grid-stack">
+                </div>
+            </div>
+        </div>
+    </t>
+</template>

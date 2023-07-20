@@ -1,0 +1,206 @@
+<odoo>
+    <record id="eg_custom_dashboard_item_tree_view" model="ir.ui.view">
+        <field name="name">eg.custom.dashboard.item.tree</field>
+        <field name="model">eg.custom.dashboard.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="custom_dashboard_board_id"/>
+                <field name="chart_type"/>
+                <field name="ir_model_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="eg_custom_dashboard_item_form_view" model="ir.ui.view">
+        <field name="name">eg.custom.dashboard.item.form</field>
+        <field name="model">eg.custom.dashboard.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group/>
+                        <field name="graph_preview" widget="custom_graph_preview"/>
+                    </group>
+                    <notebook>
+                        <page string="Chart Data">
+                            <group>
+                                <group>
+                                    <field name="chart_type" required="1"/>
+                                    <field name="ir_model_id" required="1"/>
+                                    <field name="model_name" invisible="1"/>
+                                    <field name="calculation_type"
+                                           attrs="{'invisible': [('chart_type','not in',['tiles','kpi'])], 'required': [('chart_type','in',['tiles','kpi'])]}"/>
+                                    <field name="measure_model_field_ids" widget="many2many_tags"
+                                           attrs="{'invisible': [('calculation_type','not in',['sum'])], 'required': [('calculation_type','in',['sum'])]}"/>
+                                    <field name="label_model_field_id"
+                                           attrs="{'required': [('chart_type','not in',['list','tiles','kpi'])],'invisible': [('chart_type','in',['list','tiles','kpi'])]}"/>
+                                    <field name="list_view_field_ids"
+                                           attrs="{'invisible': [('chart_type','not in',['list'])], 'required': [('chart_type','in',['list'])]}"
+                                           widget="many2many_tags"/>
+                                    <field name="record_limit"/>
+                                    <field name="record_sort_field"/>
+                                    <field name="record_sort"/>
+                                    <field name="chart_data" invisible="1"/>
+                                    <field name="custom_dashboard_board_id" required="1"/>
+                                </group>
+                                <group string="Date Filter">
+                                    <field name="filter_domain" widget="domain"
+                                           options="{'model': 'model_name', 'in_dialog': True}"
+                                           context="{'current_id': id}"/>
+                                    <field name="tile_record_amount" readonly="1"
+                                           attrs="{'invisible': [('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="date_record_filter_type"/>
+                                    <field name="date_filter_field" invisible="1"/>
+                                    <field name="start_date"
+                                           attrs="{'invisible': [('date_record_filter_type','not in',['custom_filter'])], 'required': [('date_record_filter_type', 'in', ['custom_filter'])]}"/>
+                                    <field name="end_date"
+                                           attrs="{'invisible': [('date_record_filter_type','not in',['custom_filter'])], 'required': [('date_record_filter_type', 'in', ['custom_filter'])]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="KPI Data" attrs="{'invisible': [('chart_type','not in',['kpi'])]}">
+                            <group>
+                                <group>
+                                    <field name="kpi_model_id"/>
+                                    <field name="kpi_model_name" invisible="1"/>
+                                    <field name="kpi_record_amount" readonly="1"
+                                           attrs="{'invisible': [('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="kpi_calculation_type"
+                                           attrs="{'required': [('kpi_model_id', '!=', False)]}"/>
+                                    <field name="kpi_measure_field_id"
+                                           attrs="{'required': [('kpi_model_id', '!=', False),('kpi_calculation_type', '=', 'sum')], 'invisible': [('kpi_calculation_type','not in',['sum'])]}"/>
+                                    <field name="kpi_data_calculation_type" widget="radio"
+                                           attrs="{'required': [('kpi_model_id', '!=', False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="kpi_filter_domain" widget="domain"
+                                           options="{'model': 'kpi_model_name', 'in_dialog': True}"
+                                           context="{'current_id': id}"/>
+                                    <field name="kpi_date_filter_field_id"/>
+                                    <field name="kpi_date_record_filter_type"/>
+                                    <field name="kpi_start_date"
+                                           attrs="{'invisible': [('kpi_date_record_filter_type','not in',['custom_filter'])], 'required': [('kpi_date_record_filter_type', 'in', ['custom_filter'])]}"/>
+                                    <field name="kpi_end_date"
+                                           attrs="{'invisible': [('kpi_date_record_filter_type','not in',['custom_filter'])], 'required': [('kpi_date_record_filter_type', 'in', ['custom_filter'])]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Theme" attrs="{'invisible': [('chart_type','in',['list'])]}">
+                            <group>
+                                <group string="General">
+                                    <field name="name_align_position"
+                                           attrs="{'invisible': [('chart_type','in',['tiles','kpi'])]}"/>
+                                    <field name="chart_theme"
+                                           attrs="{'invisible': [('chart_type','in',['tiles','kpi'])], 'required': [('chart_type', 'not in', ['tiles','kpi'])]}"/>
+                                    <field name="color_palette"
+                                           attrs="{'invisible': [('chart_type','in',['tiles','kpi'])]}"/>
+                                    <field name="is_show_datalabels"
+                                           attrs="{'invisible': [('chart_type','not in',['line','bar','column','area','treemap','radar'])]}"/>
+                                    <field name="datalabels_unit"
+                                           attrs="{'invisible': [('is_show_datalabels','=',False)]}"/>
+                                    <field name="stork_type"
+                                           attrs="{'invisible': [('chart_type','not in',['line','area'])]}"/>
+                                    <field name="is_check_show_legend" invisible="1"/>
+                                    <field name="is_show_legend"
+                                           attrs="{'invisible': [('is_check_show_legend','=',False)]}"/>
+                                    <field name="legend_position"
+                                           attrs="{'invisible': ['|',('is_show_legend','=',False),('is_check_show_legend','=',False)], 'required':[('is_show_legend','=',True)]}"/>
+                                    <field name="legend_horizontal_align"
+                                           attrs="{'invisible': ['|',('is_show_legend','=',False),('is_check_show_legend','=',False)], 'required':[('is_show_legend','=',True)]}"/>
+                                    <field name="is_treemap_distributed"
+                                           attrs="{'invisible': [('chart_type','not in',['treemap'])]}"/>
+                                    <field name="is_stack_chart"
+                                           attrs="{'invisible': [('chart_type','not in',['bar','column'])]}"/>
+                                    <field name="is_chart_zoom"
+                                           attrs="{'invisible': [('chart_type','not in',['line','area'])]}"/>
+                                    <field name="is_distributed_chart"
+                                           attrs="{'invisible': [('chart_type','not in',['bar','column'])]}"/>
+                                    <field name="is_reserved_chart"
+                                           attrs="{'invisible': [('chart_type','not in',['bar','column'])]}"/>
+                                </group>
+                                <group string="Fill">
+                                    <field name="chart_background_color" widget="chart_color_picker"
+                                           attrs="{'invisible': [('chart_theme','not in',['custom']),('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="chart_fore_color" widget="chart_color_picker"
+                                           attrs="{'invisible': [('chart_theme','not in',['custom']),('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="tile_image_type"
+                                           attrs="{'invisible': [('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="tile_icon" widget="dashboard_icon_picker"
+                                           attrs="{'invisible': ['|',('tile_image_type','not in',['default_icons']), ('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="tile_unit"
+                                           attrs="{'invisible': [('chart_type','not in',['tiles','kpi'])]}"/>
+                                    <field name="tile_image_selection" widget="image" class="oe_avatar"
+                                           attrs="{'invisible': ['|',('chart_type','not in',['tiles','kpi']), ('tile_image_type','not in',['custom_icon'])]}"/>
+                                    <field name="fill_type"
+                                           attrs="{'invisible': [('chart_type','in',['tiles','kpi'])]}"/>
+                                    <field name="gradient_shade"
+                                           attrs="{'invisible': [('fill_type','not in',['gradient'])]}"/>
+                                    <field name="gradient_type"
+                                           attrs="{'invisible': [('fill_type','not in',['gradient'])]}"/>
+                                    <field name="pattern_type"
+                                           attrs="{'invisible': [('fill_type','not in',['pattern'])]}"/>
+                                </group>
+                                <group string="Animation" attrs="{'invisible': [('chart_type','in',['tiles','kpi'])]}">
+                                    <field name="is_enable_animation"/>
+                                    <field name="animation_easing_type"
+                                           attrs="{'invisible': [('is_enable_animation','=',False)]}"/>
+                                    <field name="animation_speed"
+                                           attrs="{'invisible': [('is_enable_animation','=',False)]}"/>
+                                    <field name="is_enable_animation_gradually"
+                                           attrs="{'invisible': [('is_enable_animation','=',False)]}"/>
+                                    <field name="animation_gradually_delay"
+                                           attrs="{'invisible': [('is_enable_animation_gradually','=',False)]}"/>
+                                </group>
+                                <group string="Grid"
+                                       attrs="{'invisible': [('chart_type','in',['tiles','treemap','pie','donut', 'kpi'])]}">
+                                    <field name="is_show_grid"
+                                           attrs="{'invisible': [('chart_type','in',['treemap','pie','donut'])]}"/>
+                                    <field name="grid_position" attrs="{'invisible': [('is_show_grid','=',False)]}"/>
+                                    <field name="grid_color" attrs="{'invisible': [('is_show_grid','=',False)]}"
+                                           widget="chart_color_picker"/>
+                                    <field name="stork_dash_array" attrs="{'invisible': [('is_show_grid','=',False)]}"/>
+                                    <field name="is_enable_x_axis"
+                                           attrs="{'invisible': ['|',('is_show_grid','=',False),('chart_type','in',['radar'])]}"/>
+                                    <field name="is_enable_y_axis" attrs="{'invisible': [('is_show_grid','=',False)]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="eg_custom_dashboard_item_search_view" model="ir.ui.view">
+        <field name="name">eg.custom.dashboard.item.search</field>
+        <field name="model">eg.custom.dashboard.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <group string="Group By">
+                    <filter name="group_by_custom_dashboard_board_id" string="Dashboard Template"
+                            context="{'group_by': 'custom_dashboard_board_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_eg_custom_dashboard_item">
+        <field name="name">Dashboard Items</field>
+        <field name="res_model">eg.custom.dashboard.item</field>
+        <field name="context">{
+            'search_default_group_by_custom_dashboard_board_id': 1
+            }
+        </field>
+        <field name="view_mode">search,tree,form</field>
+    </record>
+
+    <menuitem id="main_menu_custom_dashboard" name="Smart Dashboard"/>
+    <menuitem id="sub_menu_custom_dashboard" parent="main_menu_custom_dashboard"
+              action="action_eg_custom_dashboard_item" name="Dashboard Items" sequence="2"/>
+</odoo>

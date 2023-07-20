@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_eg_custom_dashboard_item_manager,access.eg.custom.dashboard.item.manager,model_eg_custom_dashboard_item,eg_ai_smart_dashboard_lite.custom_dashboard_manager,1,1,1,1
+access_eg_custom_dashboard_item_user,access.eg.custom.dashboard.item.user,model_eg_custom_dashboard_item,base.group_user,1,0,0,0
+access_custom_dashboard_board_manager,access.custom.dashboard.board.manager,model_custom_dashboard_board,eg_ai_smart_dashboard_lite.custom_dashboard_manager,1,1,1,1
+access_custom_dashboard_board_user,access.custom.dashboard.board.user,model_custom_dashboard_board,base.group_user,1,0,0,0

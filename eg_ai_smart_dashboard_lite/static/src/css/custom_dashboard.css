@@ -1,0 +1,264 @@
+.container-fluid-dashboard{
+    background-color: #fff;
+}
+
+#save_dashboard{
+    display: none;
+}
+
+.chart-container{
+background-color: transparent;
+}
+.grid-stack-item-content{
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}
+#dashboard_template_name_input{
+    display : none;
+    height: 30px;
+    width: 200px;
+    margin-left: 25px;
+}
+
+#dashboard_template_name{
+    margin-left: 25px;
+}
+
+.custom-dashboard-tile{
+    padding: 1.85rem 1.75rem 1.75rem 2rem;
+    border-radius: 2px;
+    align-items: center;
+}
+
+.tile-icon-size{
+    height: 36px;
+    width: 36px;
+}
+
+.radius-10 {
+    border-radius: 2px;
+    width: 280px;
+    height: 132px;
+}
+
+.widgets-icons {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 26px;
+    border-radius: 10px;
+}
+
+
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 50%;
+    margin: 1% auto -18%;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 35%;
+}
+
+
+.red {
+    background-color: #E74C3C;
+}
+
+.circle-tile-content {
+    height: 83%;
+    padding-top: 17%;
+}
+
+.tile_image_margin{
+    margin-top: 18%;
+    margin-left: 1%;
+}
+
+.circle-tile-description {
+    text-transform: uppercase;
+    margin-top: 3%;
+}
+
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 1% 0 1%;
+}
+
+.circle-tile-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 5px;
+    transition: all 0.3s ease-in-out 0s;
+}
+.circle-tile-footer:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+.preview-circle-tile{
+    margin-bottom: 15px;
+    height: 150px;
+    width: 250px;
+    text-align: center;
+}
+
+.preview-circle-tile-heading{
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 80px;
+    margin: 0 auto -40px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 80px;
+}
+
+.preview-circle-tile-content{
+    padding-top: 50px;
+}
+
+.preview-circle-tile-description{
+    text-transform: uppercase;
+}
+
+.preview-circle-tile-number{
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+
+.dashboard_nav {
+	position: sticky;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	top: 0;
+	border-bottom: 1px solid #cdcfd1;
+}
+
+.dashboard_title {
+    margin: 0px 30px;
+}
+
+.nav_list{
+    margin-right: 20px;
+}
+
+#searchclear {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+
+
+
+.h-100 {
+    height: 100%!important;
+}
+
+.bg-danger-light {
+    background-color: #f8d7da;
+}
+
+.inforide {
+    border-radius: 2px;
+   height: 100%;
+   width:100%;
+}
+
+.rideone img {
+  width: 70%;
+}
+
+.fontsty {
+  margin-right: -15px;
+}
+
+.fontsty h2{
+  font-size: 35px;
+  margin-top: 15px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.fontsty h4{
+  font-size: 25px;
+  margin-top: 20px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+#custom_chart_list_data{
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: Agenda-Light, sans-serif;
+  text-rendering: optimizeLegibility;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+
+}
+
+.list_table_preview_size{
+    width: 700px;
+    height: 350px;
+    overflow-y: auto;
+}
+
+.table_full_height{
+    height: 100%;
+}
+
+.custom_chart_list_scroll{
+    height: 100%;
+    width:100%;
+    overflow-y: auto;
+}
+
+ul.list-inline.my-hover-list{
+    position: absolute;
+    right: 30px;
+    top: 1px;
+    z-index: 5;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+ul.list-inline.my-hover-list:hover{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.chart-update-button-list-item{
+    cursor: pointer;
+}
+
+.tile-shadow{
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%) !important;
+}
+
+
+
+
+
+

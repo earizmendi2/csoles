@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-name="DashboardTilePreview">
+        <div class="mb-5 row">
+            <div class="mb-4 col-md-4">
+                <div class="inforide" t-attf-style="color: #{text_color};background: #{background_color}">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone mt-5 ml-3">
+                            <t t-if="tile_image_type == 'default_icons'">
+                                <i t-attf-class="fa #{fa_icon_name} fa-3x mt-4"/>
+                            </t>
+                            <t t-else="">
+                                <img alt="Product image" class="tile_image_margin mt-3" t-attf-src="#{image_url}"
+                                     style="width:50px;height:50px;"/>
+                            </t>
+                        </div>
+                        <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty mt-3">
+                            <h4 t-attf-style="color: #{text_color};">
+                                <t t-esc="title"/>
+                            </h4>
+                            <h2>
+                                <span t-attf-style="color: #{text_color};">
+                                    <t t-esc="value"/>
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

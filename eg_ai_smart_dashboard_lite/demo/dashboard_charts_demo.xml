@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_template_1" model="custom.dashboard.board">
+            <field name="name">Template - 1</field>
+        </record>
+
+        <record id="template_1_chart_item_1" model="eg.custom.dashboard.item">
+            <field name="name">Column Country Code</field>
+            <field name="chart_type">column</field>
+            <field name="color_palette">palette2</field>
+            <field name="record_limit">20</field>
+            <field name="ir_model_id" eval="ref('base.model_res_country')"/>
+            <field name="measure_model_field_ids" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="label_model_field_id" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="custom_dashboard_board_id" ref="eg_ai_smart_dashboard_lite.demo_template_1"/>
+            <field name="chart_dashboard_positions">{"item_id": 1, "chart_height": 5, "chart_width": 6, "chart_x": 0,
+                "chart_y": 0}
+            </field>
+        </record>
+
+        <record id="template_1_chart_item_3" model="eg.custom.dashboard.item">
+            <field name="name">Pie Country Code</field>
+            <field name="chart_type">pie</field>
+            <field name="record_limit">20</field>
+            <field name="ir_model_id" eval="ref('base.model_res_country')"/>
+            <field name="measure_model_field_ids" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="label_model_field_id" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="custom_dashboard_board_id" ref="eg_ai_smart_dashboard_lite.demo_template_1"/>
+            <field name="chart_dashboard_positions">{"item_id": 3, "chart_height": 5, "chart_width": 4, "chart_x": 0,
+                "chart_y": 5}
+            </field>
+        </record>
+
+        <record id="template_1_chart_item_5" model="eg.custom.dashboard.item">
+            <field name="name">Bar Country Code</field>
+            <field name="chart_type">bar</field>
+            <field name="record_limit">20</field>
+            <field name="ir_model_id" eval="ref('base.model_res_country')"/>
+            <field name="measure_model_field_ids" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="label_model_field_id" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="custom_dashboard_board_id" ref="eg_ai_smart_dashboard_lite.demo_template_1"/>
+            <field name="chart_dashboard_positions">{"item_id": 5, "chart_height": 5, "chart_width": 5, "chart_x": 7,
+                "chart_y": 5}
+            </field>
+        </record>
+
+        <record id="template_1_chart_item_9" model="eg.custom.dashboard.item">
+            <field name="name">Code Total</field>
+            <field name="chart_type">tiles</field>
+            <field name="chart_background_color">#2778ee</field>
+            <field name="chart_fore_color">#fff</field>
+            <field name="calculation_type">count</field>
+            <field name="ir_model_id" eval="ref('base.model_res_country')"/>
+            <field name="measure_model_field_ids" eval="[(6, 0, [ref('base.field_res_country__phone_code')])]"/>
+            <field name="label_model_field_id" eval="ref('base.field_res_country__currency_id')"/>
+            <field name="custom_dashboard_board_id" ref="eg_ai_smart_dashboard_lite.demo_template_1"/>
+            <field name="tile_image_type">default_icons</field>
+            <field name="tile_icon">fa-line-chart</field>
+            <field name="chart_dashboard_positions">{"item_id": 9, "chart_height": 2, "chart_width": 3, "chart_x": 2,
+                "chart_y": 20}
+            </field>
+        </record>
+
+    </data>
+</odoo>

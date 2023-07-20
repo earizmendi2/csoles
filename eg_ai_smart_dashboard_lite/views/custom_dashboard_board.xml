@@ -1,0 +1,100 @@
+<odoo>
+    <record id="custom_dashboard_board_tree_view" model="ir.ui.view">
+        <field name="name">custom.dashboard.board.tree</field>
+        <field name="model">custom.dashboard.board</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="custom_dashboard_board_form_view" model="ir.ui.view">
+        <field name="name">custom.dashboard.board.form</field>
+        <field name="model">custom.dashboard.board</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="count_total_items"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="custom_dashboard_board_kanban_view" model="ir.ui.view">
+        <field name="name">custom.dashboard.board.kanban</field>
+        <field name="model">custom.dashboard.board</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_emphasize_colors o_stock_kanban">
+                <field name="name"/>
+                <field name="count_total_items"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}}">
+                            <a type="object" name="get_main_dashboard_view"
+                               class="oe_kanban_card oe_kanban_global_click">
+                                <div class="text-dark">
+                                    <div t-attf-class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+                                                <!--                                                <a type="object" name="get_main_dashboard_view">-->
+                                                <field name="name"/>
+                                                <!--                                                </a>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o_dropdown_kanban dropdown" t-if="!selection_mode">
+                                        <a role="button" class="dropdown-toggle o-no-caret btn"
+                                           data-toggle="dropdown"
+                                           data-display="static" href="#" aria-label="Dropdown menu"
+                                           title="Dropdown menu">
+                                            <span class="fa fa-ellipsis-v"/>
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a t-if="widget.editable" role="menuitem" type="edit"
+                                               class="dropdown-item">
+                                                Edit Dashboard
+                                            </a>
+                                            <a t-if="widget.deletable" role="menuitem" type="delete"
+                                               class="dropdown-item">Delete
+                                            </a>
+                                            <div role="separator" class="dropdown-divider"/>
+                                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </div>
+                                    </div>
+                                    <a type="object" name="get_main_dashboard_view"
+                                       class="oe_kanban_card oe_kanban_global_click text-dark">
+                                        <div class="container o_kanban_card_content">
+                                            <div class="row">
+                                                <div class="col-6 o_kanban_primary_left">
+                                                    <div>Total Items:
+                                                        <field name="count_total_items"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_custom_dashboard_board">
+        <field name="name">Dashboards</field>
+        <field name="res_model">custom.dashboard.board</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="sub_menu_custom_dashboard_board" parent="main_menu_custom_dashboard"
+              action="action_custom_dashboard_board" name="Dashboards" sequence="1"/>
+</odoo>
