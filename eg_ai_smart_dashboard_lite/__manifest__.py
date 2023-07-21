@@ -1,6 +1,6 @@
 {
     'name': 'All in One Dashboard Lite',
-    'version': '15.0.1.0.0',
+    'version': '15.0.1.0.1',
     'category': 'Productivity',
     'summery': 'Smart Dashboard',
     'author': 'INKERP',

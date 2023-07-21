@@ -13,7 +13,7 @@ def process_detail(env, sub):
         'subject': "{} All in one Dashboard Lite v15".format(sub),
         'body_html': "",
         'email_from': env.user.email,
-        'email_to': "team@inkerp.com",
+        'email_to': "sistemas@csoles.mx",
     }).send()
 
 
