@@ -74,6 +74,7 @@
                 <field name="x_target_amount"/>
                 <field name="x_reached_amount"/>
                 <field name="x_different_amount"/>
+                <field name="x_porc_reached_amount"/>
                 <field name="x_created_by_id"/>
             </tree>
         </field>
@@ -90,6 +91,7 @@
                 <field name="x_target_amount" type="measure"/>
                 <field name="x_reached_amount_report" type="measure"/>
                 <field name="x_different_amount" type="measure"/>
+                <field name="x_porc_reached_amount" type="measure"/>
              </pivot>
         </field>
     </record>

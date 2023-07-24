@@ -5,21 +5,22 @@ from datetime import datetime
 class SaleTarget(models.Model):
     _name = 'sale.target'
     _rec_name = 'x_name'
-    _description = 'To setup the sale target on salesperson'
+    _description = 'Para configurar el objetivo de venta en el vendedor'
 
     x_name = fields.Text(string="Name", required=False)
     x_salesperson_id = fields.Many2one(comodel_name="res.users", string="Salesperson", required=True)
     x_created_by_id = fields.Many2one(comodel_name="res.users", string="Created By", required=False,
                                       default=lambda self: self.env.user)
-    x_start_date = fields.Datetime(string="Start Date", required=True, default=datetime.today())
-    x_end_date = fields.Datetime(string="End Date", required=True, default=datetime.today())
-    x_condition = fields.Selection(string="Condition", selection=[('sale_order_confirmed', 'Sale Order Confirmed'),
+    x_start_date = fields.Datetime(string="Fecha de Inicio", required=True, default=datetime.today())
+    x_end_date = fields.Datetime(string="Fecha Final", required=True, default=datetime.today())
+    x_condition = fields.Selection(string="Condicion", selection=[('sale_order_confirmed', 'Sale Order Confirmed'),
                                                                   ('invoice_confirmed', 'Invoice Confirmed'), ],
                                    required=True)
-    x_target_amount = fields.Float(string="Target Amount", required=True)
-    x_reached_amount = fields.Float(string="Reached Amount", compute="_compute_reached_amount")
-    x_reached_amount_report = fields.Float(string="Reached Amount")
-    x_different_amount = fields.Float(string="Different Amount")
+    x_target_amount = fields.Float(string="Monto Objetivo", required=True)
+    x_reached_amount = fields.Float(string="Monto Alcanzado", compute="_compute_reached_amount")
+    x_porc_reached_amount = fields.Float(string="Porcentaje Alcanzado", compute="_compute_porc_reached_amount")
+    x_reached_amount_report = fields.Float(string="Monto Alcanzado")
+    x_different_amount = fields.Float(string="Diferencia de Montos")
     x_sale_order_confirmed = fields.Many2many(comodel_name="sale.order", string="Sale Order Confirmed")
     x_invoice_confirmed = fields.Many2many(comodel_name="account.move", string="Invoice Confirmed")
 
@@ -28,6 +29,14 @@ class SaleTarget(models.Model):
         values['x_name'] = self.env["ir.sequence"].next_by_code('sale.target') or _('New')
         return super(SaleTarget, self).create(values)
 
+    @api.depends('x_target_amount', 'x_reached_amount')
+    def _compute_porc_reached_amount(self):
+        for record in self:
+            porc_reached_amount = 0
+            if record.x_target_amount > 0:
+                porc_reached_amount = record.x_reached_amount / record.x_target_amount
+            record['x_porc_reached_amount'] = porc_reached_amount        
+            
     @api.depends('x_salesperson_id', 'x_start_date', 'x_end_date', 'x_sale_order_confirmed', 'x_invoice_confirmed')
     def _compute_reached_amount(self):
         for record in self:

@@ -1,6 +1,6 @@
 {
     'name': 'Sale Target',
-    'version': '15.0.0.1.0.0',
+    'version': '15.0.0.1.1.0',
     'summary': 'To target the salesperson with the amount target',
     'description': 'To target the salesperson with the amount target',
     'category': 'Sale',

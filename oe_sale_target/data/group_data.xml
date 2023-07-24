@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
         <record id="allow_configure_sale_target" model="res.groups">
-            <field name="name">Allow Configure Sale Target</field>
+            <field name="name">Permitir configurar objetivos de venta</field>
         </record>
     </data>
 </odoo>
