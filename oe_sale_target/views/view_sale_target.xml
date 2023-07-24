@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_sale_target_form" model="ir.ui.view">
+        <field name="name">view.sale.target.form</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <form string="Sale Target">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="x_name" readonly="1" attrs="{'invisible': [('x_name', '=', False )]}"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="x_salesperson_id"/>
+                            <field name="x_condition"/>
+                        </group>
+                        <group>
+                            <field name="x_start_date"/>
+                            <field name="x_end_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="x_created_by_id" string="Setup By"/>
+                        </group>
+                        <group>
+                            <field name="x_target_amount"/>
+                            <field name="x_reached_amount"/>
+                            <field name="x_different_amount"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible': [('x_condition', '=', False)]}">
+                        <notebook>
+                            <page name="sale_order_confirmed" string="Sale Order Confirmed" attrs="{'invisible': [('x_condition', '=', 'invoice_confirmed')]}">
+                                <field name="x_sale_order_confirmed" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="amount_total"/>
+                                        <field name="user_id"/>
+                                        <field name="state"/>
+                                        <field name="date_order"/>
+                                    </tree>
+                                </field>
+                            </page>
+                             <page string="Invoice Confirmed" name="invoice_confirmed" attrs="{'invisible': [('x_condition', '=', 'sale_order_confirmed')]}">
+                                <field name="x_invoice_confirmed" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="amount_total_signed"/>
+                                        <field name="invoice_user_id"/>
+                                        <field name="state"/>
+                                        <field name="invoice_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_sale_target_tree" model="ir.ui.view">
+        <field name="name">view.sale.target.tree</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Target">
+                <field name="x_name"/>
+                <field name="x_salesperson_id"/>
+                <field name="x_condition"/>
+                <field name="x_start_date"/>
+                <field name="x_end_date"/>
+                <field name="x_target_amount"/>
+                <field name="x_reached_amount"/>
+                <field name="x_different_amount"/>
+                <field name="x_created_by_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sale_target_pivot" model="ir.ui.view">
+        <field name="name">view.sale.target.pivot</field>
+        <field name="model">sale.target</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Target Analyze" sample="1">
+                <field name="x_condition" type="row"/>
+                <field name="x_salesperson_id" type="row"/>
+                <field name="x_start_date" interval="month" type="col"/>
+                <field name="x_target_amount" type="measure"/>
+                <field name="x_reached_amount_report" type="measure"/>
+                <field name="x_different_amount" type="measure"/>
+             </pivot>
+        </field>
+    </record>
+    <record id="action_sale_target" model="ir.actions.act_window">
+        <field name="name">Sale Target</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.target</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+    <record id="action_sale_target_reporting" model="ir.actions.act_window">
+        <field name="name">Sale Target Reporting</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.target</field>
+        <field name="view_mode">pivot</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem groups="oe_sale_target.allow_configure_sale_target" id="menu_sale_target" name="Sale Target" parent="sale.menu_sale_config" action="action_sale_target" sequence="3"/>
+    <menuitem groups="oe_sale_target.allow_configure_sale_target" id="menu_sale_target_report" name="Sale Target Report" parent="sale.menu_sale_report" action="action_sale_target_reporting" sequence="4"/>
+
+</odoo>
