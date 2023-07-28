@@ -16,11 +16,14 @@ class SaleTarget(models.Model):
     x_condition = fields.Selection(string="Condicion", selection=[('sale_order_confirmed', 'Sale Order Confirmed'),
                                                                   ('invoice_confirmed', 'Invoice Confirmed'), ],
                                    required=True)
-    x_target_amount = fields.Float(string="Monto Objetivo", required=True)
-    x_reached_amount = fields.Float(string="Monto Alcanzado", compute="_compute_reached_amount")
-    x_porc_reached_amount = fields.Float(string="Porcentaje Alcanzado", compute="_compute_porc_reached_amount")
-    x_reached_amount_report = fields.Float(string="Monto Alcanzado")
-    x_different_amount = fields.Float(string="Diferencia de Montos")
+    x_target_amount = fields.Float(string="Monto Objetivo USD", required=True)
+    x_reached_amount = fields.Float(string="Monto Alcanzado USD", compute="_compute_reached_amount")
+    x_reached_amount_mxn = fields.Float(string="Monto Alcanzado MXN", compute="_compute_reached_amount_mxn")
+    x_porc_reached_amount = fields.Float(string="Porcentaje Alcanzado")
+    x_porc_reached_amount_report = fields.Float(string="Porc Monto Alcanzado",group_operator="avg")
+    x_reached_amount_report = fields.Float(string="Monto Alcanzado USD")
+    x_reached_amount_report_mxn = fields.Float(string="Monto Alcanzado MXN")
+    x_different_amount = fields.Float(string="Diferencia de Montos USD")
     x_sale_order_confirmed = fields.Many2many(comodel_name="sale.order", string="Sale Order Confirmed")
     x_invoice_confirmed = fields.Many2many(comodel_name="account.move", string="Invoice Confirmed")
 
@@ -35,7 +38,8 @@ class SaleTarget(models.Model):
             porc_reached_amount = 0
             if record.x_target_amount > 0:
                 porc_reached_amount = record.x_reached_amount / record.x_target_amount
-            record['x_porc_reached_amount'] = porc_reached_amount        
+            record['x_porc_reached_amount'] = porc_reached_amount
+            record['x_porc_reached_amount_report'] = porc_reached_amount
             
     @api.depends('x_salesperson_id', 'x_start_date', 'x_end_date', 'x_sale_order_confirmed', 'x_invoice_confirmed')
     def _compute_reached_amount(self):
@@ -57,10 +61,13 @@ class SaleTarget(models.Model):
                      ('invoice_date', '<=', record.x_end_date)])
                 if len(invoices_confirmed) > 0:
                     for invoice in invoices_confirmed:
-                        reach_amount = reach_amount + invoice.amount_total_signed
+                        reach_amount = reach_amount + invoice.amount_untaxed_signed / invoice.x_studio_tipocambio)
+                        reach_amount_mxn = reach_amount + invoice.amount_untaxed_signed
                 record['x_invoice_confirmed'] = invoices_confirmed
             record['x_reached_amount'] = reach_amount
+            record['x_reached_amount_mxn'] = reach_amount_mxn
             record['x_reached_amount_report'] = reach_amount
+            record['x_reached_amount_report_mxn'] = reach_amount_mxn
             record['x_different_amount'] = record['x_target_amount'] - record['x_reached_amount']
 
 

@@ -72,6 +72,7 @@
                 <field name="x_start_date"/>
                 <field name="x_end_date"/>
                 <field name="x_target_amount"/>
+                <field name="x_target_amount_mxn"/>
                 <field name="x_reached_amount"/>
                 <field name="x_different_amount"/>
                 <field name="x_porc_reached_amount"/>
@@ -90,8 +91,9 @@
                 <field name="x_start_date" interval="month" type="col"/>
                 <field name="x_target_amount" type="measure"/>
                 <field name="x_reached_amount_report" type="measure"/>
+                <field name="x_reached_amount_report_mxn" type="measure"/>
                 <field name="x_different_amount" type="measure"/>
-                <field name="x_porc_reached_amount" type="measure"/>
+                <field name="x_porc_reached_amount_report" type="measure" decoration-success="1 == 1" />
              </pivot>
         </field>
     </record>
