@@ -44,7 +44,7 @@ class ProductTemplate(models.Model):
                     'sale_order_id' : line.order_id.id,
                     'sale_order_date' : line.order_id.date_order,
                     'product_uom_qty' : line.product_uom_qty,
-                    'unit_price' : line.price_unit,
+                    'unit_price' : line.price_reduce_taxexcl,
                     'currency_id' : line.currency_id.id,
                     'total_price' : line.price_subtotal
                 })
