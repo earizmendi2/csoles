@@ -1,14 +1,14 @@
 {
     'name': 'Sale Target',
-    'version': '15.0.0.1.3.0',
-    'summary': 'To target the salesperson with the amount target',
-    'description': 'To target the salesperson with the amount target',
+    'version': '15.0.3.0.2.0',
+    'summary': 'To target the salesperson with the amount target also includind sales team',
+    'description': 'To target the salesperson with the amount target and the team',
     'category': 'Sale',
     'price': "8.68",
     'currency': "USD",
     'author': 'OE Dev',
     'website': 'https://oe-dev.odoo.com/',
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
     'images': [
         'static/description/banner.png',
         'static/description/icon.png',

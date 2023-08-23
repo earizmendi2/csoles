@@ -126,5 +126,6 @@
     <!-- This Menu Item must have a parent and an action -->
     <menuitem groups="oe_sale_target.allow_configure_sale_target" id="menu_sale_target" name="Sale Target" parent="sale.menu_sale_config" action="action_sale_target" sequence="3"/>
     <menuitem groups="oe_sale_target.allow_configure_sale_target" id="menu_sale_target_report" name="Sale Target Report" parent="sale.menu_sale_report" action="action_sale_target_reporting" sequence="4"/>
+    
 
 </odoo>
