@@ -1,1 +1,1 @@
-from . import sale_target, sale_targetbyteam
+from . import sale_target
