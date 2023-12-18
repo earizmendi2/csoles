@@ -79,14 +79,14 @@ class ResUsers(models.Model):
         sticky=False,
         target=None,
     ):
-        if not self.env.user._is_admin() and any(
+        if not (self.env.user._is_admin() or self.env.su) and any(
             user.id != self.env.uid for user in self
         ):
             raise exceptions.UserError(
                 _("Sending a notification to another user is forbidden.")
             )
         if not target:
-            target = self.env.user.partner_id
+            target = self.partner_id
         bus_message = {
             "type": type_message,
             "message": message,
