@@ -119,7 +119,7 @@ class IrAttachment(models.Model):
                     'nombre_tercero': client_name,
                     'cfdi_total': tree.get('Total', tree.get('total')),
                     'date_cfdi': tree.get('Fecha', tree.get('fecha')),
-                    'serie_folio': tree.get('Folio', tree.get('folio'))
+                    'serie_folio': tree.get('Serie', tree.get('serie'))
                 })
         return super(IrAttachment, self).create(vals)
 

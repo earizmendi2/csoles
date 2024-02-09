@@ -301,7 +301,7 @@ class ResCompany(models.Model):
                             attrib_dict = CaselessDictionary(dict(receptor_elements[0].attrib))
                             r_rfc = attrib_dict.get('rfc')  # receptor_elements[0].get(attrib_dict.get('rfc'))
                             r_name = attrib_dict.get('nombre')  # receptor_elements[0].get(attrib_dict.get('nombre'))
-                    r_folio = tree.get("Folio")  # receptor_elements[0].get(attrib_dict.get('nombre'))
+                    r_folio = str(tree.get("Serie")) + str(tree.get("Folio"))  # receptor_elements[0].get(attrib_dict.get('nombre'))
 
                     cfdi_version = tree.get("Version", '4.0')
                     if cfdi_version == '4.0':
@@ -511,7 +511,7 @@ class ResCompany(models.Model):
                     attrib_dict = CaselessDictionary(dict(receptor_elements[0].attrib))
                     r_rfc = attrib_dict.get('rfc') #receptor_elements[0].get(attrib_dict.get('rfc'))
                     r_name = attrib_dict.get('nombre') #receptor_elements[0].get(attrib_dict.get('nombre'))
-                r_folio = tree.get("Folio") #receptor_elements[0].get(attrib_dict.get('nombre'))
+                r_folio = str(tree.get("Serie")) + str(tree.get("Folio")) #receptor_elements[0].get(attrib_dict.get('nombre'))
                 cfdi_version = tree.get("Version",'4.0')
                 if cfdi_version=='4.0':
                     NSMAP.update({'cfdi':'http://www.sat.gob.mx/cfd/4', 'pago20': 'http://www.sat.gob.mx/Pagos20',})
@@ -625,7 +625,7 @@ class ResCompany(models.Model):
                     attrib_dict = CaselessDictionary(dict(emisor_elements[0].attrib))
                     e_rfc = attrib_dict.get('rfc') #emisor_elements[0].get(attrib_dict.get('rfc'))
                     e_name = attrib_dict.get('nombre') #emisor_elements[0].get(attrib_dict.get('nombre'))
-                r_folio = tree.get("Folio") #receptor_elements[0].get(attrib_dict.get('nombre'))
+                r_folio = str(tree.get("Serie")) + str(tree.get("Folio")) #receptor_elements[0].get(attrib_dict.get('nombre'))
                 
                 cfdi_version = tree.get("Version",'4.0')
                 if cfdi_version=='4.0':

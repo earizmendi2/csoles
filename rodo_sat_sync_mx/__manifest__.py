@@ -2,12 +2,12 @@
 
 {
     'name':         'Administrador de documentos Digitales',
-    'version': '16.02',
+    'version': '16.03',
     'description':  ''' 
                     Descarga los CFDI del portal del SAT a la base de datos de 
                     Odoo para su procesamiento y administracion, se necesita de la libreria de python
                     xmltodict - sudo pip3 install xmltodict 
-                    OpenSSL - sudo apt-get install python3-openssl
+                    OpenSSL - sudo apt-get install python3-openssl - se agregua serie y folio
                     ''',
     'category':     'Accounting',
     'author':       'IT Admin',
