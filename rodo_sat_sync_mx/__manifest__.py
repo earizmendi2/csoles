@@ -50,5 +50,5 @@
     },
     'application':  False,
     'installable':  True,
-    'license': 'OPL-1',
+    'license': 'AGPL-3',
 }
