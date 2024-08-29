@@ -22,7 +22,7 @@
 
 {
     'name': 'Sticky Pivot View',
-    'version': '15.0.1.0.0',
+    'version': '15.0',
     'summary': 'Helps to stick the pivot view (Row and Column)',
     'description': 'Helps to stick the pivot view (Row and Column)',
     'category': 'Tools',
