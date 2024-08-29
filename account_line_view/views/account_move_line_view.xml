@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-
-        <record id="account_line_tree_view" model="ir.ui.view">
-            <field name="name">account line tree view</field>
+        <record id="account_line_view_tree" model="ir.ui.view">
+        <!--  Tree view of account line   -->
+            <field name="name">account.line.view.tree</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
                 <tree>
@@ -21,8 +21,9 @@
             </field>
         </record>
 
-        <record id="account_line_kanban_view" model="ir.ui.view">
-            <field name="name">account.line.kanban.view</field>
+        <record id="account_line_view_kanban" model="ir.ui.view">
+            <!--  Kanban view of account line   -->
+            <field name="name">account.line.view.kanban</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="partner_id">
@@ -63,8 +64,9 @@
             </field>
         </record>
 
-        <record id="account_line_pivot_view_pivot" model="ir.ui.view">
-            <field name="name"> account pivot view</field>
+        <record id="account_line_view_pivot" model="ir.ui.view">
+            <!--  Pivot view of account line   -->
+            <field name="name"> account.line.pivot.view</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
                 <pivot string="Pivot View" sample="1">
@@ -77,8 +79,9 @@
             </field>
         </record>
 
-        <record id="account_line_graph_view" model="ir.ui.view">
-            <field name="name">account.line.graph.view</field>
+        <record id="account_line_view_graph" model="ir.ui.view">
+            <!--  Graph view of account line   -->
+            <field name="name">account.line.view.graph</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
                 <graph string="Invoice Line" type="bar">
@@ -89,8 +92,9 @@
             </field>
         </record>
 
-        <record id="account_line_calender_view" model="ir.ui.view">
-            <field name="name">account.line.calender</field>
+        <record id="account_line_view_calender" model="ir.ui.view">
+            <!--  Calendar view of account line   -->
+            <field name="name">account.line.view.calender</field>
             <field name="model">account.move.line</field>
             <field name="arch" type="xml">
                 <calendar date_start="date" string="Tasks">
@@ -101,16 +105,17 @@
         </record>
 
         <record id="action_account_line_view" model="ir.actions.act_window">
+            <!-- Views of account line   -->
             <field name="name">Account Line</field>
             <field name="res_model">account.move.line</field>
             <field name="view_mode">tree,form,kanban,pivot,graph</field>
             <field name="domain">[('product_id','!=',False)]</field>
             <field name="view_ids" eval="[(5, 0, 0),
-                    (0, 0, {'view_mode': 'tree', 'view_id': ref('account_line_tree_view')}),
-                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('account_line_kanban_view')}),
-                    (0, 0, {'view_mode': 'pivot', 'view_id': ref('account_line_pivot_view_pivot')}),
-                     (0, 0, {'view_mode': 'graph', 'view_id': ref('account_line_graph_view')}),
-                     (0, 0, {'view_mode': 'calendar', 'view_id': ref('account_line_calender_view')})
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('account_line_view_tree')}),
+                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('account_line_view_kanban')}),
+                    (0, 0, {'view_mode': 'pivot', 'view_id': ref('account_line_view_pivot')}),
+                     (0, 0, {'view_mode': 'graph', 'view_id': ref('account_line_view_graph')}),
+                     (0, 0, {'view_mode': 'calendar', 'view_id': ref('account_line_view_calender')})
                     ]"/>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
@@ -119,9 +124,9 @@
             </field>
         </record>
 
+        <!--  Creating menu of Account line under Accounting-->
         <menuitem id="menu_account_line_view" name="Account Line" sequence="300"
                   parent="account.menu_finance_entries"
                   action="action_account_line_view">
         </menuitem>
-    </data>
 </odoo>

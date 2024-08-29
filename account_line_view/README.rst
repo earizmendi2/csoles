@@ -1,24 +1,28 @@
-ACCOUNT LINE VIEWS
-==================
+.. image:: https://img.shields.io/badge/license-LGPL--3-green.svg
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+
+
+Account Invoice Line Views
+==========================
 * Account Invoice/Bill Lines Tree,Form,Kanban,Pivot,Graph,Calendar Views
 
-Installation
-============
-	- www.odoo.com/documentation/16.0/setup/install.html
-	- Install our custom addon
+Configuration
+=============
+* No additional configuration needed.
 
 License
 -------
 General Public License, Version 3 (LGPL v3).
-(https://www.odoo.com/documentation/user/16.0/legal/licenses/licenses.html)
+(https://www.gnu.org/licenses/lgpl-3.0-standalone.html)
 
 Company
 -------
-* 'Cybrosys Techno Solutions <https://cybrosys.com/>'__
+* `Cybrosys Techno Solutions <https://cybrosys.com/>`__
 
 Credits
 -------
-* 'Cybrosys Techno Solutions <https://cybrosys.com/>'__
+* Developers: (V17) Swathy K S
 
 Contacts
 --------
@@ -30,6 +34,8 @@ Bugs are tracked on GitHub Issues. In case of trouble, please check there if you
 
 Maintainer
 ==========
+.. image:: https://cybrosys.com/images/logo.png
+   :target: https://cybrosys.com
 This module is maintained by Cybrosys Technologies.
 
 For support and more information, please visit https://www.cybrosys.com

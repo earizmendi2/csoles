@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-#############################################################################
+##############################################################################
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
-#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
+#    Copyright (C) 2024-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Swathy K S (odoo@cybrosys.com)
 #
 #    You can modify it under the terms of the GNU LESSER
 #    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
@@ -18,14 +18,17 @@
 #    (LGPL v3) along with this program.
 #    If not, see <http://www.gnu.org/licenses/>.
 #
-#############################################################################
+##############################################################################
 {
     'name': "Account Invoice Line Views",
-    "description": """ccount Invoice/Bill
-                    Lines Tree,Form,Kanban,Pivot,Graph,Calendar Views""",
-    "summary": "Account Invoice/Bill Lines Tree,Form,Kanban,Pivot,Graph,Calendar Views",
+    "version": "17.0.1.0.0",
     "category": "Accounting",
-    "version": "16.0.1.0.0",
+    "summary": "Account Invoice/Bill Lines Tree,"
+               "Form,Kanban,Pivot,Graph,Calendar Views",
+    "description": """This module enables users to count invoice/bill lines 
+                    through various views including tree, form, kanban, pivot, 
+                    graph, and calendar, facilitating comprehensive analysis 
+                    and management.""",
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
@@ -39,9 +42,9 @@
         'views/account_move_line_view.xml'
     ],
     'images': [
-        'static/description/banner.png', ],
+        'static/description/banner.jpg'],
     'license': 'LGPL-3',
     'installable': True,
-    'application': False,
     'auto_install': False,
+    'application': False,
 }
