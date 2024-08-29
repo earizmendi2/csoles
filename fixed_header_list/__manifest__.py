@@ -3,7 +3,7 @@
 
 {
     'name': 'Fixed Header List View',
-    'version': '15.0.1.0.0',
+    'version': '15.0',
     'sequence': 1,
     'summary': """
         Sticky Tree View Fixed Tree View, All in one Tree View, Fix List Header Table, Fixed Table Header 
