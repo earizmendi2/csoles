@@ -1,0 +1,36 @@
+<odoo>
+    <record model="ir.ui.view" id="sale_order_hide_margin_form_view">
+        <field name="name">sale.order.margin.desc.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='order_lines']" position="inside">
+                <field name="hide_margin" invisible="1"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/field/tree/field[@name='purchase_price']"
+                   position="attributes">
+                <attribute name="attrs">{'column_invisible':[('parent.hide_margin', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/field/tree/field[@name='margin']"
+                   position="attributes">
+                <attribute name="attrs">{'column_invisible':[('parent.hide_margin', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/field/tree/field[@name='margin_percent']"
+                   position="attributes">
+                <attribute name="attrs">{'column_invisible':[('parent.hide_margin', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/field/tree/field[@name='margin_percent']"
+                   position="attributes">
+                <attribute name="attrs">{'column_invisible':[('parent.hide_margin', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/group[@name='note_group']/group[@name='sale_total']/label"
+                   position="attributes">
+                <attribute name="attrs">{'invisible':[('hide_margin', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('text-nowrap')]"
+                   position="attributes">
+                <attribute name="attrs">{'invisible':[('hide_margin', '=', True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
