@@ -1,5 +1,0 @@
-<odoo>
-    <record model="res.groups" id="sale_margin_hide_group">
-        <field name="name">Show Margin In Sale Order</field>
-    </record>
-</odoo>
