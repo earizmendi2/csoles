@@ -34,7 +34,7 @@ class AccountMoveLine(models.Model):
                                      compute='_compute_margin', store=True,
                                      digits='Product Price',
                                      help='The percentage of margin',
-                                     group_operator='avg')
+                                     group_operator='avg',)
 
     @api.depends('quantity', 'price_unit', 'discount')
     def _compute_margin(self):
