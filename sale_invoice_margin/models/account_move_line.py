@@ -33,8 +33,7 @@ class AccountMoveLine(models.Model):
     margin_percentage = fields.Float(string='Margin Percentage',
                                      compute='_compute_margin', store=True,
                                      digits='Product Price',
-                                     help='The percentage of margin',
-                                     group_operator='avg',)
+                                     help='The percentage of margin',)
 
     @api.depends('quantity', 'price_unit', 'discount')
     def _compute_margin(self):
