@@ -6,5 +6,5 @@
 #$ git commit --allow-empty -m 'Trigger update 28 09 24'; git push
 $ git commit --allow-empty -m 'Trigger update'; git push
 #Empty commit for the push migration from 16 to 17 version. 10 01 25
-#Empty commit for the push migration from 16 to 17 version. 13 01 25
+#Empty commit for the push migration from 16 to 17 version. 13 01 25 v2
 
