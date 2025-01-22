@@ -10,4 +10,5 @@ $ git commit --allow-empty -m 'Trigger update'; git push
 #Empty commit for the push migration from 16 to 17 version. 14 01 25 v1
 #Empty commit fot migration test on 18 01 25
 #Empty commit fot migration test on 20 01 25
+#Empty commit fot migration test on 22 01 25
 
