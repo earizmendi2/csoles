@@ -12,4 +12,4 @@ $ git commit --allow-empty -m 'Trigger update'; git push
 #Empty commit fot migration test on 20 01 25
 #Empty commit fot migration test on 22 01 25
 #Empty commit fot migration test on 24 01 25
-
+#empty git 
