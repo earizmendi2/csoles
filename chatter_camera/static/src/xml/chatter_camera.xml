@@ -18,7 +18,7 @@
                     </center>
                 </footer>
                 <span hidden="hidden">
-                <canvas id="canvas" width="1250" height="1050"></canvas>
+                <canvas id="canvas" width="1250" height="950"></canvas>
                 </span>
             </div>
             </div>
