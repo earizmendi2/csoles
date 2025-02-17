@@ -22,7 +22,7 @@
 
 {
     'name': 'Chatter Camera',
-    'version': '16.0.2.0.0',
+    'version': '17.0.2',
     'summary': 'camera on chatter',
     'category': 'Extra Tools',
     'description': 'capture the images from the chatter, and also we can attach the corresponding images',
