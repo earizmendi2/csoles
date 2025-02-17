@@ -2,8 +2,8 @@
 ###############################################################################
 #
 #    Cybrosys Technologies Pvt. Ltd.
-#    Copyright (C) 2023-TODAY Cybrosys Technologies(<https://www.cybrosys.com>).
-#    Author: Cybrosys Technologies(odoo@cybrosys.com)
+#    Copyright (C) 2024-TODAY Cybrosys Technologies(<https://www.cybrosys.com>).
+#    Author: Gayathri V (odoo@cybrosys.com)
 #
 #    This program is free software: you can modify
 #    it under the terms of the GNU LESSER GENERAL PUBLIC LICENSE (LGPL) as
@@ -19,25 +19,25 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 ###############################################################################
-
 {
     'name': 'Chatter Camera',
-    'version': '17.0.2',
+    'version': '17.0.1.0.0',
     'summary': 'camera on chatter',
     'category': 'Extra Tools',
-    'description': 'capture the images from the chatter, and also we can attach the corresponding images',
+    'description': 'capture the images from the chatter, and also we can attach '
+                   'the corresponding images',
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
-    'images': ['static/description/banner.png'],
     'website': 'https://www.cybrosys.com',
-    'depends': ['base', 'base_setup', 'sale', 'mail', 'web'],
+    'depends': ['base_setup', 'sale', 'mail', 'web'],
     'assets': {
         'web.assets_backend': [
             'chatter_camera/static/src/js/chatter_camera.js',
             'chatter_camera/static/src/xml/chatter_camera.xml',
         ],
     },
+    'images': ['static/description/banner.png'],
     'license': 'LGPL-3',
     'installable': True,
     'application': False,
