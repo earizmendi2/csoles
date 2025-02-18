@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="saleorder_product_onhand_qty_form_view_custom" model="ir.ui.view">
+            <field name="name">Sale Order Line Product Onhand Qty</field>
+            <field name="model">custom.saleorder.product.onhand.qty</field>
+            <field name="arch" type="xml">
+                <form string="Sale Order Line Product Onhand Qty">
+                    <field name="tabel_body"/>
+                    <footer>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_saleorder_product_onhand_qty_custom" model="ir.actions.act_window">
+            <field name="name">Sale Order Line Product Onhand Qty</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">custom.saleorder.product.onhand.qty</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
