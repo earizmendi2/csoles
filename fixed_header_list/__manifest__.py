@@ -3,7 +3,7 @@
 
 {
     'name': 'Fixed Header List View',
-    'version': '15.0.1.0.0',
+    'version': '17.1',
     'sequence': 1,
     'summary': """
         Set Fix Header List, Set Fix Header Tree, Set Permanent Header List, Web Sticky Header List, Freeze Header List, 
