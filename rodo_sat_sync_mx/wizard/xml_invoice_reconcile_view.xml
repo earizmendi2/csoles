@@ -8,13 +8,13 @@
                 <tree string="Conciliar compras" editable="bottom" create="false">
                     <field name="attachment_id" readonly="1"/>
                     <field name="folio_factura" readonly="1"/>
-                    <field name="client_rfc" invisible="1"/>
-                    <field name="invoice_type" invisible="1"/>
+                    <field name="client_rfc" column_invisible="True"/>
+                    <field name="invoice_type" column_invisible="True"/>
                     <field name="invoice_id" required="1" domain="[('move_type','=', invoice_type),('partner_id.vat', '=', client_rfc)]"/>
                     <field name="date" readonly="1"/>
                     <field name="client_name" readonly="1"/>
                     <field name="amount" readonly="1"/>
-                    <field name="reconcilled" invisible="1"/>
+                    <field name="reconcilled" column_invisible="True"/>
                     <button name="action_reconcile" invisible="reconcilled == True" string="Conciliar" type="object" class="oe_highlight"/> 
                </tree>
             </field>
