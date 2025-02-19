@@ -11,10 +11,7 @@
 
             </xpath>
 
-            <xpath expr="//button[@name='button_cancel']">
-                
-
-            </xpath>
+            
         </field>
     </record>
 </odoo>
