@@ -3,7 +3,7 @@
 {
   
     'name': "HR Employee Timesheet Excel and PDF Report in Odoo",
-    'version': '16.0.0.1',
+    'version': '17.1',
     'license':'OPL-1',
     'category': 'Human Resources',
     'summary': "Print Employee timesheet report print timesheet report download employee timesheet pdf report export timesheet excel employee timesheet excel report download timesheet report for employee attendance report daily timesheet report daily employee timesheets",
