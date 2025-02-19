@@ -6,12 +6,16 @@
         <field name="arch" type="xml">
         
             <xpath expr="//button[@name='button_cancel']" position="before">
-                <button name="button_send_to_approver" groups="purchase_double_approvals.group_second_approval_user" type="object" states="initial_approve" string="Send To Approve" id="send_to_approve"/>
-                <button name="button_cancel_request" groups="purchase_double_approvals.group_second_approval_user" type="object" states="initial_approve" string="Cancel" id="send_to_cancel"/>
+                <button name="button_send_to_approver" groups="purchase_double_approvals.group_second_approval_user" type="object" string="Send To Approve" id="send_to_approve"/>
+                <button name="button_cancel_request" groups="purchase_double_approvals.group_second_approval_user" type="object" string="Cancel" id="send_to_cancel"/>
 
             </xpath>
 
-            
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                invisible ="state in ('draft','sent','purchase','to approve')"
+                <attribute name="groups">purchase.group_purchase_manager</attribute>
+
+            </xpath>
         </field>
     </record>
 </odoo>
