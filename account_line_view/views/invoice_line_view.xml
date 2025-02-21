@@ -101,7 +101,7 @@
         <field name="model">account.move.line</field>
         <field name="arch" type="xml">
             <graph string="Invoice Line" type="bar">
-                <field name="product_id" group="True"/>
+                <field name="product_id" groups="True"/>
                 <field name="partner_id" type="measure"/>
                 <field name="price_subtotal" type="measure"/>
             </graph>
