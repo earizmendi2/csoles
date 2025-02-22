@@ -22,7 +22,7 @@
 
 {
     'name': 'Export Product Stock in Excel',
-    'version': '15.0.1.0.0',
+    'version': '17.0',
     'live_test_url': 'https://www.youtube.com/watch?v=9ae4GkApHQM',
     'summary': "Current Stock Report for all Products in each Warehouse",
     'description': "Current Stock Report for all Products in each Warehouse, Odoo 13,Odoo13",
