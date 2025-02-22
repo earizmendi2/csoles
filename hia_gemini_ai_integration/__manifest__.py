@@ -7,7 +7,7 @@
     'company': 'Himanjali Intelligent Automation Private Limited',
     'maintainer': 'Himanjali Intelligent Automation Private Limited',
     'website': "https://www.himanjali.com/",
-    'version': '16.0.1.0',
+    'version': '17.0',
     'depends': ['base', 'base_setup', 'mail'],
     'data': [
         'security/ir.model.access.csv',
