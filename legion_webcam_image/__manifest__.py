@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Live WebCam Image | Image Widget",
-    "version": "16.0.1.3",
+    "version": "17.1",
     "author": "Bytelegion",
     "website": "http://www.bytelegions.com",
     'company': 'Bytelegion',
