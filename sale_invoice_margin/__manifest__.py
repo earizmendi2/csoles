@@ -21,7 +21,7 @@
 ################################################################################
 {
     'name': "Sale Invoice Margin",
-    'version': "16.0.1.0.0",
+    'version': "17.0",
     'category': 'Accounting, Sales',
     'summary': """For analysing the margin of Sales and Invoice""",
     'description': "It allows to view and analyse the margin in the pivot view"
