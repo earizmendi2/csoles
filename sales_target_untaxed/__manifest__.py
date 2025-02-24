@@ -21,7 +21,7 @@
 #############################################################################
 {
     "name": "Sales Target VS Achievement Reduce Price",
-    "version": "16.0.1.0.0",
+    "version": "17.0",
     'category': 'Sales, CRM',
     "summary": "Sales Target and Achievements based on Salesperson's taking price reduce before tax "
                "individual target",
