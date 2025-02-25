@@ -19,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Project Task Timer',
-    'version': '15.0.1.0.0',
+    'version': '17.0',
     'summary': """Task Timer With Start & Stop""",
     'description': """"This module helps you to track time sheet in project automatically.""",
     'category': 'Project',
