@@ -6,7 +6,7 @@
             <field name="view_mode">tree,form</field>
         </record>       
         
-        <menuitem id="azk_compression_rules" name="Attachments Compression Rules" parent="base.next_id_9" action="azk_rules_actions"/>
+        
         
         <act_window name="Debug this rule" id="comp_rule_act"
                     res_model="debug.rule" binding_model="rules" 
