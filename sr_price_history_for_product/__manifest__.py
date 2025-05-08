@@ -10,6 +10,7 @@
 
 {
     'name': "Sales and Purchase Price History for Products",
+    'version': "18.0.0.0",
     'summary': "With the help of this module, You can find the rate which you have given to that customers/suppliers in past for that product.",
     'category': 'Sales',
     'description': """
@@ -25,11 +26,10 @@
     product wise sale price history
     product wise purchase price history
     product wise sale history
-    
     """,
     'author': "Sitaram",
     'website':"https://sitaramsolutions.in",
-    'depends': ['base', 'sale_management', 'purchase'],
+    'depends': ['base', 'sale_management', 'purchase', 'sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/inherited_product.xml',
@@ -44,5 +44,4 @@
     'images': ['static/description/banner.png'],
     "price": 0,
     "currency": 'EUR',
-    
 }

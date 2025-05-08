@@ -11,10 +11,10 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
+
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    
     def _get_sale_price_history(self):
         ICPSudo = self.env['ir.config_parameter'].sudo()
         sale_history_obj = self.env['sr.sale.price.history'].sudo()
@@ -44,7 +44,7 @@ class ProductTemplate(models.Model):
                     'sale_order_id' : line.order_id.id,
                     'sale_order_date' : line.order_id.date_order,
                     'product_uom_qty' : line.product_uom_qty,
-                    'unit_price' : line.price_reduce_taxexcl,
+                    'unit_price' : line.price_unit,
                     'currency_id' : line.currency_id.id,
                     'total_price' : line.price_subtotal
                 })
@@ -86,8 +86,6 @@ class ProductTemplate(models.Model):
                 })
             purchase_history_ids.append(purchase_price_history_id.id)
         self.purchase_price_history_ids = purchase_history_ids
-
-
 
     sale_price_history_ids = fields.Many2many("sr.sale.price.history",string="Sale Price History",compute="_get_sale_price_history")
     purchase_price_history_ids = fields.Many2many("sr.purchase.price.history",string="Purchase Price History", compute="_get_purchase_price_history")
@@ -169,8 +167,5 @@ class ProductProduct(models.Model):
             purchase_history_ids.append(purchase_price_history_id.id)
         self.purchase_price_history_ids = purchase_history_ids
 
-
-
     sale_price_history_ids = fields.Many2many("sr.sale.price.history",string="Sale Price History",compute="_get_sale_price_history")
     purchase_price_history_ids = fields.Many2many("sr.purchase.price.history",string="Purchase Price History", compute="_get_purchase_price_history")
-
