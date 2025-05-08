@@ -10,7 +10,6 @@
 
 {
     'name': "Sales and Purchase Price History for Products",
-    'version': "15.0.1.0",
     'summary': "With the help of this module, You can find the rate which you have given to that customers/suppliers in past for that product.",
     'category': 'Sales',
     'description': """
