@@ -20,7 +20,6 @@
 ##############################################################################
 {
     'name': 'Project Task Checklist',
-    'version': '15.0.1.0.1',
     'category': 'Project/Project',
     'summary': "To Manage the Project's tasks, subtasks checklists",
     'description': "To Manage the Project's tasks, subtasks checklists",

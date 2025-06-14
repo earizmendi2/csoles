@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -18,7 +19,8 @@ class SaleOrder(models.Model):
             for rec in self:
                 line_ids = self.env['sale.order.line']
                 for line in rec.order_line:
-                    if not line.order_id.custom_check_onhand_qty and line.product_id.product_tmpl_id.custom_check_onhand_qty and line.product_type == 'product':
+                    if not line.order_id.custom_check_onhand_qty and line.product_id.product_tmpl_id.custom_check_onhand_qty and line.product_type == 'consu':
+                        #raise UserError("dentro del if")
                         if line.virtual_available_at_date < line.qty_to_deliver and not line.is_mto:
                             line_ids += line
                 if line_ids:
