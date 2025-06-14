@@ -1,6 +1,5 @@
 {
     'name': 'Sale Target',
-    'version': '15.0.3.0.2.0',
     'summary': 'To target the salesperson with the amount target also includind sales team',
     'description': 'To target the salesperson with the amount target and the team',
     'category': 'Sale',

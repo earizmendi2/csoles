@@ -1,13 +1,15 @@
-.. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
-    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/license-LGPL--3-blue.svg
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
+
 Chatter Camera
-=======================
+==============
  This module helps you to capture the images from the chatter, and also we can attach the corresponding images.
 
 Configuration
 =============
 No configuration
+
 Company
 -------
 * `Cybrosys Techno Solutions <https://cybrosys.com/>`__
@@ -15,11 +17,13 @@ Company
 License
 -------
 General Public License, Version 3 (LGPL v3).
-(https://www.odoo.com/documentation/user/16.0/legal/licenses/licenses.html)
+(https://www.gnu.org/licenses/lgpl-3.0-standalone.html)
 
 Credits
 -------
-Developers: Version 16 - Fathima Mazlin AM @cybrosys
+Developers: (V16) Fathima Mazlin,
+            (V17) Gayathri V
+            (V18) Gayathri V
 
 Contact: odoo@cybrosys.com
 

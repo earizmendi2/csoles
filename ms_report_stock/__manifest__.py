@@ -1,6 +1,5 @@
 {
     "name"          : "Stock Report",
-    "version"       : "1.1",
     "author"        : "Miftahussalam",
     "website"       : "https://blog.miftahussalam.com",
     "category"      : "Reporting",

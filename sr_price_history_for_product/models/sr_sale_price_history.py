@@ -27,5 +27,3 @@ class srSalePriceHistory(models.Model):
     unit_price = fields.Float(string="Price")
     currency_id = fields.Many2one("res.currency",string="Currency Id")
     total_price = fields.Monetary(string="Total")
-
-
