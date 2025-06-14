@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'CFDI Decimal Presition Fixed v3.3',
-    'version': '1.0',
     'images':['static/description/icon.png'],
     'summary': """CFDI Decimal Presition Fixed v3.3""",
     'description': "",

@@ -1,6 +1,7 @@
 ## Module <account_line_view>
 
-#### 10.12.2022
-#### Version 16.0.1.0.0
+#### 10.10.2024
+#### Version 18.0.1.0.0
 ##### ADD
-- Initial Commit
+
+- Initial Commit for Account Invoice Line Views

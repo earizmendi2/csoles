@@ -11,6 +11,7 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
+
 class srPurchasePriceHistory(models.Model):
     _name = 'sr.purchase.price.history'
     _description = 'Purchase Price History'
@@ -26,4 +27,3 @@ class srPurchasePriceHistory(models.Model):
     unit_price = fields.Float(string="Price")
     currency_id = fields.Many2one("res.currency",string="Currency Id")
     total_price = fields.Monetary(string="Total")
-

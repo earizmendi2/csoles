@@ -3,7 +3,6 @@
 
 {
     'name': 'Fixed Header Kanban View',
-    'version': '15.0.1.0.0',
     'sequence': 1,
     'summary': """
         Set Fix Header Kanban, Set Permanent Header Kanban, Web Sticky Header Kanban, Freeze Header Kanban, Set Fix Header, 

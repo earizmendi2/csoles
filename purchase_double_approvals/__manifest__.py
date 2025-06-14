@@ -14,7 +14,6 @@
     'website': "https://www.10orbits.com",
     
     'category': 'Purchase',
-    'version': '15.0.1.0.0',
 
     'depends': ['purchase'],
     
