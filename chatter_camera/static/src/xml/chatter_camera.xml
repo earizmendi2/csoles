@@ -8,7 +8,7 @@
                  <i class="fa fa-camera-retro"/>
              </button>
              <center>
-                <div id="myModal" class="modal" style=" width:35%; height:58%;">
+                <div id="myModal" class="modal" style=" width:35%; height:78%;">
                 <div class="modal-content">
                     <header>
                     <video id="videoCam" t-ref="video"/>
@@ -20,7 +20,7 @@
                         </center>
                     </footer>
                     <span hidden="hidden">
-                    <canvas id="canvas" width="150" height="100" t-ref="canvas"/>
+                    <canvas id="canvas" width="2150" height="1600" t-ref="canvas"/>
                     </span>
                 </div>
                 </div>
