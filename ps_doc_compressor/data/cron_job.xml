@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="ir_cron_image_pdf_compressor" model="ir.cron">
+        <field name="name">Image &amp; Pdf Compressor</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="model_id" ref="base.model_ir_attachment"/>
+        <field name="code">model.compress_large_files()</field>
+        <field name="state">code</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>
