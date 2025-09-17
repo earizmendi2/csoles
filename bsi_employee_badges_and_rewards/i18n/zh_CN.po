@@ -1,0 +1,307 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bsi_employee_badges_and_rewards
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-20 06:13+0000\n"
+"PO-Revision-Date: 2023-01-20 06:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "<span style=\"color: #8a9c2d;\">Employee of the Month</span>"
+msgstr "<span style=\"color: #8a9c2d;\">本月最佳员工</span>"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "<span style=\"color: #8a9c2d;\">Employee of the Year</span>"
+msgstr "<span style=\"color: #8a9c2d;\">年度最佳员工</span>"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "<strong><span style=\"color: #8a9c2d;\">CERTIFICATE</span></strong><br/>"
+msgstr "<strong><span style=\"color: #8a9c2d;\">证书</span></strong><br/>"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__badge_id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__badge_id
+msgid "Badge"
+msgstr "徽章"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__badge_line_ids
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_hr_employee__badge_line_ids
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_employee_badge_configuration_form
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Badge History"
+msgstr "徽章历史"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Best of Month"
+msgstr "月最佳"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Best of Year"
+msgstr "年度最佳"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_reward_wizard_form_view
+msgid "Cancel"
+msgstr "取消"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Certificates"
+msgstr "证书"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_reward_wizard_form_view
+msgid "Confirm"
+msgstr "确认"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__create_uid
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__create_uid
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__create_uid
+msgid "Created by"
+msgstr "由...制作"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__create_date
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__create_date
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__date
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__date
+msgid "Date"
+msgstr "日期"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__display_name
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__display_name
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model,name:bsi_employee_badges_and_rewards.model_hr_employee
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__employee_id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__employee_id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__employee_id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_project_task__related_employee_id
+msgid "Employee"
+msgstr "员工"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_employee_badge_configuration_form
+msgid "Employee Badge"
+msgstr "员工徽章"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model,name:bsi_employee_badges_and_rewards.model_employee_badge_configuration
+msgid "Employee Badge Configuration"
+msgstr "员工徽章配置"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model,name:bsi_employee_badges_and_rewards.model_employee_badge_line
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_employee_badge_line_form
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_employee_badge_line_tree
+msgid "Employee Badge Lines"
+msgstr "员工徽章行"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.actions.act_window,name:bsi_employee_badges_and_rewards.action_employee_reward_wizard_view
+msgid "Employee Badge Wizard"
+msgstr "员工徽章向导"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.actions.act_window,name:bsi_employee_badges_and_rewards.action_employee_badge_configuration
+#: model:ir.ui.menu,name:bsi_employee_badges_and_rewards.menu_employee_badge_configuration
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_employee_badge_configuration_tree
+msgid "Employee Badges"
+msgstr "员工徽章"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.actions.report,name:bsi_employee_badges_and_rewards.action_employee_certificate_report
+msgid "Employee Certificate"
+msgstr "员工证"
+
+#. module: bsi_employee_badges_and_rewards
+#: code:addons/bsi_employee_badges_and_rewards/models/hr_employee.py:0
+#, python-format
+msgid "Employee Certificates"
+msgstr "员工证"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model,name:bsi_employee_badges_and_rewards.model_employee_reward_wizard
+msgid "Employee Reward Wizard"
+msgstr "员工奖励向导"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.actions.server,name:bsi_employee_badges_and_rewards.scheduler_employee_rewards_ir_actions_server
+#: model:ir.cron,cron_name:bsi_employee_badges_and_rewards.scheduler_employee_rewards
+#: model:ir.cron,name:bsi_employee_badges_and_rewards.scheduler_employee_rewards
+msgid "Employee Rewards and Certificates"
+msgstr "员工奖励及证书"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_project_task_for_employee_rewards_form
+msgid "Give Badge"
+msgstr "给徽章"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid ""
+"If this makes you feel better, a raise can't be framed and hung on the wall "
+"like this can."
+msgstr "如果这让你感觉好些，加薪不能像这样装裱起来挂在墙上。"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid ""
+"In recognition of your constant effort to improve your performance. Awarded "
+"on"
+msgstr "表彰您为提高绩效所做的不懈努力。颁发于"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_project_task__is_task_reward_done
+msgid "Is Reward Done"
+msgstr "奖励完成了吗"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration____last_update
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line____last_update
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard____last_update
+msgid "Last Modified on"
+msgstr "最后修改于"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__write_uid
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__write_uid
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__write_date
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__write_date
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__write_date
+msgid "Last Updated on"
+msgstr "最后更新于"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "Logo"
+msgstr "商标"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields.selection,name:bsi_employee_badges_and_rewards.selection__hr_employee__reward__month_best
+msgid "Month Best"
+msgstr "月最佳"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields.selection,name:bsi_employee_badges_and_rewards.selection__hr_employee__reward__month_worst
+msgid "Month Worst"
+msgstr "最差月份"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__name
+msgid "Name"
+msgstr "名称"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_configuration__priority
+msgid "Priority"
+msgstr "优先"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_hr_employee__reward
+msgid "Reward"
+msgstr "报酬"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_hr_employee__reward_date
+msgid "Reward Date"
+msgstr "奖励日期"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_hr_employee__reward_points
+msgid "Reward Points"
+msgstr "奖励分数"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model,name:bsi_employee_badges_and_rewards.model_project_task
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_badge_line__task_id
+#: model:ir.model.fields,field_description:bsi_employee_badges_and_rewards.field_employee_reward_wizard__task_id
+msgid "Task"
+msgstr "任务"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.constraint,message:bsi_employee_badges_and_rewards.constraint_employee_badge_configuration_priority_uniq
+msgid "The 'Priority' must be unique."
+msgstr "“优先级”必须是唯一的。"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "The CERTIFICATE is achieved with"
+msgstr "证书是通过以下方式获得的"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "To:"
+msgstr "到："
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Worst of Month"
+msgstr "月最差"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.view_extend_employee_for_balance_hours_form
+msgid "Worst of Year"
+msgstr "年度最差"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields.selection,name:bsi_employee_badges_and_rewards.selection__hr_employee__reward__year_best
+msgid "Year Best"
+msgstr "年度最佳"
+
+#. module: bsi_employee_badges_and_rewards
+#: model:ir.model.fields.selection,name:bsi_employee_badges_and_rewards.selection__hr_employee__reward__year_worst
+msgid "Year Worst"
+msgstr "最差年份"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "by the member of the"
+msgstr "由成员"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "hr1"
+msgstr "hr1"
+
+#. module: bsi_employee_badges_and_rewards
+#: model_terms:ir.ui.view,arch_db:bsi_employee_badges_and_rewards.employee_certificate_report_document
+msgid "reward points"
+msgstr "奖励分数"
