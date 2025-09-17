@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_sale_order_item_form" model="ir.ui.view">
+            <field name="name">sale.order.item.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="get_suggestions" type="object" class="oe_stat_button" icon="fa-product-hunt icon">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Suggested</span>
+                            <span class="o_stat_text">Products</span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sale_order_settings_form" model="ir.ui.view">
+            <field name="name">sale.order.settings.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]/div[hasclass('app_settings_block')]/div[@id='sale_ebay']"
+                       position="after">
+                    <h2>Suggested Products Configuration</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <button class="oe_highlight pt-4 pb-4" name="update_knowledge_base" type="object"
+                                        icon="fa-database fa-2x icon" string="  ">
+                                    <strong>Update Knowledge Base</strong>
+                                </button>
+                                <div class="text-muted">
+                                    <br/>
+                                    Press this button to update the knowledge base with latest transactions
+                                    <p class="text-info"><strong>Recommendation: </strong>It is recommended to update the
+                                        knowledge base in timely manner
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <strong>Parameters for suggested parameters</strong>
+                                <div class="text-muted">
+                                    Set the support and confidence to get the best suggested products.
+                                    <br/>
+                                    <div class="text-danger">
+                                        <strong>Warning! </strong>
+                                        Don't change these parameters unless you know its scrutiny
+                                    </div>
+                                </div>
+                                <group>
+                                    <field name="min_support" min="0" max="100"/>
+                                    <field name="min_confidence" min="0" max="100"/>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
