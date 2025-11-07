@@ -31,7 +31,7 @@ class ProductTemplate(models.Model):
         elif sale_order_status == 'done':
             domain += [('state','=','done')]
         else:
-            domain += [('state','=',('sale','done'))]
+            domain += [('state','in',('sale','done'))]
 
         sale_order_line_ids = self.env['sale.order.line'].sudo().search(domain,limit=sale_order_line_record_limit,order ='create_date desc')
         for line in sale_order_line_ids:
@@ -67,7 +67,7 @@ class ProductTemplate(models.Model):
         elif purchase_order_status == 'done':
             domain += [('state','=','done')]
         else:
-            domain += [('state','=',('purchase','done'))]
+            domain += [('state','in',('purchase','done'))]
 
         purchase_order_line_ids = self.env['purchase.order.line'].sudo().search(domain,limit=purchase_order_line_record_limit,order ='create_date desc')
         for line in purchase_order_line_ids:
@@ -111,7 +111,7 @@ class ProductProduct(models.Model):
         elif sale_order_status == 'done':
             domain += [('state','=','done')]
         else:
-            domain += [('state','=',('sale','done'))]
+            domain += [('state','in',('sale','done'))]
 
         sale_order_line_ids = self.env['sale.order.line'].sudo().search(domain,limit=sale_order_line_record_limit,order ='create_date desc')
         for line in sale_order_line_ids:
@@ -147,7 +147,7 @@ class ProductProduct(models.Model):
         elif purchase_order_status == 'done':
             domain += [('state','=','done')]
         else:
-            domain += [('state','=',('purchase','done'))]
+            domain += [('state','in',('purchase','done'))]
 
         purchase_order_line_ids = self.env['purchase.order.line'].sudo().search(domain,limit=purchase_order_line_record_limit,order ='create_date desc')
         for line in purchase_order_line_ids:
