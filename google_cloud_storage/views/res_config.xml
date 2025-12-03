@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>;) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : https://store.webkul.com/license.html/ -->
+<odoo>
+
+
+    <record id="res_config_settings_google_cloud_storage_view" model="ir.ui.view">
+        <field name="name">res.config.settings.google.cloud.storage.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Google Cloud Storage" string="Google Cloud Storage" name="google_cloud_storage" data-key="google_cloud_storage">
+                    <block title="Google Cloud Storage" id="google_cloud">
+                        <setting string="Google Cloud Key" help="Add the json file with Google Cloud Credentials" id="google_cloud_key" title="Add the json file with Google Cloud Credentials">
+                            <field name="file_selector" widget='binary'/>
+                        </setting>
+                        <setting string="Google Cloud Bucket" help="Add the name of the Google Cloud Bucket" id="bucket_name">
+                            <field name="cloud_bucket_name"/>
+                        </setting>      
+                        <setting string="Activate Google Cloud Storage" help="Activate for start using google cloud storage" id="activate_storage">
+                            <field name="activate_gc_storage"/>
+                        </setting>      
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
