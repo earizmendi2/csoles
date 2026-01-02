@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+    <record id="gemini_config" model="ai.config">
+        <field name="name">Gemini</field>
+        <field name="type">gemini</field>
+    </record>
+</odoo>
