@@ -16,7 +16,6 @@
     'application': True,
     "price"                :  250,
     "currency"             :  "USD",
-    "pre_init_hook"        :  "pre_init_check",  
     "external_dependencies":  {'python': ['google-cloud-storage']},
 }
 
