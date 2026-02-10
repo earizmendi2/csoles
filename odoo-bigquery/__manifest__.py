@@ -1,0 +1,35 @@
+{
+    'name': 'Pro BigQuery Connector - Filtering, Batching & Schedule Export',
+    'version': '18.0.1.0.2',
+    'summary': 'BigQuery connector, is a connection with column filtering and custom domain based filtering. pigment, france, This google bigquery, big query, inventory, ai, ml, machine learning, integration, realtime, real time, instant, sota, stock, delivery, chatgpt, chat gpt, gemini, mcp, forecasting, prediction, forcasting, future, arima, sarima, linear, connecter, helps make, europe, gdpr, eu, AI Dashboard, Google AI, AI analytics. All sorts of connctions are possibl as bigquery connects with and offers these: Looker studio, data studio,  data lake, machine learning, ML, artificial intelligence, AI reports,powerbi, power bi, qlik ,cloud, real time, realtime, data refresh, data gateway, Microsoft, warehouse, ware house, data warehouse, data ware house, cloud, redshift, red shift, forecasting, prediction, models, looker, data studio, GCC, gcp, was, ec2,stream, s3, amazon s3, aws s3, apache, apache spark, spark, SQL, cloud SQL, export, azure,chat gpt, gemini, google gemini, google, spreadsheet, spread sheet, excel, SAP, data migration, data lake, lake, machine learning, bigquery ML, ML, vertex AI, vertex, google connector, odoo connector,Big Query, Integration, The Pro Plus version of this connector also offers CDC, ai analytics, data analytics, google bigquery, data warehouse, cloud data, snowflake, redshift, teradata, db2, oracle, synapse, increental export. data analytics, Big query connector,  The refresh interval of pro plus variant can be as fast as one minute, making the connector real time, real-time,realtime connector. This makes sync of new data instantly. This google, big query, connecter, allows, odoo, data to, data warehouse, warehouse, of , google cloud. Features are domain filter, domain filtering, and column selection, analytics, ai, data analysis, artificial intelligence. Big qury connects to powerbi, looker, tableau, power bi and ore. Author is Niyu labs',
+    'author': 'Niyu Labs',
+    'description':'Fastest BigQuery Connector with domain based filtering, column filtering and Batching for large tables. Pro Plus variant of this connector offers all these with CDC/incremental export feature',
+    'website': 'https://niyulabs.com',
+    'maintainer': 'Niyu Labs',
+    'category': 'Connector',
+    'support': "info@niyulabs.com",
+    'live_test_url': 'https://calendar.app.google/SaHb1u3F2EYtqZtZ6',
+    'license': 'OPL-1',
+    'price': 449,
+    'currency': 'USD',
+    'depends': ['base', 'web'],
+    'images': ['static/description/banner.gif'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_config_settings_view.xml',
+        'views/bigquery_connector_menu.xml',
+        'views/bigquery_export_wizard_view.xml',
+        'views/bigquery_query_menu.xml',   
+        'views/bigquery_query_view.xml',  
+    ],
+    # 'assets': {
+    #     'web.assets_backend': [
+    #         'odoo-bigquery/static/src/css/hide_search_more.css',
+    #     ],
+    # },
+    'external_dependencies': {
+        'python': ['google-cloud-bigquery', 'pandas', 'pyarrow'],
+    },
+    'application': True,
+    'installable': True,
+}
