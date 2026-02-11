@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_bigquery_query_form_elegant" model="ir.ui.view">
+        <field name="name">bigquery.connector.query.form.elegant</field>
+        <field name="model">bigquery.connector.query</field>
+        <field name="arch" type="xml">
+            <form string="Export Query">
+                <sheet>
+                    <div style="background: linear-gradient(90deg,rgb(63, 64, 65), #66a3e0); padding: 15px; text-align: center; border-radius: 10px; margin-bottom: 30px;">
+                        <h2 style="color: #fff; margin: 0;">Export Query</h2>
+                        <p style="color: #e0e0e0; margin: 5px 0 0 0;">Configure and run your export query seamlessly</p>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name" string="Export Name" style="width: 100%; max-width: 500px;"/>
+                        </group>
+                        <group>
+                            <field name="table_name" widget="selection" string="Model" style="width: 100%; max-width: 500px; text-align: center;"/>
+                        </group>
+                        <group>
+                            <field id="bqniyuf" name="column_ids" widget="many2many_tags" string="Columns"
+                                options="{'no_create': True, 'no_quick_create': True, 'no_create_edit': True}" style="width: 100%; max-width: 500px;"/>
+                        </group>    
+                    </group>
+
+                    <group>
+                        <field name="incremental_sync_enabled" string="Incremental Auto Export" widget="boolean_toggle"/> 
+                        <!-- Temporarily always visible -->
+                        <field name="interval_minutes"/>
+                    </group>
+
+                    <group string="Advanced Domain Filter">
+                        <field name="domain_filter" placeholder="[('state','=','done')]" style="width: 100%; max-width: 500px;"/>
+                    </group>
+
+                    <footer>
+                        <button name="run_query" string="Run Query" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

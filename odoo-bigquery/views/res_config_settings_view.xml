@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_bigquery_amazing" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.bigquery_connector.amazing</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="BigQuery Connector PRO" 
+                     string="BIGQUERY CONNECTOR PRO" 
+                     name="bigquery_connector" 
+                     logo="/odoo_bigquery/static/description/niyulabs.png">
+                    
+                    <!-- Main Card Container with Gradient Background and Shadow -->
+                    <div style="background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        
+                        <!-- Header Section with Icon and Title -->
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <img src="/odoo_bigquery/static/description/niyulabs.png" alt="BigQuery Connector Icon" style="height: 50px; margin-right: 15px;"/>
+                            <span class="fs-2 fw-bold" style="color: #1565c0;">BIGQUERY CONNECTOR PRO</span>
+                        </div>
+                        
+                        <!-- Information Note with Left Border -->
+                        <div style="background: #ffffff; border-left: 4px solid #1565c0; padding: 10px 15px; border-radius: 5px; margin-bottom: 20px;">
+                            <span style="font-size: 1em; color: #424242;">
+                                <b>Note:</b> Please ensure you click the <b>"SAVE"</b> button after configuration.
+                            </span>
+                        </div>
+                        
+                        <!-- Settings Fields -->
+                       <group>
+                            <field name="bigquery_project_id" 
+                                class="o_input" 
+                                style="max-width:450px;"/>
+                            <field name="bigquery_dataset_id" 
+                                class="o_input" 
+                                style="max-width:450px;"/>
+                            <field name="bigquery_credentials_json" 
+                                widget="text" 
+                                class="o_input" 
+                                style="max-width:70vw; height:120px;"/>
+                        </group>
+                        
+                        <!-- Footer Info with Subtle Background -->
+                       <div style="padding: 15px; margin-top: 20px; border: 1px solid #ccc; border-radius: 4px; background: #f9f9f9;">
+                            <span style="font-size: 0.95em; color: #555;">
+                                Advanced <b>functionalities like Batch Export</b> for large data sets and Incremental export/<b>CDC is available as separate purchase,</b>
+                                contact developer at 
+                                <a href="mailto:info@niyulabs.com" style="color:#3b8ed0; text-decoration:underline;">info@niyulabs.com</a> or visit 
+                                <a href="https://niyulabs.com" target="_blank" style="color:#3b8ed0; text-decoration:underline;">our website</a>.
+                            </span>
+                        </div>
+                        
+                    </div>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
