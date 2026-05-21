@@ -1,6 +1,7 @@
 import logging
 import psycopg2
 import json
+import numpy as np
 import time
 from datetime import datetime, timedelta
 import pandas as pd
@@ -345,7 +346,8 @@ class BigQueryQuery(models.Model):
                 df[col] = df[col].astype(str).where(df[col].notna(), None)
 
             elif bq_type == 'FLOAT':
-                df[col] = pd.to_numeric(df[col], errors='coerce').astype(float)
+                df[col] = pd.to_numeric(df[col], errors='coerce').replace([np.inf, -np.inf], np.nan).astype('Int64')
+                #df[col] = pd.to_numeric(df[col], errors='coerce').astype(float)
 
             elif bq_type == 'INTEGER':
                 df[col] = pd.to_numeric(df[col], errors='coerce').astype('Int64')
