@@ -28,7 +28,7 @@ No modifica facturas, pagos ni asientos contables: solo la forma de expresar los
 importes en el XML del complemento de pago.
 """,
     'category': 'Accounting/Localizations/EDI',
-    'author': 'AsesoraIT',
+    'author': 'Rubén Castillo',
     'license': 'LGPL-3',
     'depends': ['l10n_mx_edi'],
     'installable': True,
