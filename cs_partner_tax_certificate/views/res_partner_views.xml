@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_cif_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.cif.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button type="object"
+                        name="action_open_import_cif_wizard"
+                        class="oe_stat_button"
+                        icon="fa-file-pdf-o"
+                        string="Importar CSF"/>
+                <button type="object"
+                        name="action_open_sat_url"
+                        class="oe_stat_button"
+                        icon="fa-qrcode"
+                        string="Constancia SAT"
+                        invisible="not sat_url"/>
+                <button type="object"
+                        name="action_update_from_sat"
+                        class="oe_stat_button"
+                        icon="fa-refresh"
+                        string="Actualizar SAT"
+                        invisible="not sat_url"/>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="after">
+                <!-- Bloque «Fiscal Information» bajo el RFC: cs_grupoandale_data
+                     (grupoandale_fiscal_information_sheet); se oculta con MX o con l10n_mx_edi. -->
+                <field name="sat_url" widget="url" string="URL Constancia SAT"/>
+            </xpath>
+
+            <!-- Régimen fiscal (SAT): solo si NO hay l10n_mx_edi (Community u otros).
+                 Con Enterprise México el régimen va en Ventas y compras → Información fiscal. -->
+            <xpath expr="//notebook/page[@name='sales_purchases']" position="inside">
+                <field name="cs_tax_cert_hide_fiscal_regime_beside_vat" invisible="1"/>
+                <group name="cs_tax_cert_fiscal_regime_group"
+                       string="Constancia SAT"
+                       invisible="cs_tax_cert_hide_fiscal_regime_beside_vat">
+                    <field name="fiscal_regime" string="Régimen Fiscal (SAT)"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_partner_list_cif_inherit" model="ir.ui.view">
+        <field name="name">res.partner.list.cif.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <header>
+                    <button name="%(action_import_from_cif)d"
+                            type="action"
+                            string="Nuevo desde CSF"
+                            class="btn-secondary"
+                            icon="fa-file-pdf-o"
+                            display="always"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_kanban_cif_inherit" model="ir.ui.view">
+        <field name="name">res.partner.kanban.cif.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <header>
+                    <button name="%(action_import_from_cif)d"
+                            type="action"
+                            string="Nuevo desde CSF"
+                            class="btn-secondary"
+                            icon="fa-file-pdf-o"
+                            display="always"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_search_cif_inherit" model="ir.ui.view">
+        <field name="name">res.partner.search.cif.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='type_person']" position="before">
+                <filter name="with_vat_mx"
+                        string="Con NIF / RFC"
+                        domain="[('vat','!=',False),('vat','!=','')]"/>
+                <filter name="without_vat"
+                        string="Sin NIF / RFC"
+                        domain="['|',('vat','=',False),('vat','=','')]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

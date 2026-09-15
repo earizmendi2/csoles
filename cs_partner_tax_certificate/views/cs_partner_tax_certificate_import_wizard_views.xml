@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_import_from_cif_wizard_form" model="ir.ui.view">
+        <field name="name">cs.partner.tax.certificate.import.wizard.form</field>
+        <field name="model">cs.partner.tax.certificate.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Crear Contacto desde Constancia de Situación Fiscal">
+
+                <header>
+                    <field name="step"
+                           widget="statusbar"
+                           statusbar_visible="upload,review,confirm_duplicate"
+                           readonly="1"/>
+                </header>
+
+                <sheet>
+
+                    <div invisible="step != 'upload'">
+
+                        <div class="text-center py-4">
+                            <i class="fa fa-file-pdf-o fa-5x text-danger" title="PDF"/>
+                            <h3 class="mt-3 mb-1">
+                                Constancia de Situación Fiscal
+                            </h3>
+                            <p class="text-muted" style="max-width:520px; margin:0 auto 24px;">
+                                Suba el PDF emitido por el SAT. El sistema extraerá
+                                automáticamente el RFC, razón social y domicilio fiscal.
+                            </p>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div style="min-width:420px;">
+                                <group>
+                                    <field name="pdf_file"
+                                           widget="binary"
+                                           filename="pdf_filename"
+                                           string="Archivo PDF"
+                                           required="step == 'upload'"/>
+                                    <field name="pdf_filename" invisible="1"/>
+                                </group>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-3 mx-4" role="alert">
+                            <i class="fa fa-info-circle me-2" title="Información"/>
+                            Solo se aceptan archivos PDF con firma digital del SAT.
+                            Tamaño máximo: 10 MB.
+                        </div>
+
+                    </div>
+
+                    <div invisible="step != 'review'">
+
+                        <field name="mx_edi_regime_available" invisible="1"/>
+
+                        <div class="oe_title mb-3">
+                            <h2 class="mb-0">
+                                <i class="fa fa-file-pdf-o text-danger me-2" title="PDF"/>
+                                Crear contactos desde Constancia Fiscal
+                            </h2>
+                            <small class="text-muted">
+                                Verifique y corrija los datos extraídos antes de crear el contacto.
+                            </small>
+                        </div>
+                        <hr class="mt-1 mb-3"/>
+
+                        <div class="alert alert-warning mx-0 mb-3"
+                             role="alert"
+                             invisible="not parse_warnings">
+                            <i class="fa fa-exclamation-triangle me-2" title="Advertencia"/>
+                            <strong>Campos no detectados – verifique manualmente:</strong>
+                            <field name="parse_warnings"
+                                   nolabel="1"
+                                   readonly="1"
+                                   style="white-space:pre-line;"/>
+                        </div>
+
+                        <group string="Identificación del contribuyente" col="2">
+
+                            <field name="vat"
+                                   required="step == 'review'"
+                                   placeholder="XAXX010101000"/>
+
+                            <field name="partner_type"/>
+
+                            <field name="partner_name"
+                                   string="Razón Social / Nombre"
+                                   required="step == 'review'"
+                                   colspan="2"
+                                   placeholder="Nombre completo o razón social"/>
+
+                            <field name="fiscal_regime"
+                                   string="Régimen fiscal (CFDI / EDI México)"
+                                   colspan="2"
+                                   invisible="not mx_edi_regime_available"/>
+
+                            <field name="fiscal_regime_text"
+                                   string="Régimen detectado en PDF"
+                                   readonly="1"
+                                   colspan="2"/>
+
+                        </group>
+
+                        <group string="Verificación SAT" col="1"
+                               invisible="not sat_url">
+                            <div class="d-flex align-items-center gap-2 px-2 py-1">
+                                <i class="fa fa-qrcode text-primary fa-lg" title="Código QR"/>
+                                <field name="sat_url"
+                                       nolabel="1"
+                                       readonly="1"
+                                       widget="url"
+                                       style="word-break:break-all;"/>
+                            </div>
+                        </group>
+
+                        <group string="Domicilio fiscal">
+                            <div class="o_inner_group col-lg-12">
+                                <table class="table table-sm table-borderless mb-0 w-100">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="width: 22%; white-space: nowrap;">
+                                                Calle
+                                            </td>
+                                            <td class="align-middle" colspan="5">
+                                                <field name="street_name"
+                                                       nolabel="1"
+                                                       placeholder="Nombre de vialidad"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="white-space: nowrap;">
+                                                Número exterior
+                                            </td>
+                                            <td class="align-middle" style="width: 12%;">
+                                                <field name="street_number"
+                                                       nolabel="1"
+                                                       placeholder="Casa #"/>
+                                            </td>
+                                            <td class="text-muted align-middle pe-2 ps-3"
+                                                style="width: 16%; white-space: nowrap;">
+                                                Número interior
+                                            </td>
+                                            <td class="align-middle" style="width: 12%;">
+                                                <field name="street_number2"
+                                                       nolabel="1"
+                                                       placeholder="Puerta #"/>
+                                            </td>
+                                            <td class="text-muted align-middle pe-2 ps-3"
+                                                style="width: 14%; white-space: nowrap;">
+                                                Código Postal
+                                            </td>
+                                            <td class="align-middle" style="width: 12%;">
+                                                <field name="zip"
+                                                       nolabel="1"
+                                                       placeholder="00000"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="white-space: nowrap;">
+                                                Colonia
+                                            </td>
+                                            <td class="align-middle" colspan="5">
+                                                <field name="colony"
+                                                       nolabel="1"
+                                                       placeholder="Colonia o fraccionamiento"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="white-space: nowrap;">
+                                                Localidad
+                                            </td>
+                                            <td class="align-middle" colspan="5">
+                                                <field name="locality"
+                                                       nolabel="1"
+                                                       placeholder="Nombre de la localidad"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="white-space: nowrap;">
+                                                Municipio / Delegación
+                                            </td>
+                                            <td class="align-middle" colspan="5">
+                                                <field name="city"
+                                                       nolabel="1"
+                                                       placeholder="Municipio o delegación"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted align-middle pe-2"
+                                                style="white-space: nowrap;">
+                                                Estado
+                                            </td>
+                                            <td class="align-middle" colspan="2">
+                                                <field name="state_id" nolabel="1"/>
+                                            </td>
+                                            <td class="text-muted align-middle pe-2 ps-3"
+                                                style="white-space: nowrap;">
+                                                País
+                                            </td>
+                                            <td class="align-middle" colspan="2">
+                                                <field name="country_id" nolabel="1"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </group>
+
+                    </div>
+
+                    <div invisible="step != 'confirm_duplicate'">
+
+                        <div class="oe_title mb-3">
+                            <h2 class="mb-0">
+                                <i class="fa fa-exclamation-triangle text-warning me-2" title="Advertencia"/>
+                                Ya existe un contacto con el mismo NIF (RFC)
+                            </h2>
+                            <small class="text-muted">
+                                Ya existe un contacto con ese NIF. Puede actualizar el contacto
+                                existente con los datos de esta constancia o volver a revisar.
+                            </small>
+                        </div>
+
+                        <div class="alert alert-warning mx-0 mb-3" role="alert">
+                            <p class="mb-2">
+                                <strong>Ya existe un contacto con el NIF (RFC) indicado.</strong>
+                            </p>
+                            <p class="mb-2">
+                                Contacto encontrado:
+                                <field name="duplicate_partner_id"
+                                       nolabel="1"
+                                       readonly="1"
+                                       class="fw-bold"/>
+                            </p>
+                            <p class="mb-0">
+                                ¿Desea actualizar ese contacto con el nombre, domicilio fiscal
+                                y régimen fiscal extraídos de la constancia?
+                            </p>
+                        </div>
+
+                    </div>
+
+                </sheet>
+
+                <footer>
+
+                    <button name="action_extract"
+                            string="  Extraer datos del PDF"
+                            type="object"
+                            class="btn-primary"
+                            icon="fa-search"
+                            invisible="step != 'upload'"/>
+
+                    <button name="action_create_partner"
+                            string="  Crear contacto"
+                            type="object"
+                            class="btn-success"
+                            icon="fa-user-plus"
+                            invisible="step != 'review'"/>
+
+                    <button name="action_confirm_update_existing"
+                            string="  Sí, actualizar contacto"
+                            type="object"
+                            class="btn-primary"
+                            icon="fa-check"
+                            invisible="step != 'confirm_duplicate'"/>
+
+                    <button name="action_cancel_duplicate"
+                            string="  No, volver a revisar"
+                            type="object"
+                            class="btn-secondary"
+                            icon="fa-arrow-left"
+                            invisible="step != 'confirm_duplicate'"/>
+
+                    <button name="action_back"
+                            string="  Volver"
+                            type="object"
+                            class="btn-secondary"
+                            icon="fa-arrow-left"
+                            invisible="step != 'review'"/>
+
+                    <button string="Cancelar"
+                            class="btn-link"
+                            special="cancel"/>
+
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_from_cif" model="ir.actions.act_window">
+        <field name="name">Constancia SAT</field>
+        <field name="res_model">cs.partner.tax.certificate.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_import_from_cif_wizard_form"/>
+        <field name="target">new</field>
+        <field name="context">{'dialog_size': 'xl'}</field>
+    </record>
+
+</odoo>

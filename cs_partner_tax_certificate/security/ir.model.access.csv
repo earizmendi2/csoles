@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cs_partner_tax_certificate_import_wizard_user,cs.partner.tax.certificate.import.wizard user,model_cs_partner_tax_certificate_import_wizard,base.group_user,1,1,1,1
+access_cs_partner_tax_certificate_parser_user,cs.partner.tax.certificate.parser user,model_cs_partner_tax_certificate_parser,base.group_user,1,0,0,0
+access_cs_partner_tax_certificate_update_wizard_user,cs.partner.tax.certificate.update.wizard user,model_cs_partner_tax_certificate_update_wizard,base.group_user,1,1,1,1
+access_cs_partner_tax_certificate_sat_service_user,cs.partner.tax.certificate.sat.service user,model_cs_partner_tax_certificate_sat_service,base.group_user,1,0,0,0
