@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ir_model_fields_profile_list" model="ir.ui.view">
+        <field name="name">ir.model.fields.profile.selector.list</field>
+        <field name="model">ir.model.fields</field>
+        <field name="arch" type="xml">
+            <list string="Fields" create="0" edit="0" delete="0">
+                <field name="field_description" string="Label"/>
+                <field name="model_id" string="Model"/>
+                <field name="name" string="Technical Name" optional="show"/>
+                <field name="ttype" string="Type" optional="show"/>
+                <field name="required" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_res_profile_field_form" model="ir.ui.view">
+        <field name="name">res.profile.field.form</field>
+        <field name="model">res.profile.field</field>
+        <field name="arch" type="xml">
+            <form string="Field Rule">
+                <sheet>
+                    <field name="profile_id" invisible="1"/>
+                    <field name="model_id" invisible="1"/>
+                    <field name="model_name" invisible="1"/>
+                    <field name="field_is_python_required" invisible="1"/>
+                    <field name="field_type" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="field_id"/>
+                        <h1>
+                            <field name="field_id" context="{'tree_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'list_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'search_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_search'}" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Behavior">
+                            <field name="is_required"/>
+                            <field name="is_invisible" readonly="field_is_python_required"/>
+                            <field name="is_readonly" readonly="field_is_python_required"/>
+                        </group>
+                        <group string="Application">
+                            <field name="is_conditional"/>
+                            <field name="technical_name" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Apply When" invisible="not is_conditional">
+                        <field name="condition_domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True, 'allow_expressions': False}" required="is_conditional"/>
+                        <div class="text-muted">The behavior is applied immediately when the current record matches this filter.</div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ir_model_fields_profile_search" model="ir.ui.view">
+        <field name="name">ir.model.fields.profile.selector.search</field>
+        <field name="model">ir.model.fields</field>
+        <field name="arch" type="xml">
+            <search string="Search Fields">
+                <field name="field_description" string="Label"/>
+                <field name="model_id" string="Model"/>
+                <field name="name" string="Technical Name"/>
+                <field name="ttype" string="Type"/>
+                <group>
+                    <filter name="group_by_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_by_type" string="Type" context="{'group_by': 'ttype'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_res_profile_model_access_list" model="ir.ui.view">
+        <field name="name">res.profile.model.access.list</field>
+        <field name="model">res.profile.model.access</field>
+        <field name="arch" type="xml">
+            <list string="Configured Models">
+                <field name="model_id"/>
+                <field name="technical_name" optional="hide"/>
+                <field name="view_scope" string="Views"/>
+                <field name="restriction_summary" string="Restrictions"/>
+                <field name="field_count" string="Fields"/>
+                <field name="related_field_count" string="Related Fields"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_res_profile_model_access_form" model="ir.ui.view">
+        <field name="name">res.profile.model.access.form</field>
+        <field name="model">res.profile.model.access</field>
+        <field name="arch" type="xml">
+            <form string="Model Configuration">
+                <header>
+                    <button name="action_discover_buttons" type="object" string="Refresh Buttons" class="oe_highlight" icon="fa-refresh" invisible="not model_id"/>
+                    <button name="action_discover_actions" type="object" string="Refresh Actions" icon="fa-refresh" invisible="not model_id"/>
+                </header>
+                <sheet>
+                    <field name="available_button_ids" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="model_id"/>
+                        <h1><field name="model_id" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/></h1>
+                    </div>
+                    <group>
+                        <field name="profile_id" readonly="1"/>
+                        <field name="technical_name" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page name="view_restrictions" string="View Restrictions">
+                            <div class="alert alert-info" role="alert">Select the views where these interface restrictions apply. Internal processes and automated updates remain unchanged.</div>
+                            <group>
+                                <group string="Apply To">
+                                    <field name="apply_form"/><field name="apply_list"/><field name="apply_kanban"/>
+                                </group>
+                                <group string="Disabled Operations">
+                                    <field name="disable_create"/><field name="disable_edit"/><field name="disable_delete"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="field_properties" string="Field Properties">
+                            <field name="field_ids" mode="list,form" context="{'default_profile_id': profile_id, 'default_model_id': model_id, 'form_view_ref': 'dynamic_access_profiles.view_res_profile_field_form'}">
+                                <list>
+                                    <field name="profile_id" column_invisible="True"/>
+                                    <field name="model_id" column_invisible="True"/>
+                                    <field name="field_id" context="{'tree_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'list_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'search_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_search'}" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                                    <field name="technical_name" optional="hide"/>
+                                    <field name="is_required" string="Required"/>
+                                    <field name="is_invisible" string="Invisible"/>
+                                    <field name="is_readonly" string="Read-only"/>
+                                    <field name="is_conditional" string="Conditional"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="related_field_actions" string="Related Field Actions">
+                            <field name="field_m2x_ids" context="{'default_profile_id': profile_id, 'default_model_id': model_id}">
+                                <list editable="bottom">
+                                    <field name="profile_id" column_invisible="True"/>
+                                    <field name="model_id" column_invisible="True"/>
+                                    <field name="field_id" context="{'tree_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'list_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_list', 'search_view_ref': 'dynamic_access_profiles.view_ir_model_fields_profile_search'}" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                                    <field name="technical_name" optional="hide"/>
+                                    <field name="no_open" string="Prevent Opening"/>
+                                    <field name="no_create" string="Prevent Creation"/>
+                                    <field name="no_create_edit" string="Prevent Create and Edit"/>
+                                    <field name="no_quick_create" string="Prevent Quick Create"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="buttons" string="Buttons">
+                            <div class="alert alert-info" role="alert">Refresh the catalog after installing modules or changing views. Only buttons allowed by this profile's groups are available.</div>
+                            <field name="button_rule_ids" context="{'default_profile_model_id': id}">
+                                <list editable="bottom">
+                                    <field name="model_id" column_invisible="True"/>
+                                    <field name="button_id" domain="[('id', 'in', parent.available_button_ids)]" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                                    <field name="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="actions" string="Actions">
+                            <div class="alert alert-info" role="alert">Refresh the catalog to discover actions from the cog menu and print menu.</div>
+                            <field name="action_rule_ids" context="{'default_profile_model_id': id}">
+                                <list editable="bottom">
+                                    <field name="model_id" column_invisible="True"/>
+                                    <field name="action_id" domain="[('model_id', '=', parent.model_id)]" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                                    <field name="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_res_profile_form" model="ir.ui.view">
+        <field name="name">res.profile.form</field>
+        <field name="model">res.profile</field>
+        <field name="arch" type="xml">
+            <form string="Access Profile">
+                <header>
+                    <button string="Update Users" type="object" invisible="not count_users"
+                            name="action_update_profile_users" class="oe_highlight" icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <field name="color" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_users" type="object" class="oe_stat_button"
+                                icon="fa-users" invisible="not count_users">
+                            <field name="count_users" widget="statinfo" string="Users"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Sales Supervisor"/></h1>
+                    </div>
+                    <group>
+                        <field name="description" placeholder="Describe the responsibilities and restrictions of this profile..."/>
+                    </group>
+                    <notebook>
+                        <page name="groups" string="Groups">
+                            <field name="group_ids" mode="list" options="{'create': False}" context="{'edit': False}">
+                                <list create="1" delete="1" edit="0">
+                                    <field name="category_id"/>
+                                    <field name="display_name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="organization" string="Organization">
+                            <div class="alert alert-info" role="alert">This hierarchy is informational. Parent profiles do not contribute groups or restrictions to their children.</div>
+                            <group>
+                                <field name="parent_profile_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            </group>
+                            <field name="parent_profile_id" widget="profile_org_chart" readonly="1" nolabel="1"/>
+                        </page>
+                        <page name="models" string="Models">
+                            <field name="model_access_ids" mode="kanban" context="{'default_profile_id': id, 'form_view_ref': 'dynamic_access_profiles.view_res_profile_model_access_form'}">
+                                <kanban class="o_profile_model_hierarchy">
+                                    <field name="model_id"/><field name="technical_name"/>
+                                    <field name="view_scope"/><field name="restriction_summary"/>
+                                    <field name="field_count"/><field name="related_field_count"/>
+                                    <field name="button_rule_count"/>
+                                    <field name="action_rule_count"/>
+                                    <templates>
+                                        <t t-name="card">
+                                            <div class="o_profile_model_node">
+                                                <div class="o_profile_model_node_icon"><span class="fa fa-cube"/></div>
+                                                <div class="flex-grow-1 overflow-hidden">
+                                                    <strong class="d-block text-truncate"><field name="model_id"/></strong>
+                                                    <small class="text-muted d-block text-truncate"><field name="technical_name"/></small>
+                                                    <div class="o_profile_model_node_meta">
+                                                        <span><field name="field_count"/> field rules</span>
+                                                        <span><field name="related_field_count"/> related rules</span>
+                                                        <span><field name="button_rule_count"/> buttons</span>
+                                                        <span><field name="action_rule_count"/> actions</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <page name="menus_hide" string="Hidden Menus">
+                            <field name="hide_menu_ids" mode="list">
+                                <list create="1" delete="1" edit="0">
+                                    <field name="name"/>
+                                    <field name="parent_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_res_profile_kanban" model="ir.ui.view">
+        <field name="name">res.profile.kanban</field>
+        <field name="model">res.profile</field>
+        <field name="arch" type="xml">
+            <kanban class="o_profile_kanban" sample="1" default_order="name">
+                <field name="name"/><field name="description"/><field name="count_users"/>
+                <field name="group_count"/><field name="field_rule_count"/>
+                <field name="related_rule_count"/><field name="hidden_menu_count"/>
+                <field name="model_count"/><field name="conditional_rule_count"/>
+                <field name="button_rule_count"/>
+                <field name="action_rule_count"/>
+                <field name="color"/><field name="active"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="o_profile_card_header o_profile_color_#{record.color.raw_value or 0}">
+                            <div class="o_profile_security_icon">
+                                <svg class="o_profile_material_icon" viewBox="0 0 24 24" role="img" aria-label="Security profile">
+                                    <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Zm0 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 14.8c-2.5-.77-4.62-2.53-5.84-4.8.03-2 3.9-3.1 5.84-3.1 1.93 0 5.81 1.1 5.84 3.1-1.22 2.27-3.34 4.03-5.84 4.8Z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <strong class="d-block text-truncate fs-5"><field name="name"/></strong>
+                                <span class="text-muted text-truncate d-block"><field name="description"/></span>
+                            </div>
+                        </div>
+                        <div class="o_profile_card_body">
+                            <div class="o_profile_metrics">
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="count_users"/></span><span class="o_profile_metric_label">Users</span></div>
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="group_count"/></span><span class="o_profile_metric_label">Groups</span></div>
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="field_rule_count"/></span><span class="o_profile_metric_label">Field rules</span></div>
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="model_count"/></span><span class="o_profile_metric_label">Models</span></div>
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="button_rule_count"/></span><span class="o_profile_metric_label">Hidden buttons</span></div>
+                                <div class="o_profile_metric"><span class="o_profile_metric_value"><field name="action_rule_count"/></span><span class="o_profile_metric_label">Hidden actions</span></div>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-name="menu">
+                        <a type="open" class="dropdown-item">Configure</a>
+                        <a type="delete" class="dropdown-item">Delete</a>
+                        <field name="color" widget="kanban_color_picker"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_res_profile_list" model="ir.ui.view">
+        <field name="name">res.profile.list</field>
+        <field name="model">res.profile</field>
+        <field name="arch" type="xml">
+            <list string="Access Profiles" multi_edit="1">
+                <field name="name"/><field name="description"/><field name="count_users" string="Users"/>
+                <field name="group_count"/><field name="field_rule_count"/><field name="hidden_menu_count"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_res_profile_search" model="ir.ui.view">
+        <field name="name">res.profile.search</field>
+        <field name="model">res.profile</field>
+        <field name="arch" type="xml">
+            <search string="Access Profiles">
+                <field name="name"/><field name="description"/><field name="user_ids"/><field name="group_ids"/>
+                <filter name="with_users" string="With Users" domain="[('count_users', '&gt;', 0)]"/>
+                <filter name="without_users" string="Without Users" domain="[('count_users', '=', 0)]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]" context="{'active_test': False}"/>
+                <searchpanel>
+                    <field name="user_ids" string="Users" select="multi" enable_counters="1"/>
+                    <field name="group_ids" string="Groups" select="multi" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_res_profile" model="ir.actions.act_window">
+        <field name="name">Access Profiles</field>
+        <field name="res_model">res.profile</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_res_profile_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first access profile</p>
+            <p>Combine groups, field behavior, related-field actions, and hidden menus in one reusable profile.</p>
+        </field>
+    </record>
+</odoo>

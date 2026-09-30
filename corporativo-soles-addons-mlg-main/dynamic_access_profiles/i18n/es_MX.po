@@ -1,0 +1,347 @@
+# Translation of Odoo Module: dynamic_access_profiles
+# Translators:
+# Martin López Guzmán <martinlg369@gmail.com>, 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-24 13:48+0000\n"
+"PO-Revision-Date: 2024-10-24 13:48+0000\n"
+"Last-Translator: Martin López Guzmán <martinlg369@gmail.com>, 2024\n"
+"Language-Team: Spanish (Mexico)\n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Access Profile"
+msgstr "Perfil de acceso"
+
+#. module: dynamic_access_profiles
+#: model:ir.ui.menu,name:dynamic_access_profiles.menu_res_profile_root
+msgid "Access Profiles"
+msgstr "Perfiles de acceso"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field_m2x.py:0
+#, python-format
+msgid ""
+"At least one action must be selected: 'Can't External Link', 'Can't Create',"
+" 'Can't Create/Edit', or 'Can't Quick Create'."
+msgstr ""
+"Se debe seleccionar al menos una acción: 'No se puede vincular "
+"externamente', 'No se puede crear', 'No se puede crear/editar' o 'No se "
+"puede crear rápidamente'."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+#, python-format
+msgid ""
+"At least one option must be selected: 'Required', 'Invisible', or "
+"'Readonly'."
+msgstr ""
+"Se debe seleccionar al menos una opción: 'Requerido', 'Invisible' o 'Solo "
+"lectura'."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_create
+msgid "Can't Create"
+msgstr "No puede crear"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_create_edit
+msgid "Can't Create/Edit"
+msgstr "No puede crear/editar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_open
+msgid "Can't External Link"
+msgstr "No puede abrir registros"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_quick_create
+msgid "Can't Quick Create"
+msgstr "No puede crear rápidamente"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_create
+msgid "Disable this to prevent creating new records."
+msgstr "Deshabilite esto para evitar la creación de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_create_edit
+msgid "Disable this to prevent creation and editing of new records"
+msgstr ""
+"Deshabilite esto para evitar la creación y edición de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_quick_create
+msgid "Disable this to prevent quick creation of new records."
+msgstr "Deshabilite esto para evitar la creación rápida de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_open
+msgid "Disable this to prevent showing the external link for records."
+msgstr ""
+"Deshabilite esto para evitar mostrar el enlace externo a los registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__field_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__field_id
+msgid "Field"
+msgstr "Campo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Field Properties"
+msgstr "Propiedades de campos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_field
+msgid "Field Rules for Profile"
+msgstr "Reglas de campos para el perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__field_ids
+msgid "Fields to Control"
+msgstr "Campos para Controlar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__group_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile__group_ids
+msgid "Groups that users in this profile will have access to"
+msgstr "Grupos a los que tendrán acceso los usuarios de este perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__id
+msgid "ID"
+msgstr "ID"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_invisible
+msgid "Invisible"
+msgstr "Invisible"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización el"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__field_m2x_ids
+msgid "M2O and M2M Control"
+msgstr "Control de M2O y M2M"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__hide_menu_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Menus to hide"
+msgstr "Menús para ocultar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__model_id
+msgid "Model"
+msgstr "Modelo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.actions.act_window,help:dynamic_access_profiles.action_res_profile
+msgid "No profiles have been defined."
+msgstr "No se han definido perfiles."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__profile_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__profile_id
+msgid "Profile"
+msgstr "Perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__description
+msgid "Profile Description"
+msgstr "Descripción del Perfil"
+
+#. module: dynamic_access_profiles
+#: model:res.groups,name:dynamic_access_profiles.group_profile_manager
+msgid "Profile Manager"
+msgstr "Administrador de perfiles"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_field_m2x
+msgid "Profile Many2x Fields Access Control"
+msgstr "Control de Acceso a Campos Many2x del Perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__name
+msgid "Profile Name"
+msgstr "Nombre del Perfil"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "With Users"
+msgstr "Con usuarios"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Without Users"
+msgstr "Sin usuarios"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Users Count"
+msgstr "Cantidad de usuarios"
+
+#. module: dynamic_access_profiles
+#: model:ir.actions.act_window,name:dynamic_access_profiles.action_res_profile
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_users__profile_ids
+#: model:ir.ui.menu,name:dynamic_access_profiles.menu_res_profiles
+msgid "Profiles"
+msgstr "Perfiles"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_readonly
+msgid "Readonly"
+msgstr "Solo lectura"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Related Field Actions (M2O/M2M)"
+msgstr "Acciones de campos relacionados (M2O/M2M)"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_required
+msgid "Required"
+msgstr "Requerido"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile__hide_menu_ids
+msgid ""
+"Select the menus or submenus that should be hidden for users of this profile"
+msgstr ""
+"Seleccione los menús o submenús que deben estar ocultos para los usuarios de"
+" este perfil"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+#: code:addons/dynamic_access_profiles/models/res_profile_field_m2x.py:0
+#, python-format
+msgid "The field '%s' is already configured for the profile '%s'."
+msgstr "El campo '%s' ya está configurado para el perfil '%s'."
+
+#. module: dynamic_access_profiles
+#: model:res.groups,comment:dynamic_access_profiles.group_profile_manager
+msgid "This group allows users to manage profiles and field access rules."
+msgstr ""
+"Este grupo permite a los usuarios administrar perfiles y reglas de acceso a "
+"campos."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Update profile users"
+msgstr "Actualizar usuarios"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.actions.act_window,help:dynamic_access_profiles.action_res_profile
+msgid "Create a new Access Profile!"
+msgstr "¡Crear un nuevo perfil de acceso!"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.actions.act_window,help:dynamic_access_profiles.action_res_profile
+msgid "Manage group privileges, field access rules, and hidden menus in a centralized profile."
+msgstr "Administre privilegios de grupo, reglas de acceso a campos y menús ocultos en un perfil centralizado."
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_users
+msgid "User"
+msgstr "Usuario"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile
+msgid "User Profile for Field Control"
+msgstr "Perfil de usuario para control de campos"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_tree
+msgid "User Profiles"
+msgstr "Perfiles de usuario"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__user_ids
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+#, python-format
+msgid "Users with Profile: %s"
+msgstr "Usuarios con perfil: %s"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__count_users
+msgid "count_users"
+msgstr "Recuento de usuarios"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+#, python-format
+msgid "Profiles Updated"
+msgstr "Perfiles actualizados"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+#, python-format
+msgid "Successfully updated %s users."
+msgstr "Se actualizaron correctamente %s usuarios."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="dynamic_access_profiles.ProfileOrgChart">
+        <div class="o_profile_org_chart" t-if="state.data">
+            <div class="o_profile_org_managers" t-if="state.data.managers.length">
+                <t t-foreach="state.data.managers" t-as="node" t-key="node.id">
+                    <button type="button" class="o_profile_org_node o_profile_org_manager" t-on-click="() => this.openProfile(node.id)">
+                        <span class="o_profile_org_avatar"><i class="fa fa-sitemap"/></span>
+                        <span class="o_profile_org_identity"><strong t-esc="node.name"/><small t-esc="node.description"/></span>
+                    </button>
+                    <span class="o_profile_org_line_vertical"/>
+                </t>
+            </div>
+            <div class="o_profile_org_tree">
+                <t t-set="node" t-value="state.data.current"/>
+                <t t-set="isRoot" t-value="true"/>
+                <t t-call="dynamic_access_profiles.ProfileOrgChartNode"/>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="dynamic_access_profiles.ProfileOrgChartNode">
+        <div class="o_profile_org_branch">
+            <button type="button" t-attf-class="o_profile_org_node #{isRoot ? 'o_profile_org_self' : 'o_profile_org_child_native'} o_profile_color_#{node.color || 0}" t-on-click="() => this.openProfile(node.id)">
+                <span class="o_profile_org_avatar"><i t-attf-class="fa #{isRoot ? 'fa-shield' : 'fa-user'}"/></span>
+                <span class="o_profile_org_identity"><strong t-esc="node.name"/><small t-esc="node.description"/></span>
+                <span class="o_profile_org_count"><t t-esc="node.user_count"/> users</span>
+            </button>
+            <div class="o_profile_org_descendants" t-if="node.children.length">
+                <t t-foreach="node.children" t-as="child" t-key="child.id">
+                    <t t-set="node" t-value="child"/>
+                    <t t-set="isRoot" t-value="false"/>
+                    <t t-call="dynamic_access_profiles.ProfileOrgChartNode"/>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

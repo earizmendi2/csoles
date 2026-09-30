@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="menu_res_profile_root"
+              name="Access Profiles"
+              action="action_res_profile"
+              sequence="85"
+              web_icon="dynamic_access_profiles,static/description/icon.svg"
+              groups="dynamic_access_profiles.group_profile_manager"/>
+</odoo>

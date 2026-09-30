@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_profile_manager,res.profile,model_res_profile,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_field_manager,res.profile.field,model_res_profile_field,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_field_m2x_manager,res.profile.field.m2x,model_res_profile_field_m2x,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_model_access_manager,res.profile.model.access,model_res_profile_model_access,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_view_button_manager,res.profile.view.button,model_res_profile_view_button,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_button_rule_manager,res.profile.button.rule,model_res_profile_button_rule,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_bound_action_manager,res.profile.bound.action,model_res_profile_bound_action,dynamic_access_profiles.group_profile_manager,1,1,1,1
+access_res_profile_action_rule_manager,res.profile.action.rule,model_res_profile_action_rule,dynamic_access_profiles.group_profile_manager,1,1,1,1
