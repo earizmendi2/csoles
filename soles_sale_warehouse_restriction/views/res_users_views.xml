@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_sale_warehouse_restriction" model="ir.ui.view">
+        <field name="name">res.users.form.sale.warehouse.restriction</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="sale_stock.res_users_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_warehouse_id']" position="after">
+                <separator
+                    string="Restricción de almacenes en ventas"
+                    colspan="2"
+                    groups="base.group_system,base.group_erp_manager,soles_sale_warehouse_restriction.group_sale_warehouse_restriction_manager"
+                />
+                <field
+                    name="restrict_sale_warehouse"
+                    groups="base.group_system,base.group_erp_manager,soles_sale_warehouse_restriction.group_sale_warehouse_restriction_manager"
+                />
+                <field
+                    name="allowed_sale_warehouse_ids"
+                    widget="many2many_tags"
+                    domain="[('company_id', 'in', company_ids), ('active', '=', True)]"
+                    options="{'no_create': True, 'no_create_edit': True}"
+                    invisible="not restrict_sale_warehouse"
+                    groups="base.group_system,base.group_erp_manager,soles_sale_warehouse_restriction.group_sale_warehouse_restriction_manager"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

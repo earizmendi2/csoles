@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_sale_warehouse_restriction" model="ir.module.category">
+        <field name="name">Control de almacenes de venta</field>
+        <field name="description">Administración de restricciones de almacenes en ventas.</field>
+        <field name="sequence">35</field>
+    </record>
+
+    <record id="group_sale_warehouse_restriction_manager" model="res.groups">
+        <field name="name">Gestionar restricciones de almacenes de venta</field>
+        <field name="category_id" ref="module_category_sale_warehouse_restriction"/>
+        <field name="comment">
+            Permite administrar los campos de restricción siempre que el usuario ya tenga
+            acceso de escritura al modelo de usuarios. No concede por sí solo acceso a Usuarios.
+        </field>
+    </record>
+
+    <record id="group_sale_warehouse_restriction_bypass" model="res.groups">
+        <field name="name">Omitir restricción de almacenes de venta</field>
+        <field name="category_id" ref="module_category_sale_warehouse_restriction"/>
+        <field name="comment">
+            Exenta al usuario de las restricciones de almacén de este módulo. Pensado para
+            Dirección, Sistemas o usuarios operativos expresamente autorizados.
+        </field>
+    </record>
+</odoo>
