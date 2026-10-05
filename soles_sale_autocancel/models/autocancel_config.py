@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import AccessError, UserError
 
 
 class SolesAutocancelConfig(models.Model):
@@ -65,9 +66,15 @@ class SolesAutocancelConfig(models.Model):
     modo_prueba = fields.Boolean(
         string='Modo simulación',
         default=False,
-        help='Si está activo, el cron solo registra en la bitácora qué '
-             'pedidos cancelaría, pero no los cancela realmente ni '
-             'notifica a nadie.')
+        help='Si está activo, el cron y la ejecución manual solo registran '
+             'en la bitácora qué pedidos cancelarían, pero no cancelan nada '
+             'real ni notifican a nadie.')
+
+    @api.constrains('dias_limite')
+    def _check_dias_limite(self):
+        for rec in self:
+            if rec.dias_limite < 0:
+                raise UserError(_('Los días límite no pueden ser negativos.'))
 
     @api.model
     def get_config(self):
@@ -81,3 +88,49 @@ class SolesAutocancelConfig(models.Model):
         for grupo in self.notificar_grupo_ids:
             partners |= grupo.users.mapped('partner_id')
         return partners
+
+    def action_run_autocancel(self):
+        """Ejecuta manualmente la misma lógica utilizada por el cron."""
+        self.ensure_one()
+
+        if not self.env.user.has_group(
+            'soles_sale_autocancel.group_autocancel_manual'
+        ):
+            raise AccessError(_(
+                'No tienes el permiso "Autocancelación: ejecutar '
+                'manualmente".'
+            ))
+
+        if not self.activo:
+            raise UserError(_(
+                'La configuración está desactivada. Actívala antes de '
+                'ejecutar la cancelación manual.'
+            ))
+
+        # sudo() permite que el proceso técnico tenga los mismos alcances que
+        # el cron. La autorización humana se valida arriba mediante el grupo.
+        resultado = self.env['sale.order'].sudo()._run_autocancel_ordenes(
+            origen='manual',
+            config=self.sudo(),
+        )
+
+        mensaje = _(
+            'Proceso finalizado. Candidatos: %(candidatos)s | '
+            'Cancelados: %(cancelados)s | Simulaciones: %(simulaciones)s | '
+            'Errores: %(errores)s',
+            candidatos=resultado['candidatos'],
+            cancelados=resultado['cancelados'],
+            simulaciones=resultado['simulaciones'],
+            errores=resultado['errores'],
+        )
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Autocancelación finalizada'),
+                'message': mensaje,
+                'type': 'warning' if resultado['errores'] else 'success',
+                'sticky': bool(resultado['errores']),
+            },
+        }

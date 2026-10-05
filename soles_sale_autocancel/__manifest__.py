@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Soles - Cancelación Automática de Pedidos',
-    'version': '18.0.1.3.0',
+    'version': '18.0.1.5.3',
     'category': 'Sales/Sales',
     'summary': 'Cancela automáticamente pedidos confirmados sin facturar tras N días',
     'description': """
@@ -26,10 +26,17 @@ los dos prototipos previos (soles_sale_autocancel + sale_auto_cancel_unbilled):
   momento de notificar).
 * Modo simulación para probar cambios de reglas sin cancelar nada real.
 * Bitácora auditable de cada cancelación automática.
+* v1.4: aislamiento por pedido con SAVEPOINT, contexto soles_autocancel para
+  interoperar con acciones automatizadas comerciales, flush controlado y
+  registro de errores/simulaciones en la bitácora.
+* v1.5.3: permisos propios visibles en el perfil del usuario; Administradores de
+  Ajustes reciben administración del módulo como bootstrap. El botón depende
+  únicamente del permiso Ejecutar cancelación manual.
 """,
     'author': 'Rubén Castillo',
     'depends': ['sale', 'mail'],
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/autocancel_config_data.xml',
         'data/ir_cron.xml',
