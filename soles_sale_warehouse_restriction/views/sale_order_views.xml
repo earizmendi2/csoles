@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_sale_warehouse_restriction" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.warehouse.restriction</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="before">
+                <field name="allowed_warehouse_ids_ui" invisible="1"/>
+                <field name="warehouse_restriction_active" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='warehouse_id']" position="attributes">
+                <attribute name="domain">[('id', 'in', allowed_warehouse_ids_ui)]</attribute>
+                <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
