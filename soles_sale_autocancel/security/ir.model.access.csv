@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_soles_autocancel_config_admin,soles.autocancel.config.admin,model_soles_autocancel_config,soles_sale_autocancel.group_autocancel_admin,1,1,1,1
-access_soles_autocancel_config_manual,soles.autocancel.config.manual,model_soles_autocancel_config,soles_sale_autocancel.group_autocancel_manual,1,0,0,0
-access_soles_autocancel_config_user,soles.autocancel.config.user,model_soles_autocancel_config,base.group_user,1,0,0,0
-access_soles_autocancel_log_admin,soles.autocancel.log.admin,model_soles_autocancel_log,soles_sale_autocancel.group_autocancel_admin,1,0,0,0
-access_soles_autocancel_log_manual,soles.autocancel.log.manual,model_soles_autocancel_log,soles_sale_autocancel.group_autocancel_manual,1,0,0,0
-access_soles_autocancel_log_user,soles.autocancel.log.user,model_soles_autocancel_log,base.group_user,1,0,0,0
