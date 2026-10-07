@@ -328,8 +328,16 @@ class SolesPaymentRequest(models.Model):
 
     # Factura / archivos
     invoice_number = fields.Char(string="Folio de factura", tracking=True)
-    invoice_date = fields.Date(string="Fecha de factura", tracking=True)
-    invoice_due_date = fields.Date(string="Vencimiento de factura", tracking=True)
+    invoice_date = fields.Date(
+        string="Fecha de factura",
+        tracking=True,
+        help="Fecha de emisión indicada en la factura o documento del proveedor.",
+    )
+    invoice_due_date = fields.Date(
+        string="Vencimiento de factura",
+        tracking=True,
+        help="Fecha límite indicada por el proveedor para liquidar la factura. No necesariamente es la fecha en que Tesorería programará el pago.",
+    )
     invoice_pdf = fields.Binary(string="Factura PDF", attachment=True)
     invoice_pdf_filename = fields.Char(string="Nombre PDF")
     invoice_xml = fields.Binary(string="XML CFDI", attachment=True)
@@ -348,10 +356,24 @@ class SolesPaymentRequest(models.Model):
         default=fields.Date.context_today,
         required=True,
         tracking=True,
+        help="Fecha en que la solicitud de pago fue creada o enviada al proceso de Tesorería.",
     )
-    requested_payment_date = fields.Date(string="Fecha requerida", tracking=True)
-    scheduled_payment_date = fields.Date(string="Fecha programada", tracking=True)
-    actual_payment_date = fields.Date(string="Fecha real de pago", readonly=True, tracking=True)
+    requested_payment_date = fields.Date(
+        string="Fecha requerida",
+        tracking=True,
+        help="Fecha en la que el solicitante necesita o propone que se realice el pago. Es una referencia para Tesorería y no garantiza que el pago se ejecute ese día.",
+    )
+    scheduled_payment_date = fields.Date(
+        string="Fecha programada",
+        tracking=True,
+        help="Fecha definitiva asignada por Tesorería para ejecutar el pago. Solo los usuarios de Tesorería pueden modificarla.",
+    )
+    actual_payment_date = fields.Date(
+        string="Fecha real de pago",
+        readonly=True,
+        tracking=True,
+        help="Fecha en que Tesorería confirmó el pago y adjuntó el comprobante correspondiente.",
+    )
     team_id = fields.Many2one("soles.treasury.team", string="Equipo de Tesorería", tracking=True)
     team_payment_schedule_summary = fields.Char(
         related="team_id.payment_schedule_summary",
@@ -363,6 +385,42 @@ class SolesPaymentRequest(models.Model):
         string="Responsable de Tesorería",
         tracking=True,
         domain=[("share", "=", False)],
+    )
+    schedule_exception = fields.Boolean(
+        string="Pago fuera de calendario",
+        tracking=True,
+        help="Permite a Tesorería programar de forma extraordinaria el pago en una fecha distinta a los días de pago definidos para el equipo. Requiere justificación y queda auditado.",
+    )
+    schedule_exception_reason = fields.Text(
+        string="Motivo del pago fuera de calendario",
+        tracking=True,
+    )
+    schedule_exception_user_id = fields.Many2one(
+        "res.users",
+        string="Excepción registrada por",
+        readonly=True,
+        copy=False,
+    )
+    schedule_exception_date = fields.Datetime(
+        string="Fecha de excepción",
+        readonly=True,
+        copy=False,
+    )
+    payment_receipt = fields.Binary(
+        string="Comprobante de pago",
+        attachment=True,
+        copy=False,
+        help="Comprobante bancario o evidencia de que el pago fue ejecutado. Es obligatorio antes de marcar la solicitud como pagada.",
+    )
+    payment_receipt_filename = fields.Char(
+        string="Nombre del comprobante",
+        copy=False,
+    )
+    payment_reference = fields.Char(
+        string="Referencia de pago",
+        tracking=True,
+        copy=False,
+        help="Referencia, folio, número de operación o dato bancario que permita identificar el pago realizado.",
     )
     priority = fields.Selection(
         [("0", "Normal"), ("1", "Importante"), ("2", "Urgente")],
@@ -419,7 +477,12 @@ class SolesPaymentRequest(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         Config = self.env["soles.treasury.config"]
+        is_treasury = self.env.user.has_group("soles_treasury.group_treasury_user")
         for vals in vals_list:
+            if vals.get("scheduled_payment_date") and not is_treasury:
+                raise AccessError(_("Solo Tesorería puede asignar la fecha programada de pago."))
+            if vals.get("payment_receipt") and not is_treasury:
+                raise AccessError(_("Solo Tesorería puede adjuntar o modificar el comprobante de pago."))
             if vals.get("name", "Nuevo") == "Nuevo":
                 vals["name"] = self.env["ir.sequence"].next_by_code("soles.payment.request") or "Nuevo"
 
@@ -447,37 +510,61 @@ class SolesPaymentRequest(models.Model):
         return records
 
     def write(self, vals):
+        vals = dict(vals)
+        is_treasury = self.env.user.has_group("soles_treasury.group_treasury_user")
+        internal_write = self.env.context.get("skip_treasury_permission_check")
+
+        treasury_only_fields = {
+            "scheduled_payment_date",
+            "payment_receipt",
+            "payment_receipt_filename",
+            "payment_reference",
+            "schedule_exception",
+            "schedule_exception_reason",
+        }
+        if not internal_write and treasury_only_fields.intersection(vals) and not is_treasury:
+            raise AccessError(
+                _("Solo Tesorería puede modificar la programación, la excepción de calendario o el comprobante de pago.")
+            )
+
         date_changed = "scheduled_payment_date" in vals
         team_changed = "team_id" in vals
+        exception_changed = "schedule_exception" in vals or "schedule_exception_reason" in vals
+
         if date_changed:
-            vals = dict(vals)
             vals.setdefault("last_alert_date", False)
             vals.setdefault("overdue_alert_sent", False)
+
         result = super().write(vals)
-        if not self.env.context.get("skip_treasury_date_sync") and (date_changed or team_changed):
+
+        if not self.env.context.get("skip_treasury_date_sync") and (date_changed or team_changed or exception_changed):
             for record in self:
                 if record.state not in ("scheduled", "due", "overdue"):
                     continue
                 if not record.scheduled_payment_date:
-                    super(SolesPaymentRequest, record.with_context(skip_treasury_date_sync=True)).write({
-                        "state": "validated"
-                    })
+                    super(SolesPaymentRequest, record.with_context(
+                        skip_treasury_date_sync=True,
+                        skip_treasury_permission_check=True,
+                    )).write({"state": "validated"})
                     continue
                 if record.team_id and not record.team_id.is_payment_date_allowed(record.scheduled_payment_date):
-                    next_date = record.team_id.get_next_allowed_payment_date(
-                        max(record.scheduled_payment_date, fields.Date.context_today(record))
-                    )
-                    message = _(
-                        "La fecha %(date)s no está permitida para el equipo '%(team)s'.\n"
-                        "Fechas permitidas: %(schedule)s."
-                    ) % {
-                        "date": record.scheduled_payment_date,
-                        "team": record.team_id.display_name,
-                        "schedule": record.team_id.payment_schedule_summary,
-                    }
-                    if next_date:
-                        message += _("\nPróxima fecha permitida: %s") % next_date
-                    raise UserError(message)
+                    if not record.schedule_exception:
+                        next_date = record.team_id.get_next_allowed_payment_date(
+                            max(record.scheduled_payment_date, fields.Date.context_today(record))
+                        )
+                        message = _(
+                            "La fecha %(date)s no está permitida para el equipo '%(team)s'.\n"
+                            "Fechas permitidas: %(schedule)s. Para usar esa fecha, active 'Pago fuera de calendario' y capture el motivo."
+                        ) % {
+                            "date": record.scheduled_payment_date,
+                            "team": record.team_id.display_name,
+                            "schedule": record.team_id.payment_schedule_summary,
+                        }
+                        if next_date:
+                            message += _("\nPróxima fecha permitida: %s") % next_date
+                        raise UserError(message)
+                    if not record.schedule_exception_reason:
+                        raise UserError(_("Debe indicar el motivo del pago fuera de calendario."))
             self._sync_date_state()
         return result
 
@@ -634,13 +721,14 @@ class SolesPaymentRequest(models.Model):
                 raise UserError(_("Debe asignar un equipo de Tesorería."))
             if not record.treasury_responsible_id:
                 raise UserError(_("Debe asignar un responsable de Tesorería."))
-            if not record.team_id.is_payment_date_allowed(record.scheduled_payment_date):
+            date_allowed = record.team_id.is_payment_date_allowed(record.scheduled_payment_date)
+            if not date_allowed and not record.schedule_exception:
                 next_date = record.team_id.get_next_allowed_payment_date(
                     max(record.scheduled_payment_date, today)
                 )
                 message = _(
                     "La fecha %(date)s no está dentro de las fechas de pago configuradas para el equipo '%(team)s'.\n"
-                    "Fechas permitidas: %(schedule)s."
+                    "Fechas permitidas: %(schedule)s. Para realizar un pago extraordinario fuera del calendario, active 'Pago fuera de calendario' e indique el motivo."
                 ) % {
                     "date": record.scheduled_payment_date,
                     "team": record.team_id.display_name,
@@ -649,13 +737,27 @@ class SolesPaymentRequest(models.Model):
                 if next_date:
                     message += _("\nPróxima fecha permitida: %s") % next_date
                 raise UserError(message)
-            record.write(
-                {
-                    "state": record._state_for_payment_date(record.scheduled_payment_date, today=today),
-                    "last_alert_date": False,
-                    "overdue_alert_sent": False,
-                }
-            )
+            if not date_allowed and record.schedule_exception and not record.schedule_exception_reason:
+                raise UserError(_("Debe indicar el motivo del pago fuera de calendario."))
+
+            values = {
+                "state": record._state_for_payment_date(record.scheduled_payment_date, today=today),
+                "last_alert_date": False,
+                "overdue_alert_sent": False,
+            }
+            if not date_allowed and record.schedule_exception:
+                values.update({
+                    "schedule_exception_user_id": self.env.user.id,
+                    "schedule_exception_date": fields.Datetime.now(),
+                })
+            elif date_allowed:
+                values.update({
+                    "schedule_exception": False,
+                    "schedule_exception_reason": False,
+                    "schedule_exception_user_id": False,
+                    "schedule_exception_date": False,
+                })
+            record.with_context(skip_treasury_permission_check=True).write(values)
         return True
 
     def action_mark_paid(self):
@@ -663,12 +765,56 @@ class SolesPaymentRequest(models.Model):
         for record in self:
             if record.state not in ("scheduled", "due", "overdue"):
                 continue
-            record.write(
+            if not record.payment_receipt:
+                raise UserError(
+                    _("Debe adjuntar el comprobante de pago antes de marcar la solicitud como pagada.")
+                )
+            record.with_context(skip_treasury_permission_check=True).write(
                 {
                     "state": "paid",
                     "actual_payment_date": fields.Date.context_today(record),
                 }
             )
+            record._notify_requester_payment_done()
+        return True
+
+    def _notify_requester_payment_done(self):
+        template = self.env.ref(
+            "soles_treasury.mail_template_payment_completed",
+            raise_if_not_found=False,
+        )
+        for record in self:
+            requester = record.requester_id
+            partner = requester.partner_id if requester else False
+            if not partner:
+                continue
+
+            body = _(
+                "El pago <b>%(folio)s</b> a <b>%(partner)s</b> por "
+                "<b>%(amount).2f %(currency)s</b> fue realizado el %(date)s."
+            ) % {
+                "folio": record.name,
+                "partner": record.partner_id.display_name,
+                "amount": record.amount,
+                "currency": record.currency_id.name,
+                "date": record.actual_payment_date,
+            }
+            record.message_post(
+                body=body,
+                partner_ids=[partner.id],
+                message_type="notification",
+                subtype_xmlid="mail.mt_comment",
+            )
+
+            if template and partner.email:
+                template.send_mail(record.id, force_send=False)
+            elif not partner.email:
+                record.message_post(
+                    body=_(
+                        "No se envió correo al solicitante %(requester)s porque su contacto no tiene una dirección de correo configurada."
+                    ) % {"requester": requester.display_name},
+                    subtype_xmlid="mail.mt_note",
+                )
         return True
 
     def action_close(self):
@@ -852,6 +998,12 @@ class SolesPaymentRecurrence(models.Model):
         tracking=True,
         domain=[("share", "=", False)],
     )
+    requester_id = fields.Many2one(
+        "res.users",
+        string="Solicitante / destinatario",
+        domain=[("share", "=", False)],
+        help="Usuario que aparecerá como solicitante en las solicitudes generadas y que recibirá la notificación cuando el pago sea realizado.",
+    )
     extraordinary_type = fields.Selection(EXTRAORDINARY_TYPES, string="Tipo de pago", default="recurring")
     last_alert_date = fields.Date(readonly=True, copy=False)
     last_generated_for_date = fields.Date(readonly=True, copy=False)
@@ -911,6 +1063,7 @@ class SolesPaymentRecurrence(models.Model):
             "company_id": self.company_id.id,
             "team_id": self.team_id.id,
             "treasury_responsible_id": self.responsible_id.id,
+            "requester_id": (self.requester_id or self.responsible_id or self.team_id.manager_id or self.env.user).id,
             "requested_payment_date": self.next_date,
             "recurrence_id": self.id,
         }

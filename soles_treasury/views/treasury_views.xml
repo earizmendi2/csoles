@@ -134,6 +134,7 @@
                             <field name="request_date"/>
                             <field name="requested_payment_date"/>
                             <field name="scheduled_payment_date" groups="soles_treasury.group_treasury_user"/>
+                            <field name="scheduled_payment_date" groups="!soles_treasury.group_treasury_user" readonly="1"/>
                             <field name="actual_payment_date" readonly="1"/>
                         </group>
                         <group>
@@ -143,7 +144,30 @@
                                    groups="soles_treasury.group_treasury_user"
                                    invisible="not team_id"/>
                             <field name="treasury_responsible_id" groups="soles_treasury.group_treasury_user"/>
+                            <field name="schedule_exception" groups="soles_treasury.group_treasury_user"
+                                   invisible="not scheduled_payment_date"/>
+                            <field name="schedule_exception_reason" groups="soles_treasury.group_treasury_user"
+                                   invisible="not schedule_exception"/>
+                            <field name="schedule_exception_user_id" readonly="1"
+                                   groups="soles_treasury.group_treasury_user" invisible="not schedule_exception_user_id"/>
+                            <field name="schedule_exception_date" readonly="1"
+                                   groups="soles_treasury.group_treasury_user" invisible="not schedule_exception_date"/>
                             <field name="recurrence_id" readonly="1" invisible="not recurrence_id"/>
+                        </group>
+                    </group>
+
+                    <group string="Confirmación del pago">
+                        <group>
+                            <field name="payment_reference" groups="soles_treasury.group_treasury_user"
+                                   readonly="state in ['paid', 'closed']"/>
+                            <field name="payment_reference" groups="!soles_treasury.group_treasury_user" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="payment_receipt" filename="payment_receipt_filename"
+                                   groups="soles_treasury.group_treasury_user" readonly="state in ['paid', 'closed']"/>
+                            <field name="payment_receipt" filename="payment_receipt_filename"
+                                   groups="!soles_treasury.group_treasury_user" readonly="1"/>
+                            <field name="payment_receipt_filename" invisible="1"/>
                         </group>
                     </group>
                 </sheet>
@@ -261,6 +285,7 @@
                         <group>
                             <field name="team_id" domain="[('company_id', '=', company_id)]"/>
                             <field name="responsible_id"/>
+                            <field name="requester_id"/>
                             <field name="active"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>

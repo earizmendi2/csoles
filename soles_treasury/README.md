@@ -35,3 +35,12 @@ Módulo para Odoo 18 orientado a la administración de solicitudes, programació
 ## Nota
 
 Esta versión controla el proceso administrativo. No crea todavía registros `account.payment` ni contabiliza pagos automáticamente.
+
+## 18.0.1.2.0
+- Ayudas contextuales para fechas de solicitud, factura, vencimiento, fecha requerida, programada y real.
+- Solo Tesorería puede asignar/modificar la fecha programada.
+- Comprobante de pago obligatorio antes de marcar una solicitud como pagada.
+- Programación extraordinaria fuera del calendario del equipo con motivo y auditoría de usuario/fecha.
+- Notificación al solicitante por Odoo y correo al confirmar el pago.
+- El solicitante puede definirse manualmente en solicitudes creadas por Tesorería.
+- Los pagos recurrentes permiten definir el solicitante/destinatario que recibirá la notificación final.

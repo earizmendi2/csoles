@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="mail_template_payment_completed" model="mail.template">
+        <field name="name">Tesorería - Pago realizado</field>
+        <field name="model_id" ref="model_soles_payment_request"/>
+        <field name="subject">Pago realizado - {{ object.name }}</field>
+        <field name="email_from">{{ object.company_id.email or user.email_formatted }}</field>
+        <field name="email_to">{{ object.requester_id.partner_id.email }}</field>
+        <field name="description">Notifica al solicitante cuando Tesorería marca una solicitud como pagada.</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, sans-serif; font-size: 14px;">
+                <p>Hola <t t-out="object.requester_id.name"/>,</p>
+                <p>Te informamos que la solicitud de pago <strong><t t-out="object.name"/></strong> ha sido marcada como pagada por Tesorería.</p>
+                <table style="border-collapse: collapse; margin: 16px 0;">
+                    <tr><td style="padding:4px 12px 4px 0;"><strong>Proveedor / beneficiario:</strong></td><td><t t-out="object.partner_id.display_name"/></td></tr>
+                    <tr><td style="padding:4px 12px 4px 0;"><strong>Monto:</strong></td><td><t t-out="object.amount"/> <t t-out="object.currency_id.name"/></td></tr>
+                    <tr><td style="padding:4px 12px 4px 0;"><strong>Fecha de pago:</strong></td><td><t t-out="object.actual_payment_date"/></td></tr>
+                    <tr t-if="object.payment_reference"><td style="padding:4px 12px 4px 0;"><strong>Referencia:</strong></td><td><t t-out="object.payment_reference"/></td></tr>
+                </table>
+                <p>El comprobante de pago se encuentra adjunto en la solicitud dentro de Odoo.</p>
+                <p>Saludos,<br/>Tesorería</p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>
