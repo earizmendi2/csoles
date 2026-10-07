@@ -1290,20 +1290,48 @@ class ApprovalRequest(models.Model):
         "approval_request_id",
         string="Solicitudes de pago",
     )
-    payment_request_count = fields.Integer(compute="_compute_payment_requests", string="Solicitudes de pago")
-    payment_requested_total = fields.Float(compute="_compute_payment_requests", string="Total solicitado")
-    payment_paid_total = fields.Float(compute="_compute_payment_requests", string="Total pagado")
+    payment_request_count = fields.Integer(
+        compute="_compute_payment_requests",
+        string="Solicitudes de pago",
+        help="Número total de solicitudes de pago vinculadas a esta aprobación, incluyendo canceladas para conservar la trazabilidad.",
+    )
+    payment_requested_total = fields.Float(
+        compute="_compute_payment_requests",
+        string="Total solicitado",
+        help="Suma de las solicitudes de pago activas vinculadas a esta aprobación.",
+    )
+    payment_paid_total = fields.Float(
+        compute="_compute_payment_requests",
+        string="Total pagado",
+        help="Suma de las solicitudes vinculadas que ya fueron marcadas como pagadas o cerradas.",
+    )
+    payment_pending_total = fields.Float(
+        compute="_compute_payment_requests",
+        string="Pendiente de pago",
+        help="Importe solicitado que todavía no ha sido marcado como pagado.",
+    )
+    payment_available_amount = fields.Float(
+        compute="_compute_payment_requests",
+        string="Disponible para solicitar",
+        help="Diferencia entre el monto aprobado y el total solicitado en solicitudes de pago activas.",
+    )
     treasury_payment_enabled = fields.Boolean(compute="_compute_treasury_payment_enabled")
 
-    @api.depends("payment_request_ids", "payment_request_ids.amount", "payment_request_ids.state")
+    @api.depends("amount", "payment_request_ids", "payment_request_ids.amount", "payment_request_ids.state")
     def _compute_payment_requests(self):
         for approval in self:
-            valid_requests = approval.payment_request_ids.filtered(lambda request: request.state != "cancelled")
-            approval.payment_request_count = len(valid_requests)
-            approval.payment_requested_total = sum(valid_requests.mapped("amount"))
-            approval.payment_paid_total = sum(
+            all_requests = approval.payment_request_ids
+            valid_requests = all_requests.filtered(lambda request: request.state != "cancelled")
+            requested_total = sum(valid_requests.mapped("amount"))
+            paid_total = sum(
                 valid_requests.filtered(lambda request: request.state in ("paid", "closed")).mapped("amount")
             )
+
+            approval.payment_request_count = len(all_requests)
+            approval.payment_requested_total = requested_total
+            approval.payment_paid_total = paid_total
+            approval.payment_pending_total = max(requested_total - paid_total, 0.0)
+            approval.payment_available_amount = max((approval.amount or 0.0) - requested_total, 0.0)
 
     @api.depends("category_id")
     def _compute_treasury_payment_enabled(self):
@@ -1339,16 +1367,51 @@ class ApprovalRequest(models.Model):
             },
         }
 
+    def _payment_request_default_context(self):
+        self.ensure_one()
+        approval_company = self.category_id.company_id or self.env.company
+        return {
+            "default_origin_type": "approval",
+            "default_approval_request_id": self.id,
+            "default_company_id": approval_company.id,
+            "default_requester_id": self.request_owner_id.id or self.env.user.id,
+            "default_partner_id": self.partner_id.id if self.partner_id else False,
+            "default_amount": self.payment_available_amount or self.amount,
+            "default_description": self.reason or self.name,
+        }
+
     def action_view_payment_requests(self):
         self.ensure_one()
+        requests = self.payment_request_ids.sorted(key=lambda request: request.id, reverse=True)
+
+        # Si todavía no hay solicitudes, el smart button funciona como acceso
+        # directo para crear la primera, conservando todas las validaciones.
+        if not requests:
+            return self.action_create_payment_request()
+
+        # Con una sola solicitud evitamos un clic adicional y abrimos el registro.
+        if len(requests) == 1:
+            return {
+                "type": "ir.actions.act_window",
+                "name": _("Solicitud de Pago"),
+                "res_model": "soles.payment.request",
+                "view_mode": "form",
+                "res_id": requests.id,
+                "target": "current",
+            }
+
+        context = self._payment_request_default_context()
+        # Si la categoría dejó de estar habilitada o la aprobación dejó de estar
+        # aprobada, el historial sigue siendo visible pero no se permite crear más.
+        if self.request_status != "approved" or not self.treasury_payment_enabled:
+            context["create"] = False
+
         return {
             "type": "ir.actions.act_window",
-            "name": _("Solicitudes de Pago"),
+            "name": _("Solicitudes de Pago - %s") % self.display_name,
             "res_model": "soles.payment.request",
             "view_mode": "list,form",
             "domain": [("approval_request_id", "=", self.id)],
-            "context": {
-                "default_origin_type": "approval",
-                "default_approval_request_id": self.id,
-            },
+            "context": context,
+            "target": "current",
         }

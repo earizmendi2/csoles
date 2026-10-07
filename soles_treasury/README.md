@@ -2,7 +2,7 @@
 
 Módulo para Odoo 18 orientado al control administrativo de solicitudes y programación de pagos.
 
-## Versión 18.0.1.3.0
+## Versión 18.0.1.4.0
 
 Autor: Rubén Castillo
 
@@ -19,6 +19,10 @@ Autor: Rubén Castillo
 - Notificaciones al solicitante, revisor y responsable durante el flujo.
 - Correo al solicitante al confirmarse el pago.
 - Pagos recurrentes y generación de solicitudes en borrador.
+
+- Smart button en Aprobaciones para crear o consultar solicitudes de pago vinculadas.
+- Apertura directa con una solicitud y listado filtrado cuando existen múltiples pagos.
+- Resumen financiero en la aprobación: solicitado, pagado, pendiente y disponible.
 
 ## Flujo
 

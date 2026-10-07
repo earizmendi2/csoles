@@ -1,6 +1,6 @@
 {
     "name": "Soles - Gestión de Tesorería",
-    "version": "18.0.1.3.0",
+    "version": "18.0.1.4.0",
     "summary": "Solicitudes de pago, programación, recurrencias y control de Tesorería",
     "description": """
 Gestión de Tesorería para Soles.

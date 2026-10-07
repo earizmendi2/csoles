@@ -443,13 +443,53 @@
         <field name="model">approval.request</field>
         <field name="inherit_id" ref="approvals.approval_request_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//header" position="inside">
-                <button name="action_create_payment_request" string="Crear solicitud de pago" type="object"
-                        class="btn-secondary" groups="soles_treasury.group_payment_request_user"
-                        invisible="request_status != 'approved' or not treasury_payment_enabled"/>
+
+            <!--
+                Se integra en la misma caja de smart buttons donde Odoo muestra
+                accesos como Documentos. El botón sigue visible si ya existe
+                historial, aunque posteriormente se deshabilite la categoría.
+            -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_view_payment_requests"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-credit-card"
+                    groups="soles_treasury.group_payment_request_user"
+                    invisible="not treasury_payment_enabled and payment_request_count == 0"
+                    help="Crear la primera solicitud de pago o consultar todas las solicitudes vinculadas a esta aprobación.">
+                    <field name="payment_request_count" widget="statinfo" string="Pagos"/>
+                </button>
             </xpath>
+
+            <!-- Se conserva un acceso directo para crear pagos adicionales. -->
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_create_payment_request"
+                    string="Nueva solicitud de pago"
+                    type="object"
+                    class="btn-secondary"
+                    groups="soles_treasury.group_payment_request_user"
+                    invisible="request_status != 'approved' or not treasury_payment_enabled"/>
+            </xpath>
+
             <xpath expr="//sheet" position="inside">
                 <field name="treasury_payment_enabled" invisible="1"/>
+                <group
+                    string="Resumen de pagos"
+                    groups="soles_treasury.group_payment_request_user"
+                    invisible="not treasury_payment_enabled and payment_request_count == 0">
+                    <group>
+                        <field name="amount" string="Monto aprobado" readonly="1"/>
+                        <field name="payment_requested_total" readonly="1"/>
+                        <field name="payment_available_amount" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="payment_paid_total" readonly="1"/>
+                        <field name="payment_pending_total" readonly="1"/>
+                        <field name="payment_request_count" readonly="1"/>
+                    </group>
+                </group>
             </xpath>
         </field>
     </record>
