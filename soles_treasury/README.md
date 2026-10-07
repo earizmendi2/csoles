@@ -1,46 +1,27 @@
 # Soles - Gestión de Tesorería
 
-Módulo para Odoo 18 orientado a la administración de solicitudes, programación y seguimiento de pagos.
+Módulo para Odoo 18 orientado al control administrativo de solicitudes y programación de pagos.
 
-## Funciones principales
+## Versión 18.0.1.3.0
 
-- Solicitudes de pago con folio `PAY/YYYY/#####`.
-- Origen opcional desde Aprobaciones o solicitud extraordinaria.
-- Solo permite vincular aprobaciones completamente aprobadas y de tipos habilitados en configuración.
-- Carga de factura PDF, XML CFDI y otros documentos.
-- Flujo: Borrador → Por validar → Listo para programar → Programado → Por pagar hoy → Atrasado → Pagado → Cerrado.
-- Actualización automática del estado por fecha mediante cron.
-- Vista calendario y alertas por actividades de Odoo.
-- Pagos recurrentes con alertas o generación de solicitud en borrador.
-- Equipos de Tesorería, responsables y permisos.
-- Configuración por equipo de días/fechas autorizadas para ejecutar pagos: día semanal, día del mes o fecha específica.
-- Validación de la fecha programada contra el calendario del equipo de Tesorería.
-- Chips de estado/origen con colores para facilitar identificación.
-- Ícono propio de aplicación.
+Autor: Rubén Castillo
 
-## Versión
+### Funciones principales
 
-`18.0.1.1.0`
+- Solicitudes de pago vinculadas opcionalmente a Aprobaciones completamente aprobadas.
+- Solicitudes extraordinarias independientes.
+- Origen diferenciado para solicitudes generadas desde Pagos recurrentes.
+- Factura PDF/XML, documentos y comprobante de pago.
+- Calendario de pagos y estados automáticos: Programado, Por pagar hoy y Atrasado.
+- Calendarios permitidos por equipo y excepción auditada para pagos fuera de calendario.
+- Equipos de Tesorería, revisor predeterminado y responsable de ejecución.
+- Alertas internas de Odoo mediante notificaciones y actividades.
+- Notificaciones al solicitante, revisor y responsable durante el flujo.
+- Correo al solicitante al confirmarse el pago.
+- Pagos recurrentes y generación de solicitudes en borrador.
 
-### Cambios 1.1.0
+## Flujo
 
-- Corregido `tracking` no soportado sobre el campo HTML de descripción.
-- Añadido estado automático `Atrasado`.
-- `Por pagar hoy` se asigna solo cuando la fecha programada es la fecha actual.
-- Aprobaciones vinculables únicamente cuando `request_status = approved`.
-- Calendario operativo por equipo de Tesorería.
-- Colores de badges en listados.
-- Ícono de aplicación.
+Borrador → Por validar → Listo para programar → Programado/Por pagar hoy/Atrasado → Pagado → Cerrado.
 
-## Nota
-
-Esta versión controla el proceso administrativo. No crea todavía registros `account.payment` ni contabiliza pagos automáticamente.
-
-## 18.0.1.2.0
-- Ayudas contextuales para fechas de solicitud, factura, vencimiento, fecha requerida, programada y real.
-- Solo Tesorería puede asignar/modificar la fecha programada.
-- Comprobante de pago obligatorio antes de marcar una solicitud como pagada.
-- Programación extraordinaria fuera del calendario del equipo con motivo y auditoría de usuario/fecha.
-- Notificación al solicitante por Odoo y correo al confirmar el pago.
-- El solicitante puede definirse manualmente en solicitudes creadas por Tesorería.
-- Los pagos recurrentes permiten definir el solicitante/destinatario que recibirá la notificación final.
+La versión actual no crea `account.payment`; el control contable permanece desacoplado para pruebas.

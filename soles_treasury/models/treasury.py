@@ -109,6 +109,12 @@ class SolesTreasuryTeam(models.Model):
         string="Responsable",
         domain=[("share", "=", False)],
     )
+    reviewer_id = fields.Many2one(
+        "res.users",
+        string="Revisor predeterminado",
+        domain=[("share", "=", False)],
+        help="Usuario de Tesorería que recibirá las solicitudes nuevas para su revisión y validación.",
+    )
     member_ids = fields.Many2many(
         "res.users",
         "soles_treasury_team_user_rel",
@@ -255,7 +261,7 @@ class SolesPaymentRequest(models.Model):
         copy=False,
     )
     origin_type = fields.Selection(
-        [("approval", "Aprobación"), ("extraordinary", "Extraordinaria")],
+        [("approval", "Aprobación"), ("extraordinary", "Extraordinaria"), ("recurring", "Pago recurrente")],
         string="Origen",
         required=True,
         default="extraordinary",
@@ -380,11 +386,19 @@ class SolesPaymentRequest(models.Model):
         string="Fechas permitidas del equipo",
         readonly=True,
     )
+    reviewer_id = fields.Many2one(
+        "res.users",
+        string="Revisor de Tesorería",
+        tracking=True,
+        domain=[("share", "=", False)],
+        help="Persona encargada de revisar y validar la solicitud antes de que se programe el pago.",
+    )
     treasury_responsible_id = fields.Many2one(
         "res.users",
         string="Responsable de Tesorería",
         tracking=True,
         domain=[("share", "=", False)],
+        help="Persona encargada de programar y dar seguimiento a la ejecución del pago.",
     )
     schedule_exception = fields.Boolean(
         string="Pago fuera de calendario",
@@ -502,6 +516,9 @@ class SolesPaymentRequest(models.Model):
             config = Config.get_for_company(company)
             if config and config.default_team_id and not vals.get("team_id"):
                 vals["team_id"] = config.default_team_id.id
+                default_reviewer = config.default_team_id.reviewer_id or config.default_team_id.manager_id
+                if default_reviewer and not vals.get("reviewer_id"):
+                    vals["reviewer_id"] = default_reviewer.id
                 if config.default_team_id.manager_id and not vals.get("treasury_responsible_id"):
                     vals["treasury_responsible_id"] = config.default_team_id.manager_id.id
 
@@ -594,9 +611,9 @@ class SolesPaymentRequest(models.Model):
 
     @api.onchange("origin_type")
     def _onchange_origin_type(self):
-        if self.origin_type == "extraordinary":
+        if self.origin_type in ("extraordinary", "recurring"):
             self.approval_request_id = False
-        elif self.origin_type == "approval":
+        if self.origin_type in ("approval", "recurring"):
             self.extraordinary_type = False
             self.extraordinary_reason = False
 
@@ -618,8 +635,10 @@ class SolesPaymentRequest(models.Model):
 
     @api.onchange("team_id")
     def _onchange_team_id(self):
-        if self.team_id and self.team_id.manager_id:
-            self.treasury_responsible_id = self.team_id.manager_id
+        if self.team_id:
+            self.reviewer_id = self.team_id.reviewer_id or self.team_id.manager_id
+            if self.team_id.manager_id:
+                self.treasury_responsible_id = self.team_id.manager_id
 
     @api.constrains("origin_type", "approval_request_id", "company_id")
     def _check_approval_origin(self):
@@ -683,6 +702,8 @@ class SolesPaymentRequest(models.Model):
                     raise UserError(_("Seleccione el tipo de pago extraordinario."))
                 if not record.extraordinary_reason:
                     raise UserError(_("Las solicitudes extraordinarias requieren una justificación."))
+            elif record.origin_type == "recurring" and not record.recurrence_id:
+                raise UserError(_("Las solicitudes con origen Pago recurrente deben estar vinculadas a una programación recurrente."))
 
     def _require_treasury_user(self):
         if not self.env.user.has_group("soles_treasury.group_treasury_user"):
@@ -692,12 +713,83 @@ class SolesPaymentRequest(models.Model):
         if not self.env.user.has_group("soles_treasury.group_finance_manager"):
             raise AccessError(_("Esta acción requiere permisos de Administración y Finanzas."))
 
+    def _notification_users(self, include_requester=True, include_reviewer=True, include_responsible=True):
+        self.ensure_one()
+        users = self.env["res.users"]
+        if include_requester and self.requester_id:
+            users |= self.requester_id
+        if include_reviewer and self.reviewer_id:
+            users |= self.reviewer_id
+        if include_responsible and self.treasury_responsible_id:
+            users |= self.treasury_responsible_id
+        return users
+
+    def _notify_odoo_users(self, users, body):
+        self.ensure_one()
+        partners = users.mapped("partner_id").filtered(lambda partner: partner)
+        if partners:
+            self.message_post(
+                body=body,
+                partner_ids=partners.ids,
+                message_type="notification",
+                subtype_xmlid="mail.mt_comment",
+            )
+        return True
+
+    def _schedule_review_activity(self):
+        self.ensure_one()
+        reviewer = self.reviewer_id or self.team_id.reviewer_id or self.team_id.manager_id
+        if not reviewer:
+            return False
+        if not self.reviewer_id:
+            self.with_context(skip_treasury_permission_check=True).reviewer_id = reviewer
+        existing = self.activity_ids.filtered(
+            lambda activity: activity.user_id == reviewer
+            and activity.activity_type_id == self.env.ref("mail.mail_activity_data_todo")
+            and activity.summary == _("Revisar solicitud de pago: %s") % self.name
+        )
+        if not existing:
+            self.activity_schedule(
+                "mail.mail_activity_data_todo",
+                user_id=reviewer.id,
+                date_deadline=fields.Date.context_today(self),
+                summary=_("Revisar solicitud de pago: %s") % self.name,
+                note=_("La solicitud %(folio)s fue enviada por %(requester)s y está pendiente de revisión de Tesorería.")
+                % {"folio": self.name, "requester": self.requester_id.display_name},
+            )
+        return True
+
+    def _close_review_activities(self):
+        todo_type = self.env.ref("mail.mail_activity_data_todo", raise_if_not_found=False)
+        if not todo_type:
+            return True
+        for record in self:
+            activities = record.activity_ids.filtered(
+                lambda activity: activity.activity_type_id == todo_type
+                and activity.summary == _("Revisar solicitud de pago: %s") % record.name
+            )
+            if activities:
+                activities.action_feedback(feedback=_("Solicitud revisada por Tesorería."))
+        return True
+
     def action_submit(self):
         for record in self:
             if record.state not in ("draft", "returned"):
                 continue
             record._validate_before_submit()
+            if not record.reviewer_id and record.team_id:
+                record.reviewer_id = record.team_id.reviewer_id or record.team_id.manager_id
+            if not record.reviewer_id:
+                raise UserError(
+                    _("No hay un revisor de Tesorería asignado. Configure un revisor predeterminado en el equipo de Tesorería antes de enviar la solicitud.")
+                )
             record.state = "submitted"
+            record._schedule_review_activity()
+            record._notify_odoo_users(
+                record._notification_users(include_responsible=False),
+                _("La solicitud de pago <b>%(folio)s</b> fue enviada y se encuentra <b>Por validar</b>.")
+                % {"folio": record.name},
+            )
         return True
 
     def action_validate(self):
@@ -707,6 +799,12 @@ class SolesPaymentRequest(models.Model):
                 continue
             record._validate_before_submit()
             record.state = "validated"
+            record._close_review_activities()
+            record._notify_odoo_users(
+                record._notification_users(),
+                _("La solicitud de pago <b>%(folio)s</b> fue revisada y está <b>Lista para programar</b>.")
+                % {"folio": record.name},
+            )
         return True
 
     def action_schedule(self):
@@ -758,6 +856,24 @@ class SolesPaymentRequest(models.Model):
                     "schedule_exception_date": False,
                 })
             record.with_context(skip_treasury_permission_check=True).write(values)
+            record._notify_odoo_users(
+                record._notification_users(),
+                _("La solicitud <b>%(folio)s</b> fue programada para el <b>%(date)s</b>.")
+                % {"folio": record.name, "date": record.scheduled_payment_date},
+            )
+            if record.treasury_responsible_id:
+                record.activity_schedule(
+                    "mail.mail_activity_data_todo",
+                    user_id=record.treasury_responsible_id.id,
+                    date_deadline=record.scheduled_payment_date,
+                    summary=_("Ejecutar pago: %s") % record.name,
+                    note=_("Ejecutar el pago programado a %(partner)s por %(amount).2f %(currency)s.")
+                    % {
+                        "partner": record.partner_id.display_name,
+                        "amount": record.amount,
+                        "currency": record.currency_id.name,
+                    },
+                )
         return True
 
     def action_mark_paid(self):
@@ -799,12 +915,7 @@ class SolesPaymentRequest(models.Model):
                 "currency": record.currency_id.name,
                 "date": record.actual_payment_date,
             }
-            record.message_post(
-                body=body,
-                partner_ids=[partner.id],
-                message_type="notification",
-                subtype_xmlid="mail.mt_comment",
-            )
+            record._notify_odoo_users(record._notification_users(), body)
 
             if template and partner.email:
                 template.send_mail(record.id, force_send=False)
@@ -830,6 +941,11 @@ class SolesPaymentRequest(models.Model):
         for record in self:
             if record.state in ("submitted", "validated", "scheduled", "due", "overdue"):
                 record.state = "returned"
+                record._notify_odoo_users(
+                    record._notification_users(),
+                    _("La solicitud <b>%(folio)s</b> fue <b>Devuelta</b> para revisión o corrección.")
+                    % {"folio": record.name},
+                )
         return True
 
     def action_cancel(self):
@@ -901,6 +1017,11 @@ class SolesPaymentRequest(models.Model):
                         "date": payment_date,
                     },
                 )
+                record._notify_odoo_users(
+                    record._notification_users(),
+                    _("Recordatorio: el pago <b>%(folio)s</b> está programado para <b>%(date)s</b>.")
+                    % {"folio": record.name, "date": payment_date},
+                )
                 record.last_alert_date = today
             if responsible and delta < 0 and not record.overdue_alert_sent:
                 record.activity_schedule(
@@ -909,6 +1030,11 @@ class SolesPaymentRequest(models.Model):
                     date_deadline=today,
                     summary=_("Pago vencido: %s") % record.name,
                     note=_("La solicitud de pago venció el %s y continúa pendiente.") % payment_date,
+                )
+                record._notify_odoo_users(
+                    record._notification_users(),
+                    _("La solicitud <b>%(folio)s</b> está <b>Atrasada</b>. La fecha programada era %(date)s.")
+                    % {"folio": record.name, "date": payment_date},
                 )
                 record.overdue_alert_sent = True
         return True
@@ -1053,15 +1179,14 @@ class SolesPaymentRecurrence(models.Model):
     def _prepare_payment_request_vals(self):
         self.ensure_one()
         return {
-            "origin_type": "extraordinary",
-            "extraordinary_type": self.extraordinary_type or "recurring",
-            "extraordinary_reason": _("Solicitud generada desde el pago recurrente '%s'.") % self.name,
+            "origin_type": "recurring",
             "partner_id": self.partner_id.id,
             "description": self.description or self.name,
             "amount": self.estimated_amount,
             "currency_id": self.currency_id.id,
             "company_id": self.company_id.id,
             "team_id": self.team_id.id,
+            "reviewer_id": (self.team_id.reviewer_id or self.team_id.manager_id).id if self.team_id else False,
             "treasury_responsible_id": self.responsible_id.id,
             "requester_id": (self.requester_id or self.responsible_id or self.team_id.manager_id or self.env.user).id,
             "requested_payment_date": self.next_date,

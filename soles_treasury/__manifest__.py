@@ -1,6 +1,6 @@
 {
     "name": "Soles - Gestión de Tesorería",
-    "version": "18.0.1.2.0",
+    "version": "18.0.1.3.0",
     "summary": "Solicitudes de pago, programación, recurrencias y control de Tesorería",
     "description": """
 Gestión de Tesorería para Soles.
@@ -16,7 +16,7 @@ Incluye:
 - Equipos y responsables de Tesorería.
 - Configuración de tipos de aprobación habilitados.
     """,
-    "author": "Soles",
+    "author": "Rubén Castillo",
     "category": "Accounting/Treasury",
     "license": "LGPL-3",
     "depends": [

@@ -15,11 +15,13 @@
                 <field name="partner_id"/>
                 <field name="origin_type" widget="badge"
                        decoration-info="origin_type == 'approval'"
-                       decoration-warning="origin_type == 'extraordinary'"/>
+                       decoration-warning="origin_type == 'extraordinary'"
+                       decoration-success="origin_type == 'recurring'"/>
                 <field name="amount" sum="Total"/>
                 <field name="currency_id" column_invisible="True"/>
                 <field name="requested_payment_date"/>
                 <field name="scheduled_payment_date"/>
+                <field name="reviewer_id"/>
                 <field name="treasury_responsible_id"/>
                 <field name="state" widget="badge"
                        decoration-muted="state in ['draft', 'cancelled']"
@@ -143,7 +145,10 @@
                             <field name="team_payment_schedule_summary" readonly="1"
                                    groups="soles_treasury.group_treasury_user"
                                    invisible="not team_id"/>
+                            <field name="reviewer_id" groups="soles_treasury.group_treasury_user"/>
+                            <field name="reviewer_id" groups="!soles_treasury.group_treasury_user" readonly="1"/>
                             <field name="treasury_responsible_id" groups="soles_treasury.group_treasury_user"/>
+                            <field name="treasury_responsible_id" groups="!soles_treasury.group_treasury_user" readonly="1"/>
                             <field name="schedule_exception" groups="soles_treasury.group_treasury_user"
                                    invisible="not scheduled_payment_date"/>
                             <field name="schedule_exception_reason" groups="soles_treasury.group_treasury_user"
@@ -198,6 +203,7 @@
                 <field name="name"/>
                 <field name="partner_id"/>
                 <field name="requester_id"/>
+                <field name="reviewer_id"/>
                 <field name="treasury_responsible_id"/>
                 <field name="approval_request_id"/>
                 <filter name="submitted" string="Por validar" domain="[('state', '=', 'submitted')]"/>
@@ -206,10 +212,12 @@
                 <filter name="overdue" string="Atrasados" domain="[('state', '=', 'overdue')]"/>
                 <filter name="paid" string="Pagados" domain="[('state', 'in', ['paid', 'closed'])]"/>
                 <filter name="extraordinary" string="Extraordinarios" domain="[('origin_type', '=', 'extraordinary')]"/>
+                <filter name="recurring" string="Pagos recurrentes" domain="[('origin_type', '=', 'recurring')]"/>
                 <separator/>
                 <group expand="0" string="Agrupar por">
                     <filter name="group_state" string="Estado" context="{'group_by': 'state'}"/>
                     <filter name="group_partner" string="Proveedor" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_reviewer" string="Revisor" context="{'group_by': 'reviewer_id'}"/>
                     <filter name="group_responsible" string="Responsable" context="{'group_by': 'treasury_responsible_id'}"/>
                     <filter name="group_team" string="Equipo" context="{'group_by': 'team_id'}"/>
                     <filter name="group_month" string="Mes de pago" context="{'group_by': 'scheduled_payment_date:month'}"/>
@@ -340,6 +348,7 @@
             <list>
                 <field name="name"/>
                 <field name="manager_id"/>
+                <field name="reviewer_id"/>
                 <field name="payment_schedule_summary"/>
                 <field name="company_id"/>
                 <field name="active"/>
@@ -357,6 +366,7 @@
                         <field name="name"/>
                         <field name="company_id"/>
                         <field name="manager_id"/>
+                        <field name="reviewer_id"/>
                         <field name="member_ids" widget="many2many_tags"/>
                         <field name="active"/>
                     </group>
