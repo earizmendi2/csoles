@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_request_user,Payment Request User,model_soles_payment_request,soles_treasury.group_payment_request_user,1,1,1,0
+access_payment_request_treasury,Payment Request Treasury,model_soles_payment_request,soles_treasury.group_treasury_user,1,1,1,0
+access_payment_request_manager,Payment Request Manager,model_soles_payment_request,soles_treasury.group_treasury_manager,1,1,1,1
+access_team_user,Treasury Team Read,model_soles_treasury_team,soles_treasury.group_payment_request_user,1,0,0,0
+access_team_treasury,Treasury Team User,model_soles_treasury_team,soles_treasury.group_treasury_user,1,0,0,0
+access_team_manager,Treasury Team Manager,model_soles_treasury_team,soles_treasury.group_treasury_manager,1,1,1,1
+access_recurrence_treasury,Payment Recurrence Treasury,model_soles_payment_recurrence,soles_treasury.group_treasury_user,1,1,1,0
+access_recurrence_manager,Payment Recurrence Manager,model_soles_payment_recurrence,soles_treasury.group_treasury_manager,1,1,1,1
+access_config_manager,Treasury Config Manager,model_soles_treasury_config,soles_treasury.group_treasury_manager,1,1,1,1
