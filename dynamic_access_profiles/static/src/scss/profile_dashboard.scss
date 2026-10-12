@@ -1,0 +1,269 @@
+.o_profile_kanban {
+    --profile-accent: var(--o-brand-primary);
+
+    .o_kanban_record {
+        border: 0;
+        border-radius: 0.75rem;
+        box-shadow: 0 0.15rem 0.75rem rgba(0, 0, 0, 0.09);
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .o_profile_card_header {
+        align-items: center;
+        border-bottom: 1px solid var(--border-color, #dee2e6);
+        display: flex;
+        gap: 0.75rem;
+        padding: 1rem;
+        position: relative;
+
+        &::before {
+            background: var(--profile-card-color, var(--o-brand-primary));
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 0.3rem;
+        }
+    }
+
+    .o_profile_security_icon {
+        align-items: center;
+        background: color-mix(in srgb, var(--profile-card-color, var(--profile-accent)) 14%, transparent);
+        border-radius: 50%;
+        color: var(--profile-card-color, var(--profile-accent));
+        display: flex;
+        flex: 0 0 2.75rem;
+        height: 2.75rem;
+        justify-content: center;
+    }
+
+    .o_profile_material_icon {
+        fill: currentColor;
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+
+    .o_profile_card_body {
+        padding: 1rem;
+    }
+
+    .o_profile_metrics {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .o_profile_metric {
+        background: var(--o-gray-100, #f8f9fa);
+        border-radius: 0.5rem;
+        padding: 0.65rem 0.75rem;
+    }
+
+    .o_profile_metric_value {
+        color: var(--profile-accent);
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    .o_profile_metric_label {
+        color: var(--o-gray-600, #6c757d);
+        font-size: 0.75rem;
+    }
+}
+
+.o_profile_color_0 { --profile-card-color: var(--o-brand-primary); }
+.o_profile_color_1 { --profile-card-color: #f06050; }
+.o_profile_color_2 { --profile-card-color: #f4a460; }
+.o_profile_color_3 { --profile-card-color: #f7cd1f; }
+.o_profile_color_4 { --profile-card-color: #6cc1ed; }
+.o_profile_color_5 { --profile-card-color: #814968; }
+.o_profile_color_6 { --profile-card-color: #eb7e7f; }
+.o_profile_color_7 { --profile-card-color: #2c8397; }
+.o_profile_color_8 { --profile-card-color: #475577; }
+.o_profile_color_9 { --profile-card-color: #d6145f; }
+.o_profile_color_10 { --profile-card-color: #30c381; }
+.o_profile_color_11 { --profile-card-color: #9365b8; }
+
+.o_profile_org_chart {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 16rem;
+    overflow-x: auto;
+    padding: 1.5rem 1rem;
+}
+
+.o_profile_org_managers {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.o_profile_org_line_vertical {
+    background: var(--o-gray-400, #ced4da);
+    height: 1.25rem;
+    width: 1px;
+}
+
+.o_profile_org_node {
+    align-items: center;
+    background: var(--o-view-background-color, white);
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: 0.4rem;
+    color: inherit;
+    display: flex;
+    gap: 0.65rem;
+    min-height: 3.4rem;
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    width: 18rem;
+
+    &:hover {
+        border-color: var(--profile-card-color, var(--o-brand-primary));
+        box-shadow: 0 0.15rem 0.55rem rgba(0, 0, 0, 0.1);
+    }
+}
+
+.o_profile_org_self {
+    border-color: var(--profile-card-color, var(--o-brand-primary));
+    border-width: 2px;
+}
+
+.o_profile_org_avatar {
+    align-items: center;
+    background: color-mix(in srgb, var(--profile-card-color, var(--o-brand-primary)) 13%, transparent);
+    border-radius: 50%;
+    color: var(--profile-card-color, var(--o-brand-primary));
+    display: flex;
+    flex: 0 0 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+}
+
+.o_profile_org_identity {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+
+    strong, small {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    small { color: var(--o-gray-600, #6c757d); }
+}
+
+.o_profile_org_count {
+    color: var(--o-gray-600, #6c757d);
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.o_profile_org_tree,
+.o_profile_org_branch {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.o_profile_org_descendants {
+    border-top: 1px solid var(--o-gray-400, #ced4da);
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    position: relative;
+
+    &::before {
+        background: var(--o-gray-400, #ced4da);
+        content: "";
+        height: 1.25rem;
+        left: 50%;
+        position: absolute;
+        top: -1.25rem;
+        width: 1px;
+    }
+
+    > .o_profile_org_branch {
+        position: relative;
+
+        &::before {
+            background: var(--o-gray-400, #ced4da);
+            content: "";
+            height: 1.25rem;
+            left: 50%;
+            position: absolute;
+            top: -1.25rem;
+            width: 1px;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .o_profile_org_descendants {
+        align-items: center;
+        border-left: 1px solid var(--o-gray-400, #ced4da);
+        border-top: 0;
+        flex-direction: column;
+        margin-left: 1rem;
+        padding-left: 1rem;
+
+        &::before,
+        > .o_profile_org_branch::before { display: none; }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .o_profile_kanban .o_profile_metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.o_profile_model_hierarchy {
+    gap: 1rem;
+    overflow: visible;
+    padding-top: 0.5rem;
+
+    .o_kanban_record {
+        border: 0;
+        border-radius: 0.65rem;
+        box-shadow: 0 0.15rem 0.7rem rgba(0, 0, 0, 0.1);
+        overflow: visible;
+        padding: 0;
+        position: relative;
+
+    }
+}
+
+.o_profile_model_node {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.9rem;
+}
+
+.o_profile_model_node_icon {
+    align-items: center;
+    background: color-mix(in srgb, var(--o-brand-primary) 12%, transparent);
+    border-radius: 0.5rem;
+    color: var(--o-brand-primary);
+    display: flex;
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+}
+
+.o_profile_model_node_meta {
+    color: var(--o-gray-600, #6c757d);
+    display: flex;
+    font-size: 0.72rem;
+    gap: 0.75rem;
+    margin-top: 0.4rem;
+}

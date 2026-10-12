@@ -1,0 +1,1074 @@
+# Translation of Odoo Module: dynamic_access_profiles
+# Translators:
+# Martin López Guzmán <martinlg369@gmail.com>, 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-24 13:48+0000\n"
+"PO-Revision-Date: 2024-10-24 13:48+0000\n"
+"Last-Translator: Martin López Guzmán <martinlg369@gmail.com>, 2024\n"
+"Language-Team: Spanish (Mexico)\n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "%s actions were discovered."
+msgstr "Se descubrieron %s acciones."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "%s buttons were discovered."
+msgstr "Se descubrieron %s botones."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Field rules</span>"
+msgstr "<span class=\"o_profile_metric_label\">Reglas de campo</span>"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Groups</span>"
+msgstr "<span class=\"o_profile_metric_label\">Grupos</span>"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Hidden actions</span>"
+msgstr "<span class=\"o_profile_metric_label\">Acciones ocultas</span>"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Hidden buttons</span>"
+msgstr "<span class=\"o_profile_metric_label\">Botones ocultos</span>"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Models</span>"
+msgstr "<span class=\"o_profile_metric_label\">Modelos</span>"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "<span class=\"o_profile_metric_label\">Users</span>"
+msgstr "<span class=\"o_profile_metric_label\">Usuarios</span>"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+msgid "A profile cannot be a parent of itself or its ancestors."
+msgstr "Un perfil no puede ser padre de sí mismo ni de sus ancestros."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Access Profile"
+msgstr "Perfil de acceso"
+
+#. module: dynamic_access_profiles
+#: model:ir.actions.act_window,name:dynamic_access_profiles.action_res_profile
+#: model:ir.ui.menu,name:dynamic_access_profiles.menu_res_profile_root
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Access Profiles"
+msgstr "Perfiles de acceso"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__action_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__action_id
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_bound_action__binding_type__action
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_view_button__button_type__action
+msgid "Action"
+msgstr "Acción"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__action_model
+msgid "Action Model"
+msgstr "Modelo de la acción"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__action_rule_count
+msgid "Action Rule Count"
+msgstr "Cantidad de reglas de acción"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_ir_actions_actions
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Actions refreshed"
+msgstr "Acciones actualizadas"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_field_form
+msgid "Application"
+msgstr "Aplicación"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Apply To"
+msgstr "Aplicar a"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__condition_domain
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_field_form
+msgid "Apply When"
+msgstr "Aplicar cuando"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field_m2x.py:0
+msgid ""
+"At least one action must be selected: 'Can't External Link', 'Can't Create',"
+" 'Can't Create/Edit', or 'Can't Quick Create'."
+msgstr ""
+"Se debe seleccionar al menos una acción: 'No puede abrir registros', 'No "
+"puede crear', 'No puede crear/editar' o 'No puede crear rápidamente'."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid ""
+"At least one option must be selected: 'Required', 'Invisible', or "
+"'Readonly'."
+msgstr ""
+"Se debe seleccionar al menos una opción: 'Requerido', 'Invisible' o 'Solo "
+"lectura'."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__available_button_ids
+msgid "Available Button"
+msgstr "Botón disponible"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_base
+msgid "Base"
+msgstr "Base"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_field_form
+msgid "Behavior"
+msgstr "Comportamiento"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__binding_type
+msgid "Binding Type"
+msgstr "Tipo de vinculación"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__button_id
+msgid "Button"
+msgstr "Botón"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__button_rule_count
+msgid "Button Rule Count"
+msgstr "Cantidad de reglas de botón"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__button_type
+msgid "Button Type"
+msgstr "Tipo de botón"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Buttons"
+msgstr "Botones"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Buttons refreshed"
+msgstr "Botones actualizados"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_create
+msgid "Can't Create"
+msgstr "No puede crear"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_create_edit
+msgid "Can't Create/Edit"
+msgstr "No puede crear/editar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_open
+msgid "Can't External Link"
+msgstr "No puede abrir registros"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__no_quick_create
+msgid "Can't Quick Create"
+msgstr "No puede crear rápidamente"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__child_profile_ids
+msgid "Child Profiles"
+msgstr "Perfiles hijos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__color
+msgid "Color"
+msgstr "Color"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.actions.act_window,help:dynamic_access_profiles.action_res_profile
+msgid ""
+"Combine groups, field behavior, related-field actions, and hidden menus in "
+"one reusable profile."
+msgstr ""
+"Combine grupos, comportamiento de campos, acciones de campos relacionados y "
+"menús ocultos en un solo perfil reutilizable."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "Condition field '%s' must be a direct field of the configured model."
+msgstr ""
+"El campo de condición '%s' debe ser un campo directo del modelo configurado."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_conditional
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Conditional"
+msgstr "Condicional"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__conditional_rule_count
+msgid "Conditional Rules"
+msgstr "Reglas condicionales"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "Conditional rules require at least one condition."
+msgstr "Las reglas condicionales requieren al menos una condición."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "Configure"
+msgstr "Configurar"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_list
+msgid "Configured Models"
+msgstr "Modelos configurados"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Create"
+msgstr "Crear"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.actions.act_window,help:dynamic_access_profiles.action_res_profile
+msgid "Create your first access profile"
+msgstr "Cree su primer perfil de acceso"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__create_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__create_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Describe the responsibilities and restrictions of this profile..."
+msgstr "Describa las responsabilidades y restricciones de este perfil..."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__disable_create
+msgid "Disable Create"
+msgstr "Deshabilitar creación"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__disable_delete
+msgid "Disable Delete"
+msgstr "Deshabilitar eliminación"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__disable_edit
+msgid "Disable Edit"
+msgstr "Deshabilitar edición"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_create
+msgid "Disable this to prevent creating new records."
+msgstr "Deshabilite esto para evitar la creación de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_create_edit
+msgid "Disable this to prevent creation and editing of new records"
+msgstr ""
+"Deshabilite esto para evitar la creación y edición de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_quick_create
+msgid "Disable this to prevent quick creation of new records."
+msgstr "Deshabilite esto para evitar la creación rápida de nuevos registros."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field_m2x__no_open
+msgid "Disable this to prevent showing the external link for records."
+msgstr ""
+"Deshabilite esto para evitar mostrar el enlace externo a los registros."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Disabled Operations"
+msgstr "Operaciones deshabilitadas"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_bound_action
+msgid "Discovered Bound Action"
+msgstr "Acción vinculada descubierta"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_view_button
+msgid "Discovered View Button"
+msgstr "Botón de vista descubierto"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__display_label
+msgid "Display Label"
+msgstr "Etiqueta a mostrar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__display_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Edit"
+msgstr "Editar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__field_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__field_id
+msgid "Field"
+msgstr "Campo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__field_count
+msgid "Field Count"
+msgstr "Cantidad de campos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__field_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Field Properties"
+msgstr "Propiedades del campo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_field_form
+msgid "Field Rule"
+msgstr "Regla de campo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__field_rule_count
+msgid "Field Rules"
+msgstr "Reglas de campo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_field
+msgid "Field Rules for Profile"
+msgstr "Reglas de campo para el perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__field_type
+msgid "Field Type"
+msgstr "Tipo de campo"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Field rules only"
+msgstr "Solo reglas de campo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_list
+msgid "Fields"
+msgstr "Campos"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "Fields required in Python can only use the Required option."
+msgstr "Los campos requeridos en Python solo pueden usar la opción Requerido."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__field_ids
+msgid "Fields to Control"
+msgstr "Campos a controlar"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__apply_form
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_view_button__view_type__form
+msgid "Form"
+msgstr "Formulario"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__group_expression
+msgid "Group Expression"
+msgstr "Expresión de grupo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__group_count
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__group_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile__group_ids
+msgid "Groups that users in this profile will have access to"
+msgstr "Grupos a los que tendrán acceso los usuarios de este perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__action_rule_count
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__action_rule_ids
+msgid "Hidden Actions"
+msgstr "Acciones ocultas"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__button_rule_count
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__button_rule_ids
+msgid "Hidden Buttons"
+msgstr "Botones ocultos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__hidden_menu_count
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Hidden Menus"
+msgstr "Menús ocultos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__hide
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__hide
+msgid "Hide"
+msgstr "Ocultar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__id
+msgid "ID"
+msgstr "ID"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile__parent_profile_id
+msgid "Informational hierarchy only. Rules are not inherited."
+msgstr "Jerarquía solo informativa. Las reglas no se heredan."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_invisible
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Invisible"
+msgstr "Invisible"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__apply_kanban
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_view_button__view_type__kanban
+msgid "Kanban"
+msgstr "Kanban"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__label
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_search
+msgid "Label"
+msgstr "Etiqueta"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__write_uid
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__write_date
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__apply_list
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_view_button__view_type__list
+msgid "List"
+msgstr "Lista"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__field_m2x_ids
+msgid "M2O and M2M Control"
+msgstr "Control de M2O y M2M"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__hide_menu_ids
+msgid "Menus to hide"
+msgstr "Menús a ocultar"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__model_id
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_search
+msgid "Model"
+msgstr "Modelo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__profile_model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__profile_model_id
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Model Configuration"
+msgstr "Configuración del modelo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__model_access_ids
+msgid "Model Configurations"
+msgstr "Configuraciones de modelos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__model_name
+msgid "Model Name"
+msgstr "Nombre del modelo"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__model_count
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Models"
+msgstr "Modelos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "No view restriction"
+msgstr "Sin restricción de vista"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_view_button__button_type__object
+msgid "Object Method"
+msgstr "Método de objeto"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "Operator '%s' is not supported for dynamic view rules."
+msgstr "El operador '%s' no es compatible con las reglas dinámicas de vista."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Organization"
+msgstr "Organización"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__parent_path
+msgid "Parent Path"
+msgstr "Ruta del padre"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__parent_profile_id
+msgid "Parent Profile"
+msgstr "Perfil padre"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Prevent Create and Edit"
+msgstr "Impedir creación y edición"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Prevent Creation"
+msgstr "Impedir creación"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Prevent Opening"
+msgstr "Impedir apertura"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Prevent Quick Create"
+msgstr "Impedir creación rápida"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields.selection,name:dynamic_access_profiles.selection__res_profile_bound_action__binding_type__report
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__profile_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__profile_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__profile_id
+msgid "Profile"
+msgstr "Perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_action_rule
+msgid "Profile Bound Action Restriction"
+msgstr "Restricción de acción vinculada del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_button_rule
+msgid "Profile Button Restriction"
+msgstr "Restricción de botón del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__description
+msgid "Profile Description"
+msgstr "Descripción del perfil"
+
+#. module: dynamic_access_profiles
+#: model:res.groups,name:dynamic_access_profiles.group_profile_manager
+msgid "Profile Manager"
+msgstr "Administrador de perfiles"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_field_m2x
+msgid "Profile Many2x Fields Access Control"
+msgstr "Control de acceso a campos many2x del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_action_rule__profile_model_id
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_button_rule__profile_model_id
+msgid "Profile Model"
+msgstr "Modelo del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile_model_access
+msgid "Profile Model Configuration"
+msgstr "Configuración del modelo del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__name
+msgid "Profile Name"
+msgstr "Nombre del perfil"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_users__profile_ids
+msgid "Profiles"
+msgstr "Perfiles"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+msgid "Profiles Updated"
+msgstr "Perfiles actualizados"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Read-only"
+msgstr "Solo lectura"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_readonly
+msgid "Readonly"
+msgstr "Solo lectura"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Refresh Actions"
+msgstr "Actualizar acciones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Refresh Buttons"
+msgstr "Actualizar botones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid ""
+"Refresh the catalog after installing modules or changing views. Only buttons"
+" allowed by this profile's groups are available."
+msgstr ""
+"Actualice el catálogo después de instalar módulos o cambiar vistas. Solo "
+"están disponibles los botones permitidos por los grupos de este perfil."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid ""
+"Refresh the catalog to discover actions from the cog menu and print menu."
+msgstr ""
+"Actualice el catálogo para descubrir las acciones del menú de engranaje y del"
+" menú de impresión."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__field_m2x_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Related Field Actions"
+msgstr "Acciones de campos relacionados"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__related_field_count
+msgid "Related Field Count"
+msgstr "Cantidad de campos relacionados"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__related_rule_count
+msgid "Related Field Rules"
+msgstr "Reglas de campos relacionados"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_list
+msgid "Related Fields"
+msgstr "Campos relacionados"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__is_required
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "Required"
+msgstr "Requerido"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__field_is_python_required
+msgid "Required in Python"
+msgstr "Requerido en Python"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__restriction_summary
+msgid "Restriction Summary"
+msgstr "Resumen de restricciones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_list
+msgid "Restrictions"
+msgstr "Restricciones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_search
+msgid "Search Fields"
+msgstr "Buscar campos"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_kanban
+msgid "Security profile"
+msgstr "Perfil de seguridad"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid "Select at least one view for the restrictions."
+msgstr "Seleccione al menos una vista para las restricciones."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile__hide_menu_ids
+msgid ""
+"Select the menus or submenus that should be hidden for users of this profile"
+msgstr ""
+"Seleccione los menús o submenús que deben estar ocultos para los usuarios de"
+" este perfil"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid ""
+"Select the views where these interface restrictions apply. Internal "
+"processes and automated updates remain unchanged."
+msgstr ""
+"Seleccione las vistas donde se aplican estas restricciones de interfaz. Los "
+"procesos internos y las actualizaciones automáticas no se modifican."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__is_smart_button
+msgid "Smart Button"
+msgstr "Botón inteligente"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+msgid "Successfully updated %s users."
+msgstr "Se actualizaron correctamente %s usuarios."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_bound_action__technical_key
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__technical_key
+msgid "Technical Key"
+msgstr "Clave técnica"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field__technical_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_field_m2x__technical_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__technical_name
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__technical_name
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_search
+msgid "Technical Name"
+msgstr "Nombre técnico"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_field_form
+msgid ""
+"The behavior is applied immediately when the current record matches this "
+"filter."
+msgstr ""
+"El comportamiento se aplica de inmediato cuando el registro actual coincide "
+"con este filtro."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "The condition domain is invalid."
+msgstr "El dominio de la condición no es válido."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.constraint,message:dynamic_access_profiles.constraint_res_profile_bound_action_technical_key_unique
+msgid "The discovered bound action must be unique."
+msgstr "La acción vinculada descubierta debe ser única."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.constraint,message:dynamic_access_profiles.constraint_res_profile_view_button_technical_key_unique
+msgid "The discovered button must be unique."
+msgstr "El botón descubierto debe ser único."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+#: code:addons/dynamic_access_profiles/models/res_profile_field_m2x.py:0
+msgid "The field '%s' is already configured for the profile '%s'."
+msgstr "El campo '%s' ya está configurado para el perfil '%s'."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,help:dynamic_access_profiles.field_res_profile_field__condition_domain
+msgid "The field behavior is applied when the record matches this domain."
+msgstr ""
+"El comportamiento del campo se aplica cuando el registro coincide con este "
+"dominio."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field.py:0
+msgid "The field rule does not match its model configuration."
+msgstr "La regla de campo no coincide con la configuración de su modelo."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_model_access.py:0
+msgid ""
+"The model '%(model)s' is already configured for the profile '%(profile)s'."
+msgstr ""
+"El modelo '%(model)s' ya está configurado para el perfil '%(profile)s'."
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile_field_m2x.py:0
+msgid "The related field rule does not match its model configuration."
+msgstr ""
+"La regla de campo relacionado no coincide con la configuración de su modelo."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.constraint,message:dynamic_access_profiles.constraint_res_profile_action_rule_action_per_configuration
+msgid "This action is already restricted for the model configuration."
+msgstr "Esta acción ya está restringida para la configuración del modelo."
+
+#. module: dynamic_access_profiles
+#: model:ir.model.constraint,message:dynamic_access_profiles.constraint_res_profile_button_rule_button_per_configuration
+msgid "This button is already restricted for the model configuration."
+msgstr "Este botón ya está restringido para la configuración del modelo."
+
+#. module: dynamic_access_profiles
+#: model:res.groups,comment:dynamic_access_profiles.group_profile_manager
+msgid "This group allows users to manage profiles and field access rules."
+msgstr ""
+"Este grupo permite a los usuarios administrar perfiles y reglas de acceso a "
+"campos."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid ""
+"This hierarchy is informational. Parent profiles do not contribute groups or"
+" restrictions to their children."
+msgstr ""
+"Esta jerarquía es informativa. Los perfiles padre no aportan grupos ni "
+"restricciones a sus hijos."
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_ir_model_fields_profile_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "Update Users"
+msgstr "Actualizar usuarios"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_users
+msgid "User"
+msgstr "Usuario"
+
+#. module: dynamic_access_profiles
+#: model:ir.model,name:dynamic_access_profiles.model_res_profile
+msgid "User Profile for Field Control"
+msgstr "Perfil de usuario para control de campos"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__count_users
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile__user_ids
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_list
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: dynamic_access_profiles
+#. odoo-python
+#: code:addons/dynamic_access_profiles/models/res_profile.py:0
+msgid "Users with Profile: %s"
+msgstr "Usuarios con perfil: %s"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__view_id
+msgid "View"
+msgstr "Vista"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_form
+msgid "View Restrictions"
+msgstr "Restricciones de vista"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_model_access__view_scope
+msgid "View Scope"
+msgstr "Alcance de vista"
+
+#. module: dynamic_access_profiles
+#: model:ir.model.fields,field_description:dynamic_access_profiles.field_res_profile_view_button__view_type
+msgid "View Type"
+msgstr "Tipo de vista"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_model_access_list
+msgid "Views"
+msgstr "Vistas"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "With Users"
+msgstr "Con usuarios"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_search
+msgid "Without Users"
+msgstr "Sin usuarios"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "actions"
+msgstr "acciones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "buttons"
+msgstr "botones"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "e.g. Sales Supervisor"
+msgstr "p. ej., Supervisor de ventas"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "field rules"
+msgstr "reglas de campo"
+
+#. module: dynamic_access_profiles
+#: model_terms:ir.ui.view,arch_db:dynamic_access_profiles.view_res_profile_form
+msgid "related rules"
+msgstr "reglas relacionadas"
+
+#. module: dynamic_access_profiles
+#. odoo-javascript
+#: code:addons/dynamic_access_profiles/static/src/xml/profile_org_chart.xml:0
+msgid "users"
+msgstr "usuarios"
