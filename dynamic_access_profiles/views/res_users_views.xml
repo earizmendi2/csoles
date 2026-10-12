@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_users_form_inherit_profile" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.profile</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <group groups="dynamic_access_profiles.group_profile_manager">
+                    <field name="profile_ids" widget="many2many_tags" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_users_tree_inherit_profile" model="ir.ui.view">
+        <field name="name">res.users.tree.inherit.profile</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="profile_ids" optional="show" groups="dynamic_access_profiles.group_profile_manager" widget="many2many_tags" options="{'no_open': True, 'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
