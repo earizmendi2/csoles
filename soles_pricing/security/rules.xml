@@ -1,0 +1,10 @@
+<odoo>
+    <record id="segment_company" model="ir.rule"><field name="name">Segmentos por compañía</field><field name="model_id" ref="model_soles_pricing_segment"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="rule_company" model="ir.rule"><field name="name">Reglas por compañía</field><field name="model_id" ref="model_soles_pricing_rule"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="authority_company" model="ir.rule"><field name="name">Facultades por compañía</field><field name="model_id" ref="model_soles_pricing_authority"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="cost_company" model="ir.rule"><field name="name">Costos por compañía</field><field name="model_id" ref="model_soles_pricing_cost"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="approval_company" model="ir.rule"><field name="name">Autorizaciones por compañía</field><field name="model_id" ref="model_soles_pricing_approval"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+    <record id="approval_owner" model="ir.rule"><field name="name">Autorizaciones de cotizaciones propias</field><field name="model_id" ref="model_soles_pricing_approval"/><field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/><field name="domain_force">['|', ('order_id.user_id','=',user.id), ('order_id.user_id','=',False)]</field></record>
+    <record id="approval_all" model="ir.rule"><field name="name">Autorizaciones de todas las cotizaciones</field><field name="model_id" ref="model_soles_pricing_approval"/><field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/><field name="domain_force">[(1,'=',1)]</field></record>
+    <record id="simulator_company" model="ir.rule"><field name="name">Simulador por compañía</field><field name="model_id" ref="model_soles_pricing_simulator"/><field name="domain_force">[('company_id','in',company_ids)]</field></record>
+</odoo>

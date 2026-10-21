@@ -1,0 +1,23 @@
+{
+    'name': 'Soles Pricing',
+    'version': '18.0.1.0.0',
+    'summary': 'Precios, facultades y autorizaciones extraordinarias por cotización',
+    'category': 'Sales/Sales',
+    'author': 'Soles',
+    'license': 'LGPL-3',
+    'depends': ['sale_management'],
+    'data': [
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+        'security/rules.xml',
+        'data/segments.xml',
+        'views/configuration.xml',
+        'views/sale.xml',
+        'views/approval.xml',
+        'wizard/simulator.xml',
+        'views/menus.xml',
+    ],
+    'demo': ['data/demo.xml'],
+    'application': True,
+    'installable': True,
+}

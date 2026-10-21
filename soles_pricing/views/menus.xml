@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem id="menu_root" name="Precios Soles" sequence="35" groups="sales_team.group_sale_salesman"/>
+    <menuitem id="menu_simulator" name="Simulador" parent="menu_root" action="action_simulator" sequence="10"/>
+    <menuitem id="menu_approval" name="Autorizaciones" parent="menu_root" action="action_approval" sequence="20"/>
+    <menuitem id="menu_config" name="Configuración" parent="menu_root" groups="soles_pricing.group_config" sequence="30"/>
+    <menuitem id="menu_rule" name="Reglas" parent="menu_config" action="action_rule" sequence="10"/>
+    <menuitem id="menu_authority" name="Facultades por rol o usuario" parent="menu_config" action="action_authority" sequence="20"/>
+    <menuitem id="menu_segment" name="Segmentos" parent="menu_config" action="action_segment" sequence="30"/>
+    <menuitem id="menu_brand" name="Marcas" parent="menu_config" action="action_brand" sequence="40"/>
+    <menuitem id="menu_cost" name="Costos comerciales" parent="menu_config" action="action_cost" sequence="50"/>
+    <menuitem id="menu_company" name="Política por compañía" parent="menu_config" action="action_policy" sequence="60"/>
+</odoo>

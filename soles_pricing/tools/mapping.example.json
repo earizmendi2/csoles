@@ -1,0 +1,16 @@
+{
+  "company_xmlid": "base.main_company",
+  "currency_xmlid": "base.MXN",
+  "clients": {"id-o-nombre-del-cliente-en-HTML": "__export__.res_partner_123"},
+  "categories": {"ruta exacta de categoría en HTML": "__export__.product_category_123"},
+  "brands": {"marca exacta del HTML": "__export__.soles_pricing_brand_123"},
+  "skus": {"REFERENCIA-EXACTA": "__export__.product_product_123"},
+  "profiles": {
+    "Gold": {
+      "segment_xmlid": "soles_pricing.segment_gold",
+      "rule_xmlid": "soles_import.profile_gold",
+      "category_xmlid": "__export__.product_category_123",
+      "discount_pct": "REEMPLAZAR_POR_TASA_APROBADA"
+    }
+  }
+}
