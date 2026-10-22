@@ -1,0 +1,22 @@
+<odoo>
+    <record id="sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.soles.pricing</field><field name="model">sale.order</field><field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside"><button name="action_soles_reprice" type="object" string="Recalcular Soles" invisible="state not in ('draft', 'sent') or soles_pricing_mode != 'enforce'" confirm="Se reemplazarán los precios manuales y se invalidarán las aprobaciones. ¿Recalcular?"/></xpath>
+            <xpath expr="//field[@name='validity_date']" position="after"><field name="soles_pricing_mode" readonly="1"/><field name="soles_pricing_date" readonly="state not in ('draft', 'sent')"/></xpath>
+            <xpath expr="//field[@name='order_line']/list" position="inside">
+                <field name="soles_base" optional="hide"/><field name="soles_preferred" optional="show"/>
+                <field name="soles_min_price" optional="show"/>
+                <field name="soles_extra" optional="hide"/>
+                <field name="soles_cost" optional="hide" groups="soles_pricing.group_cost"/>
+                <field name="soles_margin" optional="hide" groups="soles_pricing.group_cost"/>
+                <field name="soles_needs_approval" optional="show"/>
+                <field name="soles_explanation" optional="hide"/>
+                <field name="soles_request_reason" optional="show"/>
+                <button name="action_soles_request" type="object" string="Solicitar" icon="fa-unlock-alt" invisible="display_type or parent.state not in ('draft', 'sent')"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form" position="inside"><group string="Control de precios Soles" invisible="display_type"><group><field name="soles_base"/><field name="soles_preferred"/><field name="soles_min_price"/><field name="soles_extra"/><field name="soles_needs_approval"/><field name="soles_explanation"/></group><group><field name="soles_cost" groups="soles_pricing.group_cost"/><field name="soles_margin" groups="soles_pricing.group_cost"/><field name="soles_negotiator_id"/><field name="soles_base_rule_id"/><field name="soles_base_version_id"/><field name="soles_cost_version_id" groups="soles_pricing.group_cost"/><field name="soles_priced_at"/><field name="soles_approval_status"/></group><field name="soles_request_reason"/><button name="action_soles_request" type="object" string="Solicitar autorización" invisible="parent.state not in ('draft','sent')"/></group></xpath>
+            <xpath expr="//notebook" position="inside"><page string="Autorizaciones Soles"><field name="soles_approval_ids" readonly="1"><list create="0" delete="0"><field name="line_id"/><field name="requested_price"/><field name="requester_id"/><field name="approver_id"/><field name="state"/><field name="expires_at"/><field name="consumed_at"/></list></field></page></xpath>
+        </field>
+    </record>
+</odoo>

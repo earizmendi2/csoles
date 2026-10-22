@@ -1,0 +1,7 @@
+<odoo noupdate="1">
+ <record id="sequence_approval" model="ir.sequence"><field name="name">Soles · autorizaciones de precio</field><field name="code">soles.pricing.approval</field><field name="prefix">SP/%(year)s/</field><field name="padding">6</field></record>
+ <record id="classification_valid" model="soles.pricing.product.policy"><field name="name">Precio revisado y autorizado</field><field name="company_id" ref="base.main_company"/><field name="allow_sale">True</field><field name="allow_b2b">True</field></record>
+ <record id="classification_quote" model="soles.pricing.product.policy"><field name="name">Cotización especial por operación</field><field name="company_id" ref="base.main_company"/><field name="allow_sale">True</field><field name="require_approval">True</field><field name="allow_missing_reference">True</field></record>
+ <record id="classification_pending" model="soles.pricing.product.policy"><field name="name">Pendiente de precio / no vendible</field><field name="company_id" ref="base.main_company"/><field name="allow_sale">False</field></record>
+ <record id="cron_expire_approvals" model="ir.cron"><field name="name">Soles · vencer autorizaciones extraordinarias</field><field name="model_id" ref="model_soles_pricing_approval"/><field name="state">code</field><field name="code">model._cron_expire()</field><field name="interval_number">1</field><field name="interval_type">hours</field><field name="active">True</field></record>
+</odoo>

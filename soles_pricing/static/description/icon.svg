@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Soles Control de precios">
+<rect x="18" y="18" width="476" height="476" rx="100" fill="#19384e"/>
+<path d="M112 116h140l143 143-137 137-146-143z" fill="#fff"/>
+<circle cx="153" cy="158" r="19" fill="#19384e"/>
+<path d="m202 291 87-87" stroke="#f0b638" stroke-width="25" stroke-linecap="round"/>
+<circle cx="216" cy="218" r="21" fill="#f0b638"/><circle cx="281" cy="282" r="21" fill="#f0b638"/>
+<path d="m377 291 64 24v61c0 47-36 73-64 86-28-13-64-39-64-86v-61z" fill="#19384e" stroke="#fff" stroke-width="12"/>
+<path d="m348 372 20 21 40-46" fill="none" stroke="#f0b638" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
